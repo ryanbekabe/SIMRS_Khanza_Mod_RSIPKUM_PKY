@@ -6,6 +6,7 @@ Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022
 Dir:
 /Users/windiartonugroho/src/rekammedis/RMPenilaianAwalKeperawatanRalan.java
 /Users/windiartonugroho/report/rptCetakPenilaianAwalKeperawatanRalan.jrxml
+/Users/windiartonugroho/report/rptCetakPenilaianAwalKeperawatanRalan.jasper
 /Users/windiartonugroho/src/fungsi/koneksiDB.java
 
 Poin:
@@ -44,7 +45,7 @@ KetLapor.getText() => HasilTindakan.getSelectedItem()
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add README.md
-git commit -m "first commit"
+git commit -m "Update ke-2 Fri 16 Dec 2022 01:12:44 PM WIB"
 git branch -M main
 git remote add origin git@github.com:ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY.git
 git push -u origin main
