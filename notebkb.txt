@@ -1,0 +1,55 @@
+
+Fri 16 Dec 2022 08:04:06 AM WIB - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+
+Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022
+
+Dir:
+/Users/windiartonugroho/src/rekammedis/RMPenilaianAwalKeperawatanRalan.java
+/Users/windiartonugroho/report/rptCetakPenilaianAwalKeperawatanRalan.jrxml
+/Users/windiartonugroho/src/fungsi/koneksiDB.java
+
+Poin:
+VI. PENILAIAN RESIKO JATUH
+Pengkajian
+Hasil
+Tindakan
+
+Komponen:
+Hidden:
+jLabel97
+Lapor
+LaporTindakan
+
+Debug:
+WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+jdbc:mysql://localhost:3306/Peoples?verifyServerCertificate=false&useSSL=true
+
+Source:
+BtnPrint1ActionPerformed
+
+DB:
+Table: penilaian_awal_keperawatan_ralan
+Kolom: ket_lapor varchar(200) #Tindakan Pencegahan Pasien jatuh
+       ket_dokter	varchar(15) #Y atau T Resiko Pasien jatuh
+
+hasil: Resiko rendah (ditemukan a/b)
+ket_lapor: varchar(15) -> enum('1..', '2..') -> Tindakan: Upaya Pencegahan Pasien jatuh
+ket_dokter:	varchar(15) -> enum('Tidak', 'Ya')
+KetLapor.getText() => HasilTindakan.getSelectedItem()
+1. (Tidak Beresiko) Tidak ada tindakan
+2. (Resiko Rendah) Edukasi
+3. (Resiko Tinggi)Edukasi, pasang kalung penanda resiko jatuh
+
+…or create a new repository on the command line
+echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin git@github.com:ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY.git
+git branch -M main
+git push -u origin main
+
