@@ -1,15 +1,38 @@
 
-Fri 16 Dec 2022 08:04:06 AM WIB - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+07:37:51 24/12/2022 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
 
 Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022
 
-Dir:
-/Users/windiartonugroho/src/rekammedis/RMPenilaianAwalKeperawatanRalan.java
-/Users/windiartonugroho/report/rptCetakPenilaianAwalKeperawatanRalan.jrxml
-/Users/windiartonugroho/report/rptCetakPenilaianAwalKeperawatanRalan.jasper
+Java:
 /Users/windiartonugroho/src/fungsi/koneksiDB.java
+/Users/windiartonugroho/src/permintaan/DlgPermintaanLaboratorium.java
+/Users/windiartonugroho/src/rekammedis/RMPenilaianAwalKeperawatanRalan.java
+/Users/windiartonugroho/src/simrskhanza/DlgIKBBayi.java
+/Users/windiartonugroho/src/simrskhanza/DlgKasirRalan.java
+/Users/windiartonugroho/src/simrskhanza/frmUtama.java
+/Users/windiartonugroho/src/surat/SuratBebasNarkoba.java
+/Users/windiartonugroho/src/surat/SuratButaWarna.java
+/Users/windiartonugroho/src/surat/SuratKeteranganSehat.java
+/Users/windiartonugroho/src/surat/SuratSakit.java
+
+Report:
+/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptBebasNarkoba.jasper
+/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptBebasNarkoba.jrxml
+/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptCetakPenilaianAwalKeperawatanRalan.jasper
+/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptCetakPenilaianAwalKeperawatanRalan.jrxml
+/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSKL2.jasper
+/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSKL2.jrxml
+/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSuratKeteranganSehat.jasper
+/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSuratKeteranganSehat.jrxml
+/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSuratSakit5.jasper
+/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSuratSakit5.jrxml
+/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSuratTidakButaWarna.jasper
+/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSuratTidakButaWarna.jrxml
 
 Poin:
+Form Utama warna hijau
+Surat Keterangan format nomor surat: (No.Srt)/671024/(UNIT)/(BLN)/(THN)
+
 VI. PENILAIAN RESIKO JATUH
 Pengkajian
 Hasil
@@ -41,11 +64,28 @@ KetLapor.getText() => HasilTindakan.getSelectedItem()
 2. (Resiko Rendah) Edukasi
 3. (Resiko Tinggi)Edukasi, pasang kalung penanda resiko jatuh
 
+Perubahan pada struktur DB:
+surat_keterangan_sehat: keperluan	varchar(100) -> keperluan	varchar(500)
+surat_keterangan_sehat: no_surat Primary	varchar(17) -> no_surat Primary	varchar(30)
+surat_buta_warna: no_surat Primary	varchar(20) -> no_surat Primary	varchar(30)
+surat_skbn: no_surat Primary	varchar(25); keperluan -> varchar(500)
+pasien_bayi:mikasi	varchar(100) -> Tanggal Lahir Ibu; mikonium	varchar(100) -> Tanggal Lahir Ayah; lingkar_perut	varchar(10) -> varchar(300) Pekerjaan
+
+Source Java:
+Kop Surat:
+//param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
+param.put("logo",Sequel.cariGambar("select gambar.kopsurat from gambar"));
+
+find $(pwd) -maxdepth 1 -type f -not -path '*/\.*' | sort
+mv /Users/windiartonugroho/dist/SIMRSKhanza.jar ./
+chmod 777 *.jar
+java -jar SIMRSKhanza.jar
+
 …or create a new repository on the command line
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
-git add README.md
-git commit -m "Update ke-2 Fri 16 Dec 2022 01:12:44 PM WIB"
+git add .
+git commit -m "Update ke-3 07:37:51 24/12/2022"
 git branch -M main
 git remote add origin git@github.com:ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY.git
 git push -u origin main

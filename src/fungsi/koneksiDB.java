@@ -31,7 +31,7 @@ public class koneksiDB {
                 dataSource.setUser(EnkripsiAES.decrypt(prop.getProperty("USER")));
                 dataSource.setPassword(EnkripsiAES.decrypt(prop.getProperty("PAS")));
                 connection=dataSource.getConnection();       
-                System.out.println("\n\n  Koneksi Berhasil. Silahkan baca dulu.... \n\n"+
+                System.out.println("\n\n  Koneksi ke Database berhasil.... \n\n"+
                         "	Software ini adalah Software Menejemen Rumah Sakit/Klinik/\n" +
                         "  Puskesmas yang  gratis dan boleh digunakan siapa saja tanpa dikenai \n" +
                         "  biaya apapun. Dilarang keras memperjualbelikan/mengambil \n" +
@@ -49,8 +49,9 @@ public class koneksiDB {
                         "  Informasi dan panduan bisa dicek di halaman https://github.com/mas-elkhanza/SIMRS-Khanza/wiki \n"+
                         "  Bagi yang ingin berdonasi untuk pengembangan aplikasi ini bisa ke BSI 1015369872 atas nama Windiarto\n"+
                         "                                                                           \n"+
-                        "  Mod: PenilaianAwalKeperawatanRalan                                        \n"+
-                        "  Mod-By Ryan_Sam, Thu 15 Dec 2022 09:12:46 AM WIB - RS Islam PKU Muhammadiyah Palangka Raya");
+                        "  Pengembangan pada: KOP Surat Report, Warna, PenilaianAwalKeperawatanRalan, SuratButaWarna, SuratBebasNarkoba, DlgIKBBayi, SuratKeteranganSehat, SuratSakit     \n"+
+                        "  SuratButaWarna, SuratBebasNarkoba, SKL2_SuratKelahiran_Bayi, SuratKeteranganSehat, SuratSakit5     \n"+
+                        "  Re-Compile_By: Bang Samosir, 14:01:14 23/12/2022 - RS Islam PKU Muhammadiyah Palangka Raya");
             }catch(Exception e){
                 System.out.println("Notif : "+e);
                 try {
