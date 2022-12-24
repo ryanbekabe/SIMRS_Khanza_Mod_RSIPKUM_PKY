@@ -87,7 +87,7 @@ git init
 git add .
 git commit -m "Update ke-3 07:37:51 24/12/2022"
 git branch -M main
-git remote add origin git@github.com:ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY.git
+#git remote add origin git@github.com:ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY.git
 git push -u origin main
 …or push an existing repository from the command line
 git remote add origin git@github.com:ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY.git
