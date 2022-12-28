@@ -49,9 +49,10 @@ public class koneksiDB {
                         "  Informasi dan panduan bisa dicek di halaman https://github.com/mas-elkhanza/SIMRS-Khanza/wiki \n"+
                         "  Bagi yang ingin berdonasi untuk pengembangan aplikasi ini bisa ke BSI 1015369872 atas nama Windiarto\n"+
                         "                                                                           \n"+
-                        "  Pengembangan pada: KOP Surat Report, Warna, PenilaianAwalKeperawatanRalan, SuratButaWarna, SuratBebasNarkoba, DlgIKBBayi, SuratKeteranganSehat, SuratSakit     \n"+
-                        "  SuratButaWarna, SuratBebasNarkoba, SKL2_SuratKelahiran_Bayi, SuratKeteranganSehat, SuratSakit5     \n"+
-                        "  Re-Compile_By: Bang Samosir, 14:01:14 23/12/2022 - RS Islam PKU Muhammadiyah Palangka Raya");
+                        "  *Pengembangan pada: KOP Surat Report, Warna Hijau.                         \n"+
+                        "  1) Form: RMPenilaianAwalKeperawatanRalan.java, SuratButaWarna.java, SuratBebasNarkoba.java, DlgIKBBayi.java, SuratKeteranganSehat.java, DlgPasienMati.java, SuratSakit.java;     \n"+
+                        "  2) Report: rptCetakPenilaianAwalKeperawatanRalan.jasper, rptSuratTidakButaWarna.jasper, rptBebasNarkoba.jasper, rptSKL2.jasper, rptSuratKeteranganSehat.jasper, rptSuratKematian.jasper, rptSuratSakit5.jasper;     \n"+
+                        "  Re-Compile_By: Bang Samosir, 08:43:43 26/12/2022 - RS Islam PKU Muhammadiyah Palangka Raya.");
             }catch(Exception e){
                 System.out.println("Notif : "+e);
                 try {

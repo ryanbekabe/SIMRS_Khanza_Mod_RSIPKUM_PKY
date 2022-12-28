@@ -1,6 +1,8 @@
 # SIMRS_Khanza_Mod_RSIPKUM_PKY
 
-07:37:51 24/12/2022 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+07:53:07 28/12/2022 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+
+Source Code ini hasil modifikasi seperlunya yang disesuaikan untuk keperluan Rumah Sakit Islam PKU Muhammadiyah Palangka Raya.
 
 Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022
 
@@ -55,7 +57,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-3c 07:37:51 24/12/2022"
+git commit -m "Update ke-4 07:53:07 28/12/2022"
 git branch -M main
 git push -u origin main
 ```
