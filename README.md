@@ -22,18 +22,18 @@ Java:
 
 Report:
 ```git
-/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptBebasNarkoba.jasper
-/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptBebasNarkoba.jrxml
-/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptCetakPenilaianAwalKeperawatanRalan.jasper
-/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptCetakPenilaianAwalKeperawatanRalan.jrxml
-/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSKL2.jasper
-/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSKL2.jrxml
-/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSuratKeteranganSehat.jasper
-/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSuratKeteranganSehat.jrxml
-/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSuratSakit5.jasper
-/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSuratSakit5.jrxml
-/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSuratTidakButaWarna.jasper
-/home/rsi/gitproject/SIMRS_Khanza_Mod_RSIPKUM_PKY/report/rptSuratTidakButaWarna.jrxml
+/Users/windiartonugroho/report/rptBebasNarkoba.jasper
+/Users/windiartonugroho/report/rptBebasNarkoba.jrxml
+/Users/windiartonugroho/report/rptCetakPenilaianAwalKeperawatanRalan.jasper
+/Users/windiartonugroho/report/rptCetakPenilaianAwalKeperawatanRalan.jrxml
+/Users/windiartonugroho/report/rptSKL2.jasper
+/Users/windiartonugroho/report/rptSKL2.jrxml
+/Users/windiartonugroho/report/rptSuratKeteranganSehat.jasper
+/Users/windiartonugroho/report/rptSuratKeteranganSehat.jrxml
+/Users/windiartonugroho/report/rptSuratSakit5.jasper
+/Users/windiartonugroho/report/rptSuratSakit5.jrxml
+/Users/windiartonugroho/report/rptSuratTidakButaWarna.jasper
+/Users/windiartonugroho/report/rptSuratTidakButaWarna.jrxml
 ```
 
 Poin:
@@ -57,7 +57,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-4 07:53:07 28/12/2022"
+git commit -m "Update ke-4b 14:06:07 29/12/2022"
 git branch -M main
 git push -u origin main
 ```
