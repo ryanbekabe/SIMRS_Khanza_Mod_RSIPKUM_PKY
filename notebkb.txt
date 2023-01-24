@@ -1,10 +1,10 @@
-
-07:37:51 24/12/2022 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+09:56:37 24/01/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
 
 Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022
 
 Java:
 /Users/windiartonugroho/src/fungsi/koneksiDB.java
+/Users/windiartonugroho/src/inventory/DlgResepObat.java
 /Users/windiartonugroho/src/permintaan/DlgPermintaanLaboratorium.java
 /Users/windiartonugroho/src/rekammedis/RMPenilaianAwalKeperawatanRalan.java
 /Users/windiartonugroho/src/simrskhanza/DlgIKBBayi.java
@@ -76,6 +76,8 @@ Kop Surat:
 //param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
 param.put("logo",Sequel.cariGambar("select gambar.kopsurat from gambar"));
 
+Resep Obat tampilkan Formulariom dan Non Formularium
+
 find $(pwd) -maxdepth 1 -type f -not -path '*/\.*' | sort
 mv /Users/windiartonugroho/dist/SIMRSKhanza.jar ./
 chmod 777 *.jar
@@ -85,7 +87,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-3 07:37:51 24/12/2022"
+git commit -m "Update ke-5 09:56:37 24/01/2023"
 git branch -M main
 #git remote add origin git@github.com:ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY.git
 git push -u origin main
