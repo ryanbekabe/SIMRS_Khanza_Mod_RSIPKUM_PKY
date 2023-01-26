@@ -1,6 +1,6 @@
 # SIMRS_Khanza_Mod_RSIPKUM_PKY
 
-09:56:37 24/01/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+14:30:14 26/01/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
 
 Source Code ini hasil modifikasi seperlunya yang disesuaikan untuk keperluan Rumah Sakit Islam PKU Muhammadiyah Palangka Raya.
 
@@ -12,6 +12,8 @@ Java:
 /Users/windiartonugroho/src/inventory/DlgResepObat.java
 /Users/windiartonugroho/src/permintaan/DlgPermintaanLaboratorium.java
 /Users/windiartonugroho/src/rekammedis/RMPenilaianAwalKeperawatanRalan.java
+/Users/windiartonugroho/src/simrskhanza/DlgCariPeriksaLab.form
+/Users/windiartonugroho/src/simrskhanza/DlgCariPeriksaLab.java
 /Users/windiartonugroho/src/simrskhanza/DlgIKBBayi.java
 /Users/windiartonugroho/src/simrskhanza/DlgKasirRalan.java
 /Users/windiartonugroho/src/simrskhanza/frmUtama.java
@@ -27,6 +29,8 @@ Report:
 /Users/windiartonugroho/report/rptBebasNarkoba.jrxml
 /Users/windiartonugroho/report/rptCetakPenilaianAwalKeperawatanRalan.jasper
 /Users/windiartonugroho/report/rptCetakPenilaianAwalKeperawatanRalan.jrxml
+/Users/windiartonugroho/report/rptPeriksaLab.jasper
+/Users/windiartonugroho/report/rptPeriksaLab.jrxml
 /Users/windiartonugroho/report/rptSKL2.jasper
 /Users/windiartonugroho/report/rptSKL2.jrxml
 /Users/windiartonugroho/report/rptSuratKeteranganSehat.jasper
