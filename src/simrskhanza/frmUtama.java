@@ -1819,7 +1819,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20/12/2022" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "31/12/2022" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -8150,6 +8150,8 @@ public class frmUtama extends javax.swing.JFrame {
             case "Log In":
                 DlgLogin.setVisible(true);
                 edAdmin.requestFocus();
+                edAdmin.setText("");
+                edPwd.setText("");
                 break;
         }
     }//GEN-LAST:event_BtnLogActionPerformed

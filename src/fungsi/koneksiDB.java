@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.sql.Connection;
 import java.util.Properties;
 import javax.swing.JOptionPane;
-
+import java.net.InetAddress;
 /**
  *
  * @author khanzasoft
@@ -30,8 +30,9 @@ public class koneksiDB {
                 dataSource.setURL("jdbc:mysql://"+EnkripsiAES.decrypt(prop.getProperty("HOST"))+":"+EnkripsiAES.decrypt(prop.getProperty("PORT"))+"/"+EnkripsiAES.decrypt(prop.getProperty("DATABASE"))+"?zeroDateTimeBehavior=convertToNull&autoReconnect=true&useCompression=true&useSSL=false");
                 dataSource.setUser(EnkripsiAES.decrypt(prop.getProperty("USER")));
                 dataSource.setPassword(EnkripsiAES.decrypt(prop.getProperty("PAS")));
-                connection=dataSource.getConnection();       
-                System.out.println("\n\n  Koneksi ke Database berhasil.... \n\n"+
+                connection=dataSource.getConnection();
+                InetAddress inetAddress = InetAddress.getLocalHost();
+                System.out.println("\n\n  Koneksi ke Database berhasil.... IP komputer: "+inetAddress.getHostAddress()+ "\n\n" +
                         "	Software ini adalah Software Menejemen Rumah Sakit/Klinik/\n" +
                         "  Puskesmas yang  gratis dan boleh digunakan siapa saja tanpa dikenai \n" +
                         "  biaya apapun. Dilarang keras memperjualbelikan/mengambil \n" +
@@ -50,9 +51,9 @@ public class koneksiDB {
                         "  Bagi yang ingin berdonasi untuk pengembangan aplikasi ini bisa ke BSI 1015369872 atas nama Windiarto\n"+
                         "                                                                           \n"+
                         "  *Pengembangan pada: KOP Surat Report, Warna Hijau.                         \n"+
-                        "  1) Form: RMPenilaianAwalKeperawatanRalan.java, SuratButaWarna.java, SuratBebasNarkoba.java, DlgIKBBayi.java, SuratKeteranganSehat.java, DlgPasienMati.java, SuratSakit.java;     \n"+
-                        "  2) Report: rptCetakPenilaianAwalKeperawatanRalan.jasper, rptSuratTidakButaWarna.jasper, rptBebasNarkoba.jasper, rptSKL2.jasper, rptSuratKeteranganSehat.jasper, rptSuratKematian.jasper, rptSuratSakit5.jasper;     \n"+
-                        "  Re-Compile_By: Bang Samosir, 08:43:43 26/12/2022 - RS Islam PKU Muhammadiyah Palangka Raya.");
+                        "  1) Form: RMPenilaianAwalKeperawatanRalan.java, SuratButaWarna.java, SuratBebasNarkoba.java, DlgIKBBayi.java, SuratKeteranganSehat.java, DlgPasienMati.java, SuratSakit.java, DlgCariPeriksaLab.java, DlgPermintaanLaboratorium.java;     \n"+
+                        "  2) Report: rptCetakPenilaianAwalKeperawatanRalan.jasper, rptSuratTidakButaWarna.jasper, rptBebasNarkoba.jasper, rptSKL2.jasper, rptSuratKeteranganSehat.jasper, rptSuratKematian.jasper, rptSuratSakit5.jasper, rptPeriksaLab.jasper, rptPeriksaLab2.jasper;     \n"+
+                        "  Re-Compile_By: Bang Samosir, 09:42:11 28/01/2023 - RS Islam PKU Muhammadiyah Palangka Raya.");
             }catch(Exception e){
                 System.out.println("Notif : "+e);
                 try {

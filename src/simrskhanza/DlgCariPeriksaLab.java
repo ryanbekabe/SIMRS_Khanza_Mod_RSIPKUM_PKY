@@ -1830,7 +1830,8 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("emailrs",akses.getemailrs());   
                         param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
                         param.put("noktp",Sequel.cariIsi("select pasien.no_ktp from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
-                        param.put("tgl_lahir",Sequel.cariIsi("select pasien.tgl_lahir from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
+                        param.put("tgl_lahir",Sequel.cariIsi("select date_format(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
+//                        param.put("tgl_lahir",Sequel.cariIsi("select pasien.tgl_lahir from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
                         pspermintaan=koneksi.prepareStatement(
                                 "select noorder,DATE_FORMAT(tgl_permintaan,'%d-%m-%Y') as tgl_permintaan,jam_permintaan from permintaan_lab where "+
                                 "no_rawat=? and tgl_hasil=? and jam_hasil=?");
@@ -2109,8 +2110,11 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("kotars",akses.getkabupatenrs());
                         param.put("propinsirs",akses.getpropinsirs());
                         param.put("kontakrs",akses.getkontakrs());
-                        param.put("emailrs",akses.getemailrs());   
-                        param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
+                        param.put("emailrs",akses.getemailrs());
+                        param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
+                        param.put("noktp",Sequel.cariIsi("select pasien.no_ktp from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
+                        param.put("tgl_lahir",Sequel.cariIsi("select date_format(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
+//                        param.put("tgl_lahir",Sequel.cariIsi("select pasien.tgl_lahir from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
                         pspermintaan=koneksi.prepareStatement(
                                 "select noorder,DATE_FORMAT(tgl_permintaan,'%d-%m-%Y') as tgl_permintaan,jam_permintaan from permintaan_lab where "+
                                 "no_rawat=? and tgl_hasil=? and jam_hasil=?");
@@ -2263,6 +2267,8 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("kontakrs",akses.getkontakrs());
                         param.put("emailrs",akses.getemailrs());   
                         param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
+                        param.put("noktp",Sequel.cariIsi("select pasien.no_ktp from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
+                        param.put("tgl_lahir",Sequel.cariIsi("select date_format(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
                         pspermintaan=koneksi.prepareStatement(
                                 "select noorder,DATE_FORMAT(tgl_permintaan,'%d-%m-%Y') as tgl_permintaan,jam_permintaan from permintaan_lab where "+
                                 "no_rawat=? and tgl_hasil=? and jam_hasil=?");
@@ -4135,6 +4141,8 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("kontakrs",akses.getkontakrs());
                         param.put("emailrs",akses.getemailrs());   
                         param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
+                        param.put("noktp",Sequel.cariIsi("select pasien.no_ktp from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
+                        param.put("tgl_lahir",Sequel.cariIsi("select date_format(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
                         pspermintaan=koneksi.prepareStatement(
                                 "select noorder,DATE_FORMAT(tgl_permintaan,'%d-%m-%Y') as tgl_permintaan,jam_permintaan from permintaan_lab where "+
                                 "no_rawat=? and tgl_hasil=? and jam_hasil=?");

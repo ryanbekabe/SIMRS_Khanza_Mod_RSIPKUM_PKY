@@ -1,15 +1,21 @@
 # SIMRS_Khanza_Mod_RSIPKUM_PKY
 
-14:30:14 26/01/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+14:37:12 09/02/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
 
 Source Code ini hasil modifikasi seperlunya yang disesuaikan untuk keperluan Rumah Sakit Islam PKU Muhammadiyah Palangka Raya.
 
 Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022
 
+https://github.com/ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY
+
 Java:
 ```git
 /Users/windiartonugroho/src/fungsi/koneksiDB.java
+/Users/windiartonugroho/src/fungsi/sekuel.java
+/Users/windiartonugroho/src/inventory/DlgResepObat.form
 /Users/windiartonugroho/src/inventory/DlgResepObat.java
+/Users/windiartonugroho/src/inventory/InventoryTelaahResep.form
+/Users/windiartonugroho/src/inventory/InventoryTelaahResep.java
 /Users/windiartonugroho/src/permintaan/DlgPermintaanLaboratorium.java
 /Users/windiartonugroho/src/rekammedis/RMPenilaianAwalKeperawatanRalan.java
 /Users/windiartonugroho/src/simrskhanza/DlgCariPeriksaLab.form
@@ -31,6 +37,10 @@ Report:
 /Users/windiartonugroho/report/rptCetakPenilaianAwalKeperawatanRalan.jrxml
 /Users/windiartonugroho/report/rptPeriksaLab.jasper
 /Users/windiartonugroho/report/rptPeriksaLab.jrxml
+/Users/windiartonugroho/report/rptPeriksaLab2.jasper
+/Users/windiartonugroho/report/rptPeriksaLab2.jrxml
+/Users/windiartonugroho/report/rptPeriksaLab3.jasper
+/Users/windiartonugroho/report/rptPeriksaLab3.jrxml
 /Users/windiartonugroho/report/rptSKL2.jasper
 /Users/windiartonugroho/report/rptSKL2.jrxml
 /Users/windiartonugroho/report/rptSuratKeteranganSehat.jasper
@@ -62,7 +72,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-5 09:56:37 24/01/2023"
+git commit -m "Update ke-7 Surat Hasil Lab sesuai keperluan RS 14:37:12 09/02/2023"
 git branch -M main
 git push -u origin main
 ```

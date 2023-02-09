@@ -416,12 +416,12 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         InformasiTambahan = new widget.TextBox();
         DiagnosisKlinis = new widget.TextBox();
         jLabel7 = new widget.Label();
-        CmbJam3 = new widget.ComboBox();
-        CmbJam2 = new widget.ComboBox();
-        CmbMenit3 = new widget.ComboBox();
-        CmbMenit2 = new widget.ComboBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel25 = new widget.Label();
+        jLabel26 = new widget.Label();
+        CmbJamMP = new widget.ComboBox();
+        CmbMenitMP = new widget.ComboBox();
+        CmbJamSP = new widget.ComboBox();
+        CmbMenitSP = new widget.ComboBox();
         TabRawat = new javax.swing.JTabbedPane();
         PanelCariUtama = new javax.swing.JPanel();
         Scroll = new widget.ScrollPane();
@@ -646,7 +646,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         jLabel9.setBounds(0, 40, 92, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-11-2022" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2022" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -665,21 +665,11 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
 
         CmbJam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
         CmbJam.setName("CmbJam"); // NOI18N
-        CmbJam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CmbJamActionPerformed(evt);
-            }
-        });
         PanelInput.add(CmbJam);
         CmbJam.setBounds(554, 40, 62, 23);
 
         CmbMenit.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
         CmbMenit.setName("CmbMenit"); // NOI18N
-        CmbMenit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CmbMenitActionPerformed(evt);
-            }
-        });
         PanelInput.add(CmbMenit);
         CmbMenit.setBounds(619, 40, 62, 23);
 
@@ -712,14 +702,12 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
             }
         });
         PanelInput.add(btnDokter);
-        btnDokter.setBounds(359, 40, 28, 23);
+        btnDokter.setBounds(330, 40, 28, 23);
 
-        jLabel15.setText("Tanggal Terima:");
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jLabel15.setText("Tanggal Terima :");
         jLabel15.setName("jLabel15"); // NOI18N
         PanelInput.add(jLabel15);
-        jLabel15.setBounds(390, 40, 67, 23);
-        jLabel15.getAccessibleContext().setAccessibleName("Tanggal Terima Sampel:");
+        jLabel15.setBounds(380, 40, 80, 23);
 
         KodePerujuk.setName("KodePerujuk"); // NOI18N
         KodePerujuk.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -734,7 +722,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         NmPerujuk.setHighlighter(null);
         NmPerujuk.setName("NmPerujuk"); // NOI18N
         PanelInput.add(NmPerujuk);
-        NmPerujuk.setBounds(177, 40, 180, 23);
+        NmPerujuk.setBounds(177, 40, 150, 23);
 
         jLabel5.setText("Informasi Tambahan :");
         jLabel5.setName("jLabel5"); // NOI18N
@@ -766,41 +754,37 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         PanelInput.add(jLabel7);
         jLabel7.setBounds(0, 70, 92, 23);
 
-        CmbJam3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
-        CmbJam3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        CmbJam3.setName("CmbJam3"); // NOI18N
-        PanelInput.add(CmbJam3);
-        CmbJam3.setBounds(780, 70, 50, 23);
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel25.setText("Mulai Pemeriksaan :");
+        jLabel25.setName("jLabel25"); // NOI18N
+        PanelInput.add(jLabel25);
+        jLabel25.setBounds(800, 0, 100, 23);
 
-        CmbJam2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
-        CmbJam2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        CmbJam2.setName("CmbJam2"); // NOI18N
-        PanelInput.add(CmbJam2);
-        CmbJam2.setBounds(780, 20, 50, 23);
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel26.setText("Selesai Pemeriksaan :");
+        jLabel26.setName("jLabel26"); // NOI18N
+        PanelInput.add(jLabel26);
+        jLabel26.setBounds(800, 40, 110, 23);
 
-        CmbMenit3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
-        CmbMenit3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        CmbMenit3.setName("CmbMenit3"); // NOI18N
-        PanelInput.add(CmbMenit3);
-        CmbMenit3.setBounds(840, 70, 50, 23);
+        CmbJamMP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        CmbJamMP.setName("CmbJamMP"); // NOI18N
+        PanelInput.add(CmbJamMP);
+        CmbJamMP.setBounds(800, 20, 62, 23);
 
-        CmbMenit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
-        CmbMenit2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        CmbMenit2.setName("CmbMenit2"); // NOI18N
-        PanelInput.add(CmbMenit2);
-        CmbMenit2.setBounds(840, 20, 50, 23);
+        CmbMenitMP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+        CmbMenitMP.setName("CmbMenitMP"); // NOI18N
+        PanelInput.add(CmbMenitMP);
+        CmbMenitMP.setBounds(870, 20, 62, 23);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel1.setText("Selesai Pemeriksaan");
-        jLabel1.setName("jLabel1"); // NOI18N
-        PanelInput.add(jLabel1);
-        jLabel1.setBounds(780, 50, 100, 17);
+        CmbJamSP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        CmbJamSP.setName("CmbJamSP"); // NOI18N
+        PanelInput.add(CmbJamSP);
+        CmbJamSP.setBounds(800, 60, 62, 23);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel2.setText("Mulai Pemeriksaan");
-        jLabel2.setName("jLabel2"); // NOI18N
-        PanelInput.add(jLabel2);
-        jLabel2.setBounds(780, 0, 100, 13);
+        CmbMenitSP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+        CmbMenitSP.setName("CmbMenitSP"); // NOI18N
+        PanelInput.add(CmbMenitSP);
+        CmbMenitSP.setBounds(870, 60, 62, 23);
 
         FormInput.add(PanelInput, java.awt.BorderLayout.CENTER);
 
@@ -1043,7 +1027,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         jLabel17.setBounds(235, 10, 120, 23);
 
         TanggalPA.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalPA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-11-2022" }));
+        TanggalPA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2022" }));
         TanggalPA.setDisplayFormat("dd-MM-yyyy");
         TanggalPA.setName("TanggalPA"); // NOI18N
         TanggalPA.setOpaque(false);
@@ -1086,7 +1070,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         DiagnosaPA.setBounds(432, 100, 340, 23);
 
         TanggalBahan.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalBahan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-11-2022" }));
+        TanggalBahan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-10-2022" }));
         TanggalBahan.setDisplayFormat("dd-MM-yyyy");
         TanggalBahan.setName("TanggalBahan"); // NOI18N
         TanggalBahan.setOpaque(false);
@@ -1953,14 +1937,6 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }//GEN-LAST:event_ppSemua1ActionPerformed
 
-    private void CmbJamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmbJamActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CmbJamActionPerformed
-
-    private void CmbMenitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmbMenitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CmbMenitActionPerformed
-
     /**
     * @param args the command line arguments
     */
@@ -1994,11 +1970,11 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.CekBox ChkJln;
     private widget.ComboBox CmbDetik;
     private widget.ComboBox CmbJam;
-    private widget.ComboBox CmbJam2;
-    private widget.ComboBox CmbJam3;
+    private widget.ComboBox CmbJamMP;
+    private widget.ComboBox CmbJamSP;
     private widget.ComboBox CmbMenit;
-    private widget.ComboBox CmbMenit2;
-    private widget.ComboBox CmbMenit3;
+    private widget.ComboBox CmbMenitMP;
+    private widget.ComboBox CmbMenitSP;
     private widget.TextBox DiagnosaPA;
     private widget.TextBox DiagnosisKlinis;
     private widget.TextBox Diawetkan;
@@ -2043,7 +2019,6 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.ButtonGroup buttonGroup1;
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
-    private javax.swing.JLabel jLabel1;
     private widget.Label jLabel10;
     private widget.Label jLabel11;
     private widget.Label jLabel12;
@@ -2054,12 +2029,13 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Label jLabel17;
     private widget.Label jLabel18;
     private widget.Label jLabel19;
-    private javax.swing.JLabel jLabel2;
     private widget.Label jLabel20;
     private widget.Label jLabel21;
     private widget.Label jLabel22;
     private widget.Label jLabel23;
     private widget.Label jLabel24;
+    private widget.Label jLabel25;
+    private widget.Label jLabel26;
     private widget.Label jLabel3;
     private widget.Label jLabel4;
     private widget.Label jLabel5;
@@ -2592,12 +2568,15 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     if(Sequel.menyimpantf2("permintaan_lab","?,?,?,?,?,?,?,?,?,?,?,?","No.Permintaan",12,new String[]{
                             TNoPermintaanPK.getText(),TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),
                             CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem(), 
-                            "0000-00-00",
-                            CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
-                            "0000-00-00",
-                            CmbJam3.getSelectedItem()+":"+CmbMenit3.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
+                            Valid.SetTgl(Tanggal.getSelectedItem()+""),
+                            CmbJamMP.getSelectedItem()+":"+CmbMenitMP.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
+                            Valid.SetTgl(Tanggal.getSelectedItem()+""),
+                            CmbJamSP.getSelectedItem()+":"+CmbMenitSP.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
                             KodePerujuk.getText(),status.replaceAll("R","r"),
                             InformasiTambahan.getText(),DiagnosisKlinis.getText()
+
+//                            "0000-00-00","00:00:00","0000-00-00","00:00:00",KodePerujuk.getText(),status.replaceAll("R","r"),
+//                            InformasiTambahan.getText(),DiagnosisKlinis.getText()
                         })==true){
                         for(i=0;i<tbTarifPK.getRowCount();i++){ 
                             if(tbTarifPK.getValueAt(i,0).toString().equals("true")){
@@ -2619,10 +2598,10 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                         if(Sequel.menyimpantf2("permintaan_lab","?,?,?,?,?,?,?,?,?,?,?,?","No.Permintaan",12,new String[]{
                                 TNoPermintaanPK.getText(),TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),
                                 CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem(), 
-                                "0000-00-00",
-                                CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
-                                "0000-00-00",
-                                CmbJam3.getSelectedItem()+":"+CmbMenit3.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
+                                Valid.SetTgl(Tanggal.getSelectedItem()+""),
+                                CmbJamMP.getSelectedItem()+":"+CmbMenitMP.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
+                                Valid.SetTgl(Tanggal.getSelectedItem()+""),
+                                CmbJamSP.getSelectedItem()+":"+CmbMenitSP.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
                                 KodePerujuk.getText(),status.replaceAll("R","r"),
                                 InformasiTambahan.getText(),DiagnosisKlinis.getText()
                             })==true){
@@ -2646,10 +2625,10 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                             if(Sequel.menyimpantf2("permintaan_lab","?,?,?,?,?,?,?,?,?,?,?,?","No.Permintaan",12,new String[]{
                                     TNoPermintaanPK.getText(),TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),
                                     CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem(), 
-                                    "0000-00-00",
-                                    CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik.getSelectedItem()
-                                    ,"0000-00-00",
-                                    CmbJam3.getSelectedItem()+":"+CmbMenit3.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
+                                    Valid.SetTgl(Tanggal.getSelectedItem()+""),
+                                    CmbJamMP.getSelectedItem()+":"+CmbMenitMP.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
+                                    Valid.SetTgl(Tanggal.getSelectedItem()+""),
+                                    CmbJamSP.getSelectedItem()+":"+CmbMenitSP.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
                                     KodePerujuk.getText(),status.replaceAll("R","r"),
                                     InformasiTambahan.getText(),DiagnosisKlinis.getText()
                                 })==true){
@@ -2673,10 +2652,10 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                                 if(Sequel.menyimpantf2("permintaan_lab","?,?,?,?,?,?,?,?,?,?,?,?","No.Permintaan",12,new String[]{
                                         TNoPermintaanPK.getText(),TNoRw.getText(),Valid.SetTgl(Tanggal.getSelectedItem()+""),
                                         CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem(), 
-                                        "0000-00-00",
-                                        CmbJam2.getSelectedItem()+":"+CmbMenit2.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
-                                        "0000-00-00",
-                                        CmbJam3.getSelectedItem()+":"+CmbMenit3.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
+                                        Valid.SetTgl(Tanggal.getSelectedItem()+""),
+                                        CmbJamMP.getSelectedItem()+":"+CmbMenitMP.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
+                                        Valid.SetTgl(Tanggal.getSelectedItem()+""),
+                                        CmbJamSP.getSelectedItem()+":"+CmbMenitSP.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
                                         KodePerujuk.getText(),status.replaceAll("R","r"),
                                         InformasiTambahan.getText(),DiagnosisKlinis.getText()
                                     })==true){
