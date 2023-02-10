@@ -423,7 +423,7 @@ public class DlgCariPeriksaLab extends javax.swing.JDialog {
         MnCetakHasilLab.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnCetakHasilLab.setForeground(new java.awt.Color(50, 50, 50));
         MnCetakHasilLab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnCetakHasilLab.setText("Model 1");
+        MnCetakHasilLab.setText("Model 1 - Sh");
         MnCetakHasilLab.setName("MnCetakHasilLab"); // NOI18N
         MnCetakHasilLab.setPreferredSize(new java.awt.Dimension(100, 26));
         MnCetakHasilLab.addActionListener(new java.awt.event.ActionListener() {
@@ -437,7 +437,7 @@ public class DlgCariPeriksaLab extends javax.swing.JDialog {
         MnCetakHasilLab1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnCetakHasilLab1.setForeground(new java.awt.Color(50, 50, 50));
         MnCetakHasilLab1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnCetakHasilLab1.setText("Model 2");
+        MnCetakHasilLab1.setText("Model 2 - Lo");
         MnCetakHasilLab1.setName("MnCetakHasilLab1"); // NOI18N
         MnCetakHasilLab1.setPreferredSize(new java.awt.Dimension(100, 26));
         MnCetakHasilLab1.addActionListener(new java.awt.event.ActionListener() {
@@ -451,7 +451,7 @@ public class DlgCariPeriksaLab extends javax.swing.JDialog {
         MnCetakHasilLab2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnCetakHasilLab2.setForeground(new java.awt.Color(50, 50, 50));
         MnCetakHasilLab2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnCetakHasilLab2.setText("Model 3");
+        MnCetakHasilLab2.setText("Model 3 - Sw");
         MnCetakHasilLab2.setName("MnCetakHasilLab2"); // NOI18N
         MnCetakHasilLab2.setPreferredSize(new java.awt.Dimension(100, 26));
         MnCetakHasilLab2.addActionListener(new java.awt.event.ActionListener() {

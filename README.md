@@ -1,6 +1,6 @@
 # SIMRS_Khanza_Mod_RSIPKUM_PKY
 
-14:37:12 09/02/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+14:34:55 10/02/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
 
 Source Code ini hasil modifikasi seperlunya yang disesuaikan untuk keperluan Rumah Sakit Islam PKU Muhammadiyah Palangka Raya.
 
@@ -72,7 +72,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-7 Surat Hasil Lab sesuai keperluan RS 14:37:12 09/02/2023"
+git commit -m "Update ke-8 Model Hasil Lab 1-3 diberi clue sesuai keperluan RS, Trace Login ke server 100 bang Sam"
 git branch -M main
 git push -u origin main
 ```

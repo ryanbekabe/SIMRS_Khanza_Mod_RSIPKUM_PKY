@@ -50,10 +50,10 @@ public class koneksiDB {
                         "  Informasi dan panduan bisa dicek di halaman https://github.com/mas-elkhanza/SIMRS-Khanza/wiki \n"+
                         "  Bagi yang ingin berdonasi untuk pengembangan aplikasi ini bisa ke BSI 1015369872 atas nama Windiarto\n"+
                         "                                                                           \n"+
-                        "  *Pengembangan pada: KOP Surat Report, Warna Hijau.                         \n"+
-                        "  1) Form: RMPenilaianAwalKeperawatanRalan.java, SuratButaWarna.java, SuratBebasNarkoba.java, DlgIKBBayi.java, SuratKeteranganSehat.java, DlgPasienMati.java, SuratSakit.java, DlgCariPeriksaLab.java, DlgPermintaanLaboratorium.java;     \n"+
-                        "  2) Report: rptCetakPenilaianAwalKeperawatanRalan.jasper, rptSuratTidakButaWarna.jasper, rptBebasNarkoba.jasper, rptSKL2.jasper, rptSuratKeteranganSehat.jasper, rptSuratKematian.jasper, rptSuratSakit5.jasper, rptPeriksaLab.jasper, rptPeriksaLab2.jasper;     \n"+
-                        "  Re-Compile_By: Bang Samosir, 09:42:11 28/01/2023 - RS Islam PKU Muhammadiyah Palangka Raya.");
+                        "  *Pengembangan pada: KOP Surat Report, Hasil Lab., Warna Hijau untuk Versi Modif.                         \n"+
+                        "  1) Form/Java: RMPenilaianAwalKeperawatanRalan.java, SuratButaWarna.java, SuratBebasNarkoba.java, DlgIKBBayi.java, SuratKeteranganSehat.java, DlgPasienMati.java, SuratSakit.java, DlgCariPeriksaLab.java, DlgPermintaanLaboratorium.java, koneksiDB.java, sekuel.java;    \n"+
+                        "  2) Report: rptBebasNarkoba.jasper, rptCetakPenilaianAwalKeperawatanRalan.jasper, rptPeriksaLab.jasper (Short), rptPeriksaLab2.jasper (Long), rptPeriksaLab3.jasper (Swab), rptSKL2.jasper, rptSuratKematian.jasper, rptSuratKeteranganSehat.jasper, rptSuratSakit5.jasper, rptSuratTidakButaWarna.jasper;     \n"+
+                        "  Re-Compile_By: Bang Samosir, 10:06:42 10/02/2023 - RS Islam PKU Muhammadiyah Palangka Raya.");
             }catch(Exception e){
                 System.out.println("Notif : "+e);
                 try {

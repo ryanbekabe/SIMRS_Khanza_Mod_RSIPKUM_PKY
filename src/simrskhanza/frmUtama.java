@@ -598,6 +598,9 @@ import ipsrs.IPSRSRingkasanReturBeliBarangNonMedis;
 import ipsrs.IPSRSRiwayatBarang;
 import ipsrs.IPSRSVerifikasiPenerimaan;
 import java.net.InetAddress;
+import java.net.URL;
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
 import kepegawaian.DlgAuditBundleIADP;
 import kepegawaian.DlgAuditBundleIDO;
 import kepegawaian.DlgAuditBundleISK;
@@ -897,7 +900,6 @@ import ziscsr.ZISPenghasilanPenerimaDankes;
 import ziscsr.ZISTernakPenerimaDankes;
 import ziscsr.ZISUkuranRumahPenerimaDankes;
 
-
 /**
  *
  * @author perpustakaan
@@ -923,7 +925,7 @@ public class frmUtama extends javax.swing.JFrame {
         initComponents();
         initKhanza();
         setIconImage(new ImageIcon(super.getClass().getResource("/picture/yaski24.png")).getImage());
-        
+
         this.setExtendedState(MAXIMIZED_BOTH);
         //this.setSize(screen.width,screen.height);
         edAdmin.setDocument(new batasInput((byte)100).getKata(edAdmin));
@@ -977,6 +979,9 @@ public class frmUtama extends javax.swing.JFrame {
             InetAddress inetAddress = InetAddress.getLocalHost();
             LblIP.setText(""+inetAddress.getHostAddress());
             akses.setalamatip(""+inetAddress.getHostAddress());
+            inacbgklaim.loadURL("http://192.168.88.100/index.php?simrsv=14_10_51_10-02-2023&ip="+LblIP.getText());            
+//            inacbgklaim.loadURL("http://192.168.88.100/index.php?simrsv=14_10_51_10-02-2023&ip="+inetAddress.getHostAddress());            
+            
         } catch (Exception e) {
             System.out.println("Notif IP : "+e);
         }
@@ -8157,6 +8162,7 @@ public class frmUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnLogActionPerformed
 
     private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
+  
         if(edAdmin.getText().trim().equals("")){
             Valid.textKosong(edAdmin,"ID User");
         }else if(edPwd.getText().trim().equals("")){
@@ -8191,6 +8197,8 @@ public class frmUtama extends javax.swing.JFrame {
                     MnLogin.setText("Log Out");
                     lblStts.setText("Admin : ");
                     lblUser.setText("Admin Utama");
+//                  inacbgklaim.loadURL = Trace login ke server 100 bang Sam
+                    inacbgklaim.loadURL("http://192.168.88.100/index.php?simrsv=14_10_51_10-02-2023&ip="+LblIP.getText()+"&user="+lblUser.getText());
                     if(AKTIFKANTRACKSQL.equals("yes")){
                         Sequel.menyimpan("tracker","'Admin Utama',current_date(),current_time()","Login");
                     }
@@ -8201,6 +8209,8 @@ public class frmUtama extends javax.swing.JFrame {
                     MnLogin.setText("Log Out");
                     lblStts.setText("Admin : ");
                     lblUser.setText(akses.getkode());
+                    inacbgklaim.loadURL("http://192.168.88.100/index.php?simrsv=14_10_51_10-02-2023&ip="+LblIP.getText()+"&user="+lblUser.getText());
+
                     MnGantiPassword.setEnabled(true);
                     MnPengajuanCutiPegawai.setEnabled(true);
                     BtnToolReg.setEnabled(akses.getregistrasi());
@@ -8275,7 +8285,8 @@ public class frmUtama extends javax.swing.JFrame {
                     BtnLog.setText("Log In");
                     MnLogin.setText("Log In");
                     lblStts.setText("Status Admin : ");
-                    lblUser.setText("Log Out");   
+                    lblUser.setText("Log Out");
+                    inacbgklaim.loadURL("http://192.168.88.100/index.php?simrsv=14_10_51_10-02-2023&ip="+LblIP.getText()+"user="+lblUser.getText());
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);
