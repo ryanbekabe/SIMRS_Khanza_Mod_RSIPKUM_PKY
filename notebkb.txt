@@ -32,6 +32,8 @@ Report:
 /Users/windiartonugroho/report/rptSuratSakit5.jrxml
 /Users/windiartonugroho/report/rptSuratTidakButaWarna.jasper
 /Users/windiartonugroho/report/rptSuratTidakButaWarna.jrxml
+/Users/windiartonugroho/report/rptResep.jasper
+/Users/windiartonugroho/report/rptResep.jrxml
 Poin:
 Form Utama warna hijau
 Surat Keterangan format nomor surat: (No.Srt)/671024/(UNIT)/(BLN)/(THN)
@@ -90,7 +92,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-6 Tambah tanggal lahir di hasil Lab. 14:30:14 26/01/2023"
+git commit -m "Update ke-9 Edit Hasil Lab rptPeriksaLab rptPeriksaLab2, tambah No.SEP di cetak Apotek"
 git branch -M main
 #git remote add origin git@github.com:ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY.git
 git push -u origin main

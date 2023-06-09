@@ -640,30 +640,6 @@
 				<text><![CDATA[Tgl.Cetak :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="53" width="134" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="ffbaf90d-3337-46a1-8c93-d91ab8c9bc32"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="8" isBold="true"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Catatan :]]></text>
-			</staticText>
-			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="73" width="186" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="263d2474-4fe3-4909-a3af-b0f558879185"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="8" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[diharapkan segera menghubungi laboratorium.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="63" width="186" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="c13bef34-c976-452f-b438-aeb8f210f9f7"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="8" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Jika ada keragu-raguan pemeriksaan,]]></text>
-			</staticText>
-			<staticText>
 				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="310" y="3" width="210" height="15" forecolor="#000000" backcolor="#F0F0DC" uuid="e92360ab-fb4d-4fa2-b2cd-bd41a3ac80e9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="11" isBold="true"/>
