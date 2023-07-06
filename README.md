@@ -4,7 +4,7 @@
 
 Source Code ini hasil modifikasi seperlunya yang disesuaikan untuk keperluan Rumah Sakit Islam PKU Muhammadiyah Palangka Raya.
 
-Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022
+Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022; 17/06/2023
 
 https://github.com/ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY
 
