@@ -1,6 +1,6 @@
 # SIMRS_Khanza_Mod_RSIPKUM_PKY
 
-13:30:50 09/06/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+14:35:52 06/07/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
 
 Source Code ini hasil modifikasi seperlunya yang disesuaikan untuk keperluan Rumah Sakit Islam PKU Muhammadiyah Palangka Raya.
 
@@ -17,6 +17,8 @@ Java:
 /Users/windiartonugroho/src/inventory/InventoryTelaahResep.form
 /Users/windiartonugroho/src/inventory/InventoryTelaahResep.java
 /Users/windiartonugroho/src/permintaan/DlgPermintaanLaboratorium.java
+/Users/windiartonugroho/src/kepegawaian/DlgAuditCuciTanganMedis.form
+/Users/windiartonugroho/src/kepegawaian/DlgAuditCuciTanganMedis.java
 /Users/windiartonugroho/src/rekammedis/RMPenilaianAwalKeperawatanRalan.java
 /Users/windiartonugroho/src/simrskhanza/DlgCariPeriksaLab.form
 /Users/windiartonugroho/src/simrskhanza/DlgCariPeriksaLab.java
@@ -74,7 +76,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-9 Edit Hasil Lab rptPeriksaLab, tambah No.SEP di cetak Apotek"
+git commit -m "Update ke-10. Edit: Audit Cuci Tangan Medis, Ruang/Unit"
 git branch -M main
 git push -u origin main
 ```
