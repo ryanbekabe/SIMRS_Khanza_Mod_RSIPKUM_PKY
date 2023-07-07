@@ -61,7 +61,7 @@ public final class DlgAuditCuciTanganMedis extends javax.swing.JDialog {
         setSize(628,674);
 
         tabMode=new DefaultTableModel(null,new Object[]{
-            "Tanggal Audit","NIP/Kode","Dokter/Paramedis","Sebelum Menyentuh Pasien","Sebelum Tehnik Aseptik",
+            "Tanggal Audit","NIP/Kode","Dokter/Paramedis - Ruang/Unit","Sebelum Menyentuh Pasien","Sebelum Tehnik Aseptik",
             "Setelah Terpapar Cairan Tubuh Pasien","Setelah Kontak Dengan Pasien","Setelah Kontak Dengan Lingkungan Pasien",
             "Ttl.Nilai(%)"
         }){
@@ -748,9 +748,9 @@ public final class DlgAuditCuciTanganMedis extends javax.swing.JDialog {
         if(Nip.getText().trim().equals("")||NamaPetugas.getText().trim().equals("")){
             Valid.textKosong(btnPetugas,"Petugas");
         }else{    
-            Sequel.mengedit("audit_cuci_tangan_medis","nik=? and tanggal=?","tanggal=?,nik=?,sebelum_menyentuh_pasien=?,sebelum_tehnik_aseptik=?,setelah_terpapar_cairan_tubuh_pasien=?,setelah_kontak_dengan_pasien=?,setelah_kontak_dengan_lingkungan_pasien=?",9,new String[]{
+            Sequel.mengedit("audit_cuci_tangan_medis","nik=? and tanggal=?","tanggal=?,nik=?,sebelum_menyentuh_pasien=?,sebelum_tehnik_aseptik=?,setelah_terpapar_cairan_tubuh_pasien=?,setelah_kontak_dengan_pasien=?,setelah_kontak_dengan_lingkungan_pasien=?,ruang=?",10,new String[]{
                 Valid.SetTgl(Tanggal.getSelectedItem()+"")+" "+Jam.getSelectedItem()+":"+Menit.getSelectedItem()+":"+Detik.getSelectedItem(),Nip.getText(),SebelumMenyentuh.getSelectedItem().toString(),SebelumTehnik.getSelectedItem().toString(),SetelahTerpapar.getSelectedItem().toString(),
-                SetelahKontak.getSelectedItem().toString(),SetelahLingkungan.getSelectedItem().toString(),tbObat.getValueAt(tbObat.getSelectedRow(),1).toString(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
+                SetelahKontak.getSelectedItem().toString(),SetelahLingkungan.getSelectedItem().toString(),PetugasRuang.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),1).toString(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
             });
             if(tabMode.getRowCount()!=0){tampil();}
             emptTeks();

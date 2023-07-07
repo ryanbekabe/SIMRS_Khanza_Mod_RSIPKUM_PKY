@@ -1,6 +1,6 @@
 # SIMRS_Khanza_Mod_RSIPKUM_PKY
 
-14:35:52 06/07/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+09:33:34 07/07/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
 
 Source Code ini hasil modifikasi seperlunya yang disesuaikan untuk keperluan Rumah Sakit Islam PKU Muhammadiyah Palangka Raya.
 
@@ -76,7 +76,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-10. Edit: Audit Cuci Tangan Medis, Ruang/Unit"
+git commit -m "Update ke-11. Bisa edit/update Ruang/Unit"
 git branch -M main
 git push -u origin main
 ```
