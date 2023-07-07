@@ -2,6 +2,10 @@
 
 09:33:34 07/07/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
 
+Table: audit_cuci_tangan_medis; 
+Tambahkan: ruang; 
+Type: varchar(30)
+
 Source Code ini hasil modifikasi seperlunya yang disesuaikan untuk keperluan Rumah Sakit Islam PKU Muhammadiyah Palangka Raya.
 
 Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022; 17/06/2023
