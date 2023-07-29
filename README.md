@@ -1,10 +1,12 @@
 # SIMRS_Khanza_Mod_RSIPKUM_PKY
 
-09:33:34 07/07/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+07:27:53 29/07/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
 
 Table: audit_cuci_tangan_medis; 
 Tambahkan: ruang; 
 Type: varchar(30)
+
+Ketinggalan file report report/rptResep.jasper
 
 Source Code ini hasil modifikasi seperlunya yang disesuaikan untuk keperluan Rumah Sakit Islam PKU Muhammadiyah Palangka Raya.
 
@@ -80,7 +82,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-11. Bisa edit/update Ruang/Unit"
+git commit -m "Update ke-12. Tambah file report yang ketinggalan rptResep.jasper yang sudah modif SEP untuk bagian Farmasi penyerahan obat"
 git branch -M main
 git push -u origin main
 ```
