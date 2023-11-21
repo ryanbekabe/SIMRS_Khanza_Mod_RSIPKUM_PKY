@@ -1,6 +1,8 @@
 # SIMRS_Khanza_Mod_RSIPKUM_PKY
 
-07:27:53 29/07/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+14:28:50 21/11/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+
+Modif Jasper Report untuk Lab. Parameter Narkoba 3 dan 6
 
 Table: audit_cuci_tangan_medis; 
 Tambahkan: ruang; 
@@ -41,8 +43,14 @@ Report:
 ```git
 /Users/windiartonugroho/report/rptBebasNarkoba.jasper
 /Users/windiartonugroho/report/rptBebasNarkoba.jrxml
+/Users/windiartonugroho/report/rptBebasNarkoba1.jasper
+/Users/windiartonugroho/report/rptBebasNarkoba1.jrxml
+/Users/windiartonugroho/report/rptBebasNarkoba2.jasper
+/Users/windiartonugroho/report/rptBebasNarkoba2.jrxml
 /Users/windiartonugroho/report/rptCetakPenilaianAwalKeperawatanRalan.jasper
 /Users/windiartonugroho/report/rptCetakPenilaianAwalKeperawatanRalan.jrxml
+/Users/windiartonugroho/report/rptLabelDiet.jasper
+/Users/windiartonugroho/report/rptLabelDiet.jrxml
 /Users/windiartonugroho/report/rptPeriksaLab.jasper
 /Users/windiartonugroho/report/rptPeriksaLab.jrxml
 /Users/windiartonugroho/report/rptPeriksaLab2.jasper
@@ -82,7 +90,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-12. Tambah file report yang ketinggalan rptResep.jasper yang sudah modif SEP untuk bagian Farmasi penyerahan obat"
+git commit -m "Update ke-12b manual upload. Perubahan parameter Lab. untuk Surat Keterangan Bebas Narkoba 3 dan 6 parameter"
 git branch -M main
 git push -u origin main
 ```
