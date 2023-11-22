@@ -34,6 +34,7 @@ Java:
 /Users/windiartonugroho/src/simrskhanza/DlgKasirRalan.java
 /Users/windiartonugroho/src/simrskhanza/frmUtama.java
 /Users/windiartonugroho/src/surat/SuratBebasNarkoba.java
+/Users/windiartonugroho/src/surat/SuratBebasNarkoba_18112023.java
 /Users/windiartonugroho/src/surat/SuratButaWarna.java
 /Users/windiartonugroho/src/surat/SuratKeteranganSehat.java
 /Users/windiartonugroho/src/surat/SuratSakit.java
