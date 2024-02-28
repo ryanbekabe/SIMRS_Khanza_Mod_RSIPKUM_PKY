@@ -1,6 +1,6 @@
 # SIMRS_Khanza_Mod_RSIPKUM_PKY
 
-14:28:50 21/11/2023 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+14:27:30 28/02/2024 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
 
 Modif Jasper Report untuk Lab. Parameter Narkoba 3 dan 6
 
@@ -12,7 +12,7 @@ Ketinggalan file report report/rptResep.jasper
 
 Source Code ini hasil modifikasi seperlunya yang disesuaikan untuk keperluan Rumah Sakit Islam PKU Muhammadiyah Palangka Raya.
 
-Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022; 17/06/2023
+Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022; 17/06/2023; 28/022024;
 
 https://github.com/ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY
 
@@ -91,7 +91,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-12b manual upload. Perubahan parameter Lab. untuk Surat Keterangan Bebas Narkoba 3 dan 6 parameter"
+git commit -m "Update ke-23 Command Update. Coba resyncron agar bisa update via command."
 git branch -M main
 git push -u origin main
 ```
