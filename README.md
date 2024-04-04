@@ -1,7 +1,21 @@
 # SIMRS_Khanza_Mod_RSIPKUM_PKY
 
-14:27:30 28/02/2024 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+08.25 04/04/2024 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+Permintaan Lab dari dokter ke Lab.
+1. rptPeriksaLabPermintaan.jrxml
+2. rptPeriksaLabPermintaan.jasper
+3. rptPeriksaLab2Permintaan.jrxml
+4. rptPeriksaLab2Permintaan.jasper
+5. D:\windiartonugroho\src\simrskhanza\DlgCariPeriksaLab.java
+6. DlgCariPeriksaLab.java
 
+Sourcecode:
+param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
+param.put("noktp",Sequel.cariIsi("select pasien.no_ktp from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
+param.put("tgl_lahir",Sequel.cariIsi("select date_format(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
+
+
+----
 Modif Jasper Report untuk Lab. Parameter Narkoba 3 dan 6
 
 Table: audit_cuci_tangan_medis; 
@@ -91,7 +105,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-23 Command Update. Coba resyncron agar bisa update via command."
+git commit -m "Update ke-24 Permintaan Lab."
 git branch -M main
 git push -u origin main
 ```
