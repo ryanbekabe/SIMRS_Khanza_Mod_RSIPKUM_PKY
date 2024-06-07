@@ -1,6 +1,7 @@
 # SIMRS_Khanza_Mod_RSIPKUM_PKY
 
-08.25 04/04/2024 - Palangka Raya, Riyan Hidayat Samosir, S.Kom
+08.25 04/04/2024 - Palangka Raya, Riyan Hidayat Samosir, S.Kom | hanyajasa.com
+
 Permintaan Lab dari dokter ke Lab.
 1. rptPeriksaLabPermintaan.jrxml
 2. rptPeriksaLabPermintaan.jasper
@@ -8,6 +9,9 @@ Permintaan Lab dari dokter ke Lab.
 4. rptPeriksaLab2Permintaan.jasper
 5. D:\windiartonugroho\src\simrskhanza\DlgCariPeriksaLab.java
 6. DlgCariPeriksaLab.java
+7. D:\windiartonugroho\src\surat\SuratBebasNarkoba.java
+8. SuratBebasNarkoba.java
+
 
 Sourcecode:
 param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
@@ -26,7 +30,7 @@ Ketinggalan file report report/rptResep.jasper
 
 Source Code ini hasil modifikasi seperlunya yang disesuaikan untuk keperluan Rumah Sakit Islam PKU Muhammadiyah Palangka Raya.
 
-Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022; 17/06/2023; 28/022024;
+Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022; 17/06/2023; 28/02/2024; 04/04/2024
 
 https://github.com/ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY
 
@@ -72,6 +76,12 @@ Report:
 /Users/windiartonugroho/report/rptPeriksaLab2.jrxml
 /Users/windiartonugroho/report/rptPeriksaLab3.jasper
 /Users/windiartonugroho/report/rptPeriksaLab3.jrxml
+/Users/windiartonugroho/report/rptPeriksaLabPermintaan.jrxml
+/Users/windiartonugroho/report/rptPeriksaLabPermintaan.jasper
+/Users/windiartonugroho/report/rptPeriksaLab2Permintaan.jrxml
+/Users/windiartonugroho/report/rptPeriksaLab2Permintaan.jasper
+/Users/windiartonugroho/report/rptResep.jasper
+/Users/windiartonugroho/report/rptResep.jrxml
 /Users/windiartonugroho/report/rptSKL2.jasper
 /Users/windiartonugroho/report/rptSKL2.jrxml
 /Users/windiartonugroho/report/rptSuratKeteranganSehat.jasper
@@ -80,8 +90,6 @@ Report:
 /Users/windiartonugroho/report/rptSuratSakit5.jrxml
 /Users/windiartonugroho/report/rptSuratTidakButaWarna.jasper
 /Users/windiartonugroho/report/rptSuratTidakButaWarna.jrxml
-/Users/windiartonugroho/report/rptResep.jasper
-/Users/windiartonugroho/report/rptResep.jrxml
 ```
 
 Poin:
@@ -105,7 +113,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-24 Permintaan Lab."
+git commit -m "Update ke-25 Permintaan Lab. - 2"
 git branch -M main
 git push -u origin main
 ```
