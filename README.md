@@ -1,6 +1,6 @@
 # SIMRS_Khanza_Mod_RSIPKUM_PKY
 
-08.25 04/04/2024 - Palangka Raya, Riyan Hidayat Samosir, S.Kom | hanyajasa.com
+13.27 14/06/2024 - Palangka Raya, Riyan Hidayat Samosir, S.Kom | hanyajasa.com
 
 Permintaan Lab dari dokter ke Lab.
 1. rptPeriksaLabPermintaan.jrxml
@@ -10,7 +10,10 @@ Permintaan Lab dari dokter ke Lab.
 5. D:\windiartonugroho\src\simrskhanza\DlgCariPeriksaLab.java
 6. DlgCariPeriksaLab.java
 7. D:\windiartonugroho\src\surat\SuratBebasNarkoba.java
-8. SuratBebasNarkoba.java
+8. SuratBebasNarkoba.java |
+9. DlgCariPeriksaLabPA.java
+10. DlgCariPeriksaLabPA.form
+11. DlgRawatJalan.java
 
 
 Sourcecode:
@@ -48,8 +51,11 @@ Java:
 /Users/windiartonugroho/src/rekammedis/RMPenilaianAwalKeperawatanRalan.java
 /Users/windiartonugroho/src/simrskhanza/DlgCariPeriksaLab.form
 /Users/windiartonugroho/src/simrskhanza/DlgCariPeriksaLab.java
+/Users/windiartonugroho/src/simrskhanza/DlgCariPeriksaLabPA.form
+/Users/windiartonugroho/src/simrskhanza/DlgCariPeriksaLabPA.java
 /Users/windiartonugroho/src/simrskhanza/DlgIKBBayi.java
 /Users/windiartonugroho/src/simrskhanza/DlgKasirRalan.java
+/Users/windiartonugroho/src/simrskhanza/DlgRawatJalan.java
 /Users/windiartonugroho/src/simrskhanza/frmUtama.java
 /Users/windiartonugroho/src/surat/SuratBebasNarkoba.java
 /Users/windiartonugroho/src/surat/SuratBebasNarkoba_18112023.java
@@ -76,6 +82,10 @@ Report:
 /Users/windiartonugroho/report/rptPeriksaLab2.jrxml
 /Users/windiartonugroho/report/rptPeriksaLab3.jasper
 /Users/windiartonugroho/report/rptPeriksaLab3.jrxml
+/Users/windiartonugroho/report/rptPeriksaLabPAHJ.jasper
+/Users/windiartonugroho/report/rptPeriksaLabPAHJ.jrxml
+/Users/windiartonugroho/report/rptPeriksaLabPermintaanPADT.jasper
+/Users/windiartonugroho/report/rptPeriksaLabPermintaanPADT.jrxml
 /Users/windiartonugroho/report/rptPeriksaLabPermintaan.jrxml
 /Users/windiartonugroho/report/rptPeriksaLabPermintaan.jasper
 /Users/windiartonugroho/report/rptPeriksaLab2Permintaan.jrxml
@@ -113,7 +123,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-25 Permintaan Lab. - 2"
+git commit -m "Update ke-29 Permintaan Lab. dan input TTV beri warning jika kurang atau tidak diisi."
 git branch -M main
 git push -u origin main
 ```
