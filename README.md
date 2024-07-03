@@ -33,7 +33,7 @@ Ketinggalan file report report/rptResep.jasper
 
 Source Code ini hasil modifikasi seperlunya yang disesuaikan untuk keperluan Rumah Sakit Islam PKU Muhammadiyah Palangka Raya.
 
-Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022; 17/06/2023; 28/02/2024; 04/04/2024
+Clone dari https://github.com/mas-elkhanza/SIMRS-Khanza 12/12/2022; 17/06/2023; 28/02/2024; 04/04/2024; 03/07/2014;
 
 https://github.com/ryanbekabe/SIMRS_Khanza_Mod_RSIPKUM_PKY
 
@@ -82,6 +82,10 @@ Report:
 /Users/windiartonugroho/report/rptPeriksaLab2.jrxml
 /Users/windiartonugroho/report/rptPeriksaLab3.jasper
 /Users/windiartonugroho/report/rptPeriksaLab3.jrxml
+/Users/windiartonugroho/report/rptPeriksaLabPADTHJ.jasper
+/Users/windiartonugroho/report/rptPeriksaLabPADTHJ.jrxml
+/Users/windiartonugroho/report/rptPeriksaLabPADTHJ2.jasper
+/Users/windiartonugroho/report/rptPeriksaLabPADTHJ2.jrxml
 /Users/windiartonugroho/report/rptPeriksaLabPAHJ.jasper
 /Users/windiartonugroho/report/rptPeriksaLabPAHJ.jrxml
 /Users/windiartonugroho/report/rptPeriksaLabPermintaanPADT.jasper
@@ -123,7 +127,7 @@ java -jar SIMRSKhanza.jar
 echo "# SIMRS_Khanza_Mod_RSIPKUM_PKY" >> README.md
 git init
 git add .
-git commit -m "Update ke-29 Permintaan Lab. dan input TTV beri warning jika kurang atau tidak diisi."
+git commit -m "Update ke-34 Hasil Lab. deskripsinya bisa tulis panjang, tabel database detail_periksa_labpa ubah varchar dari 50 maupun 1024 ke text, karena deskripsninya panjang."
 git branch -M main
 git push -u origin main
 ```
