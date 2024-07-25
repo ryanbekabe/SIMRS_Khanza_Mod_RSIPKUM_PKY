@@ -15,17 +15,17 @@
 	<parameter name="logo2" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[select pasien.no_rkm_medis,pasien.nm_pasien, pasien.jk,
-pasien.no_ktp, pasien.pekerjaanpj, pasien.no_tlp,
-pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur,
-pasien.tgl_daftar,pasien.nm_ibu,pasien_bayi.umur_ibu,
-pasien_bayi.nama_ayah,pasien_bayi.umur_ayah,pasien.alamat,
-pasien_bayi.nama_ibu,pasien_bayi.umur_ibu,
-pasien_bayi.berat_badan,pasien_bayi.panjang_badan, pasien_bayi.lingkar_kepala,
-pasien_bayi.proses_lahir,pasien_bayi.anakke, pasien_bayi.keterangan,
-pasien_bayi.diagnosa,pasien_bayi.penyulit_kehamilan,pasien_bayi.ketuban,
-pasien_bayi.lingkar_perut,pasien_bayi.lingkar_dada,pegawai.nama,
-pasien_bayi.no_skl from pasien inner join pegawai inner join pasien_bayi
-on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai.nik]]>
+			pasien.no_ktp, pasien.pekerjaanpj, pasien.no_tlp,
+			pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur,
+			pasien.tgl_daftar,pasien.nm_ibu,pasien_bayi.umur_ibu,
+			pasien_bayi.nama_ayah,pasien_bayi.umur_ayah,pasien.alamat,
+			pasien_bayi.nama_ibu,pasien_bayi.umur_ibu,
+			pasien_bayi.berat_badan,pasien_bayi.panjang_badan, pasien_bayi.lingkar_kepala,
+			pasien_bayi.proses_lahir,pasien_bayi.anakke, pasien_bayi.keterangan,
+			pasien_bayi.diagnosa,pasien_bayi.penyulit_kehamilan,pasien_bayi.ketuban,
+			pasien_bayi.lingkar_perut,pasien_bayi.lingkar_dada,pegawai.nama,
+			pasien_bayi.no_skl from pasien inner join pegawai inner join pasien_bayi
+			on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai.nik]]>
 	</queryString>
 	<field name="no_rkm_medis" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -299,7 +299,7 @@ on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement positionType="Float" mode="Transparent" x="280" y="675" width="138" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="2af79c8a-485f-4040-a40a-01bae2faebff"/>
+				<reportElement positionType="Float" mode="Transparent" x="298" y="676" width="138" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="2af79c8a-485f-4040-a40a-01bae2faebff"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -307,7 +307,7 @@ on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai
 				<textFieldExpression><![CDATA[$P{kotars}+", "]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd MMMMM yyyy" isBlankWhenNull="true">
-				<reportElement positionType="Float" mode="Transparent" x="420" y="675" width="99" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="d73cdcb5-b51d-4c1a-9dbb-7f01bee6532b"/>
+				<reportElement positionType="Float" mode="Transparent" x="340" y="676" width="160" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="d73cdcb5-b51d-4c1a-9dbb-7f01bee6532b"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
