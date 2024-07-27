@@ -1332,6 +1332,8 @@ public final class DlgResepObat extends javax.swing.JDialog {
                 param.put("propinsirs",akses.getpropinsirs());
                 param.put("kontakrs",akses.getkontakrs());
                 param.put("emailrs",akses.getemailrs());   
+                //param.put("no_sep",akses.no_sep());   
+                param.put("no_sep",Sequel.cariIsi("select bridging_sep.no_sep from bridging_sep where bridging_sep.no_rawat=?",TNoRw.getText()));
                 param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
             Valid.MyReportqry("rptResep.jasper","report","::[ Daftar Pemberian Obat Resep ]::","select * from temporary_resep where temporary_resep.temp37='"+akses.getalamatip()+"' order by temporary_resep.no",param);
             this.setCursor(Cursor.getDefaultCursor());
@@ -2575,8 +2577,8 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             try {
                 ps2=koneksi.prepareStatement(
                         "select detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam,detail_pemberian_obat.no_rawat,"+
-                        "detail_pemberian_obat.kode_brng,databarang.nama_brng from detail_pemberian_obat "+
-                        "inner join databarang on detail_pemberian_obat.kode_brng=databarang.kode_brng where "+
+                        "detail_pemberian_obat.kode_brng,databarang.nama_brng,bridging_sep.no_rawat,bridging_sep.no_sep from detail_pemberian_obat "+
+                        "inner join databarang on detail_pemberian_obat.kode_brng=databarang.kode_brng inner join bridging_sep on bridging_sep.no_rawat=detail_pemberian_obat.no_rawat where "+
                         "detail_pemberian_obat.tgl_perawatan=? and detail_pemberian_obat.jam=? and "+
                         "detail_pemberian_obat.no_rawat=? and databarang.kode_brng not in (select kode_brng from detail_obat_racikan where tgl_perawatan=? and jam=? and no_rawat=?)");
                 ps2.setString(1,tbResep.getValueAt(tbResep.getSelectedRow(),1).toString().substring(0,10));
