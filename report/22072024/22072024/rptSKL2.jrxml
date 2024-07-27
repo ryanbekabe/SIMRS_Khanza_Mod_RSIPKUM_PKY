@@ -15,17 +15,17 @@
 	<parameter name="logo2" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[select pasien.no_rkm_medis,pasien.nm_pasien, pasien.jk,
-pasien.no_ktp, pasien.pekerjaanpj, pasien.no_tlp,
-pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur,
-pasien.tgl_daftar,pasien.nm_ibu,pasien_bayi.umur_ibu,
-pasien_bayi.nama_ayah,pasien_bayi.umur_ayah,pasien.alamat,
-pasien_bayi.nama_ibu,pasien_bayi.umur_ibu,
-pasien_bayi.berat_badan,pasien_bayi.panjang_badan, pasien_bayi.lingkar_kepala,
-pasien_bayi.proses_lahir,pasien_bayi.anakke, pasien_bayi.keterangan,
-pasien_bayi.diagnosa,pasien_bayi.penyulit_kehamilan,pasien_bayi.ketuban,
-pasien_bayi.lingkar_perut,pasien_bayi.lingkar_dada,pegawai.nama,
-pasien_bayi.no_skl from pasien inner join pegawai inner join pasien_bayi
-on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai.nik]]>
+			pasien.no_ktp, pasien.pekerjaanpj, pasien.no_tlp,
+			pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur,
+			pasien.tgl_daftar,pasien.nm_ibu,pasien_bayi.umur_ibu,
+			pasien_bayi.nama_ayah,pasien_bayi.umur_ayah,pasien.alamat,
+			pasien_bayi.nama_ibu,pasien_bayi.umur_ibu,
+			pasien_bayi.berat_badan,pasien_bayi.panjang_badan, pasien_bayi.lingkar_kepala,
+			pasien_bayi.proses_lahir,pasien_bayi.anakke, pasien_bayi.keterangan,
+			pasien_bayi.diagnosa,pasien_bayi.penyulit_kehamilan,pasien_bayi.ketuban,
+			pasien_bayi.lingkar_perut,pasien_bayi.lingkar_dada,pegawai.nama,
+			pasien_bayi.no_skl from pasien inner join pegawai inner join pasien_bayi
+			on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai.nik]]>
 	</queryString>
 	<field name="no_rkm_medis" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -176,7 +176,7 @@ on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Tunggal]]></text>
+				<text><![CDATA[Kembar 2]]></text>
 			</staticText>
 			<textField pattern="EEEEE, dd MMMMM yyyy">
 				<reportElement positionType="Float" x="120" y="191" width="160" height="22" uuid="8cdfd1b0-c0c5-4b21-b8a7-977d4e147596"/>
@@ -396,7 +396,7 @@ on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Umur Ibu]]></text>
+				<text><![CDATA[Tanggal Lahir]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="161" y="469" width="10" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="e4892450-b387-4b36-b173-e67d1d104d3e"/>
@@ -526,7 +526,7 @@ on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Umur Ayah]]></text>
+				<text><![CDATA[Tanggal Lahir]]></text>
 			</staticText>
 			<staticText>
 				<reportElement positionType="Float" mode="Transparent" x="161" y="574" width="99" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="3c585c3c-7aa7-45a9-aa3b-407a76340158"/>
@@ -537,7 +537,7 @@ on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="">
-				<reportElement positionType="Float" x="175" y="599" width="251" height="22" uuid="410723f7-880c-4744-872a-7c0d6325f55b"/>
+				<reportElement positionType="Float" x="175" y="599" width="251" height="22" forecolor="#FFFFFF" uuid="410723f7-880c-4744-872a-7c0d6325f55b"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12"/>
 					<paragraph lineSpacing="Single"/>
@@ -545,7 +545,7 @@ on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai
 				<textFieldExpression><![CDATA[$F{pekerjaanpj}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="Float" mode="Transparent" x="67" y="599" width="193" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="59053a8b-811a-47f4-83f0-5b9de9f7e0e1">
+				<reportElement positionType="Float" mode="Transparent" x="67" y="599" width="193" height="22" forecolor="#FFFFFF" backcolor="#F0F0DC" uuid="59053a8b-811a-47f4-83f0-5b9de9f7e0e1">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -555,7 +555,7 @@ on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai
 				<text><![CDATA[Pekerjaan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" mode="Transparent" x="161" y="599" width="99" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="c702cffb-bb67-47ea-a0b0-2475d94b78e5"/>
+				<reportElement positionType="Float" mode="Transparent" x="161" y="599" width="99" height="22" forecolor="#FFFFFF" backcolor="#F0F0DC" uuid="c702cffb-bb67-47ea-a0b0-2475d94b78e5"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
