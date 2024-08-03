@@ -322,6 +322,11 @@ public class DlgCopyResep extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnKeluarKeyPressed
 
     private void BtnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTambahActionPerformed
+        if(tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),8).toString().equals("Sudah Terlayani")){
+            JOptionPane.showMessageDialog(rootPane,"Maaf, tidak boleh edit, sudah terlayani..!! Silakan konfirmasi ke bagian Farmasi.");
+            return;
+        }
+        
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
         }else if(tbPemisahan.getSelectedRow()<= -1){
@@ -366,7 +371,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
         if(tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),8).toString().equals("Sudah Terlayani")){
-            JOptionPane.showMessageDialog(rootPane,"Maaf, tidak boleh edit, sudah terlayani..!!");
+            JOptionPane.showMessageDialog(rootPane,"Maaf, tidak boleh edit, sudah terlayani..!! Silakan konfirmasi ke bagian Farmasi.");
             return;
         }
         if(tabMode.getRowCount()==0){
@@ -404,7 +409,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
 
     private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
         if(tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),8).toString().equals("Sudah Terlayani")){
-            JOptionPane.showMessageDialog(rootPane,"Maaf, tidak boleh hapus, sudah terlayani..!!");
+            JOptionPane.showMessageDialog(rootPane,"Maaf, tidak boleh hapus, sudah terlayani..!! Silakan konfirmasi ke bagian Farmasi.");
             return;
         }
         if(tabMode.getRowCount()==0){

@@ -62,7 +62,7 @@ public class DlgDaftarPermintaanResep extends javax.swing.JDialog {
         
         tabMode=new DefaultTableModel(null,new Object[]{
                 "No.Resep","Tgl.Peresepan","Jam Peresepan","No.Rawat","No.RM","Pasien","Dokter Peresep",
-                "Status","Kode Dokter","Poli/Unit","Kode Poli","Jenis Bayar","Tgl.Billing","Jam Billing",
+                "Status","Kode Dokter","Poli/Unit","Kode Poli","Jenis Bayar","Tgl.Verifikasi","Jam Verifikasi",
                 "Tgl.Penyerahan","Jam Penyerahan"
             }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
