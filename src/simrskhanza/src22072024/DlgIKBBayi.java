@@ -72,8 +72,8 @@ public class DlgIKBBayi extends javax.swing.JDialog {
 
         tabMode=new DefaultTableModel(null,new Object[]{
             "No.RM","Nama Anak/Bayi","J.K","Tgl.Lahir","Jam Lahir",
-            "Umur","Tgl.Daftar","Nama Ibu","Umur Ibu","Nama Ayah",
-            "Umur Ayah","Alamat Ibu","B.B.","P.B.",
+            "Umur","Tgl.Daftar","Nama Ibu","Tgl Lahir Ibu","Nama Ayah",
+            "Tgl Lahir Ayah","Alamat Ibu","B.B.","P.B.",
             "Lk.Kepala","Proses Lahir","Kelahiran Ke","Keterangan",
             "Diagnosa","Penyulit Kehamilan","Ketuban","Lk.Perut",
             "Lk.Dada","Penolong","No.SKL","G","P","A","F 1","U 1",
@@ -246,9 +246,9 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         NmBayi.setDocument(new batasInput((byte)40).getKata(NmBayi));
         AlamatIbu.setDocument(new batasInput((int)200).getKata(AlamatIbu));
         Nmibu.setDocument(new batasInput((byte)50).getKata(Nmibu));
-        UmurIbu.setDocument(new batasInput((byte)8).getKata(UmurIbu));
+        UmurIbu.setDocument(new batasInput((byte)10).getKata(UmurIbu));
         NmAyah.setDocument(new batasInput((byte)50).getKata(NmAyah));
-        UmurAyah.setDocument(new batasInput((byte)8).getKata(UmurAyah));
+        UmurAyah.setDocument(new batasInput((byte)10).getKata(UmurAyah));
         Proses.setDocument(new batasInput((byte)60).getKata(Proses));
         Diagnosa.setDocument(new batasInput((byte)60).getKata(Diagnosa));
         Ketuban.setDocument(new batasInput((byte)60).getKata(Ketuban));
@@ -882,7 +882,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         MnSKL.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnSKL.setForeground(new java.awt.Color(50, 50, 50));
         MnSKL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnSKL.setText("Surat Keterangan Lahir 1");
+        MnSKL.setText("Surat Keterangan Lahir 1 - Tunggal Oke");
         MnSKL.setName("MnSKL"); // NOI18N
         MnSKL.setPreferredSize(new java.awt.Dimension(250, 28));
         MnSKL.addActionListener(new java.awt.event.ActionListener() {
@@ -896,7 +896,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         MnSKL1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnSKL1.setForeground(new java.awt.Color(50, 50, 50));
         MnSKL1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnSKL1.setText("Surat Keterangan Lahir 2 - Oke");
+        MnSKL1.setText("Surat Keterangan Lahir 2 - Kembar Oke");
         MnSKL1.setName("MnSKL1"); // NOI18N
         MnSKL1.setPreferredSize(new java.awt.Dimension(250, 28));
         MnSKL1.addActionListener(new java.awt.event.ActionListener() {
@@ -1775,7 +1775,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         FormInput.add(NoRm);
         NoRm.setBounds(89, 12, 100, 23);
 
-        label18.setText("Ibu Bayi :");
+        label18.setText("Nama Ibu Bayi :");
         label18.setName("label18"); // NOI18N
         label18.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label18);
@@ -1929,7 +1929,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         FormInput.add(NmAyah);
         NmAyah.setBounds(89, 72, 230, 23);
 
-        label20.setText("Umur Ibu :");
+        label20.setText("Tgl Lhr Ibu :");
         label20.setName("label20"); // NOI18N
         label20.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label20);
@@ -2062,7 +2062,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         FormInput.add(NmBayi);
         NmBayi.setBounds(191, 12, 244, 23);
 
-        label35.setText("Umur Ayah :");
+        label35.setText("Tgl Lhr Ayah :");
         label35.setName("label35"); // NOI18N
         label35.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label35);
@@ -3182,31 +3182,32 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }else if(tabMode.getRowCount()!=0){
             Locale locale = new Locale ("id", "ID"); 
             Locale.setDefault(locale);
-            Map<String, Object> param = new HashMap<>();    
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("nomor",NoSKL.getText());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
-                param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
-                param.put("logo2",Sequel.cariGambar("select setting.logo from setting")); 
-                Valid.MyReportqry("rptSKL.jasper","report","::[ Surat Kelahiran Bayi ]::",
-                       "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
-                        "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur, "+
-                        "pasien.tgl_daftar,pasien.nm_ibu,pasien_bayi.umur_ibu, "+
-                        "pasien_bayi.nama_ayah,pasien_bayi.umur_ayah,"+
-                        "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, "+
-                        "pasien_bayi.berat_badan,pasien_bayi.panjang_badan, pasien_bayi.lingkar_kepala, "+
-                        "pasien_bayi.proses_lahir,pasien_bayi.anakke, pasien_bayi.keterangan, "+
-                        "pasien_bayi.diagnosa,pasien_bayi.penyulit_kehamilan,pasien_bayi.ketuban,"+
-                        "pasien_bayi.lingkar_perut,pasien_bayi.lingkar_dada,pegawai.nama,"+
-                        "pasien_bayi.no_skl from pasien inner join pegawai inner join pasien_bayi "+
-                        "inner join kelurahan inner join kecamatan inner join kabupaten "+
-                        "on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai.nik "+
-                        "and pasien.kd_kel=kelurahan.kd_kel and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab "+
-                        "where pasien_bayi.no_rkm_medis='"+NoRm.getText()+"'",param);            
+            Map<String, Object> param = new HashMap<>();
+            param.put("namars",akses.getnamars());
+            param.put("alamatrs",akses.getalamatrs());
+            param.put("kotars",akses.getkabupatenrs());
+            param.put("nomor",NoSKL.getText());
+            param.put("propinsirs",akses.getpropinsirs());
+            param.put("kontakrs",akses.getkontakrs());
+            param.put("emailrs",akses.getemailrs());
+//            param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
+//            param.put("logo2",Sequel.cariGambar("select setting.logo from setting"));
+            param.put("logo",Sequel.cariGambar("select gambar.kopsurat from gambar"));
+            Valid.MyReportqry("rptSKL1.jasper","report","::[ Surat Kelahiran Bayi ]::",
+                "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
+                "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur, "+
+                "pasien.tgl_daftar,pasien.nm_ibu,pasien_bayi.umur_ibu,pasien.pekerjaanpj, "+
+                "pasien_bayi.nama_ayah,pasien_bayi.umur_ayah,pasien.no_ktp,"+
+                "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, "+
+                "pasien_bayi.berat_badan,pasien_bayi.panjang_badan, pasien_bayi.lingkar_kepala, "+
+                "pasien_bayi.proses_lahir,pasien_bayi.anakke, pasien_bayi.keterangan, "+
+                "pasien_bayi.diagnosa,pasien_bayi.penyulit_kehamilan,pasien_bayi.ketuban,"+
+                "pasien_bayi.lingkar_perut,pasien_bayi.lingkar_dada,pegawai.nama,"+
+                "pasien_bayi.no_skl from pasien inner join pegawai inner join pasien_bayi "+
+                "inner join kelurahan inner join kecamatan inner join kabupaten "+
+                "on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai.nik "+
+                "and pasien.kd_kel=kelurahan.kd_kel and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab "+
+                "where pasien_bayi.no_rkm_medis='"+NoRm.getText()+"'",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnSKLActionPerformed
