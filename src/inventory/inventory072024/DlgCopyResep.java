@@ -295,7 +295,12 @@ public class DlgCopyResep extends javax.swing.JDialog {
         if(tabMode.getRowCount()!=0){
             if(evt.getClickCount()==2){
                 if(akses.getberi_obat()==true){
-                    BtnTambahActionPerformed(null);
+                    if(tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),8).toString().equals("Sudah Terlayani")){
+                        JOptionPane.showMessageDialog(rootPane,"Maaf, tidak boleh edit, sudah terlayani..!! Silakan konfirmasi ke bagian Farmasi.");
+                        return;
+                    }else{
+                        BtnTambahActionPerformed(null);
+                    }
                 }
             }
         }
@@ -322,10 +327,10 @@ public class DlgCopyResep extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnKeluarKeyPressed
 
     private void BtnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTambahActionPerformed
-        if(tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),8).toString().equals("Sudah Terlayani")){
-            JOptionPane.showMessageDialog(rootPane,"Maaf, tidak boleh edit, sudah terlayani..!! Silakan konfirmasi ke bagian Farmasi.");
-            return;
-        }
+//        if(tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),8).toString().equals("Sudah Terlayani")){
+//            JOptionPane.showMessageDialog(rootPane,"Maaf, tidak boleh edit, sudah terlayani..!! Silakan konfirmasi ke bagian Farmasi.");
+//            return;
+//        }
         
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
