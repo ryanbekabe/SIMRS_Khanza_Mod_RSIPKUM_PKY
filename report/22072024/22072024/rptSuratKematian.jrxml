@@ -17,7 +17,7 @@
 	<parameter name="logo" class="java.io.InputStream"/>
 	<parameter name="finger" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select date_format(pasien_mati.tanggal,'%d-%m-%Y') as tanggal,pasien_mati.jam,pasien_mati.no_rkm_medis,pasien.nm_pasien, 
+		<![CDATA[select pasien_mati.tanggal,pasien_mati.jam,pasien_mati.no_rkm_medis,pasien.nm_pasien, 
 pasien.jk,pasien.tmp_lahir,pasien.tgl_lahir,pasien.gol_darah,pasien.stts_nikah, pasien.umur,pasien.alamat,
 pasien.agama,pasien_mati.keterangan,pasien_mati.temp_meninggal,pasien_mati.icd1,pasien_mati.icd2,
 pasien_mati.icd3,pasien_mati.icd4,pasien_mati.kd_dokter,dokter.nm_dokter 
@@ -48,7 +48,7 @@ inner join dokter on pasien_mati.kd_dokter=dokter.kd_dokter]]>
 	<field name="nm_dokter" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="tanggal" class="java.lang.String">
+	<field name="tanggal" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="jam" class="java.lang.String">
@@ -126,7 +126,7 @@ inner join dokter on pasien_mati.kd_dokter=dokter.kd_dokter]]>
 					<font fontName="Tahoma" size="11"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tmp_lahir} + ", " + new java.text.SimpleDateFormat("dd-MM-yyyy").format($F{tgl_lahir})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tmp_lahir} + ", " + new java.text.SimpleDateFormat("dd-MM-yyyy", new java.util.Locale("id", "ID")).format($F{tgl_lahir})]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="170" y="333" width="270" height="16" uuid="ed890341-2567-4bac-b4c2-2501c26b611d">
@@ -156,7 +156,7 @@ inner join dokter on pasien_mati.kd_dokter=dokter.kd_dokter]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{jam} + " WIB"]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
+			<textField pattern="EEEEE, dd MMMMM yyyy">
 				<reportElement x="170" y="201" width="249" height="16" uuid="b8951308-381b-4ff0-b972-bc44208e3a53">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -165,7 +165,7 @@ inner join dokter on pasien_mati.kd_dokter=dokter.kd_dokter]]>
 					<font fontName="Tahoma" size="12"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("EEEEE, dd MMMM yyyy", new java.util.Locale("id", "ID")).format($F{tanggal})]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement mode="Transparent" x="0" y="161" width="549" height="34" forecolor="#000000" backcolor="#F0F0DC" uuid="c67c4dd9-f629-4dac-9b11-3da9ee6951a4">
@@ -175,15 +175,15 @@ inner join dokter on pasien_mati.kd_dokter=dokter.kd_dokter]]>
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Yang bertanda tangan di bawah ini Dokter RS Islam PKU Muhammadiyah Palangka Raya, menerangkan bahwa pada :]]></text>
+				<text><![CDATA[Yang bertanda tangan di bawah ini Dokter RS Islam PKU Muhammadiyah Palangka Raya, menerangkan bahwa pada]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="30" y="201" width="80" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="bc5cf4f7-3eee-480d-909c-c9710225de36"/>
+				<reportElement mode="Transparent" x="30" y="201" width="120" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="bc5cf4f7-3eee-480d-909c-c9710225de36"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Tanggal]]></text>
+				<text><![CDATA[Hari, Tanggal]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="30" y="223" width="80" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="ed671c9b-b268-4b2a-a31a-0496d028fb45"/>
