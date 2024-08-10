@@ -110,7 +110,7 @@ pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab and reg_periks
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Yang bertanda tangan di bawah ini Dokter RS Islam PKU Muhammadiyah Palangka Raya menerangkan bahwa pasien : ]]></text>
+				<text><![CDATA[Yang bertanda tangan dibawah ini Dokter RS Islam PKU Muhammadiyah Palangka Raya menerangkan bahwa pasien ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="44" y="215" width="130" height="15" uuid="8a671420-0d7f-417e-b0f5-5bf5dbbd5e99">

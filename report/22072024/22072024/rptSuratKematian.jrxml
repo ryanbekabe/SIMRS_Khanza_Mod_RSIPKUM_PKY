@@ -45,6 +45,9 @@ inner join dokter on pasien_mati.kd_dokter=dokter.kd_dokter]]>
 	<field name="agama" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="keterangan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="nm_dokter" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -175,7 +178,7 @@ inner join dokter on pasien_mati.kd_dokter=dokter.kd_dokter]]>
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Yang bertanda tangan di bawah ini Dokter RS Islam PKU Muhammadiyah Palangka Raya, menerangkan bahwa pada]]></text>
+				<text><![CDATA[Yang bertanda tangan dibawah ini Dokter RS Islam PKU Muhammadiyah Palangka Raya, menerangkan bahwa pada]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="30" y="201" width="120" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="bc5cf4f7-3eee-480d-909c-c9710225de36"/>
@@ -346,7 +349,7 @@ inner join dokter on pasien_mati.kd_dokter=dokter.kd_dokter]]>
 					<font fontName="Tahoma" size="12"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Nomor : ........./71024/........./........./202...."]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{keterangan}.replaceAll( "2","" ).replaceAll( "3","" ).equals("-") ? "Nomor : ........./71024/........./........./202....":($F{keterangan}))]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -520,7 +520,7 @@ where resume_pasien.no_rawat= $P{norawat}]]>
 				<text><![CDATA[Dokter Penanggung Jawab]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement positionType="Float" x="347" y="590" width="176" height="50" isRemoveLineWhenBlank="true" uuid="92ab0356-8454-4b64-a117-5ac52c90d28f">
+				<reportElement positionType="Float" x="347" y="590" width="176" height="41" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" uuid="92ab0356-8454-4b64-a117-5ac52c90d28f">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
