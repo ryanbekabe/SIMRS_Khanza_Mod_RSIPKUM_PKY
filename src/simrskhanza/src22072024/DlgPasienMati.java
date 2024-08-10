@@ -59,7 +59,7 @@ public class DlgPasienMati extends javax.swing.JDialog {
         initComponents();
 
         Object[] row={"Tanggal","Jam","No.R.Medik","Nama Pasien","J.K.","Tmp.Lahir",
-                      "Tgl.Lahir","G.D.","Stts.Nikah","Agama","Keterangan","Tempat Meninggal",
+                      "Tgl.Lahir","G.D.","Stts.Nikah","Agama","Ket./No.Srt","Tempat Meninggal",
                       "ICD-X","Antara 1","Antara 2","Langsung","Kode DPJP","Nama DPJP"};
 
         tabMode=new DefaultTableModel(null,row){
@@ -593,7 +593,7 @@ public class DlgPasienMati extends javax.swing.JDialog {
         FormInput.add(jLabel4);
         jLabel4.setBounds(0, 40, 115, 23);
 
-        jLabel9.setText("Keterangan :");
+        jLabel9.setText("Ket./No.Srt :");
         jLabel9.setName("jLabel9"); // NOI18N
         FormInput.add(jLabel9);
         jLabel9.setBounds(0, 130, 115, 23);
@@ -616,7 +616,7 @@ public class DlgPasienMati extends javax.swing.JDialog {
 
         DTPTgl.setEditable(false);
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-08-2021" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-07-2024" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
