@@ -91,7 +91,7 @@
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" x="5" y="70" width="535" height="22" uuid="25daa57a-20ca-4192-8c94-c0a87914ea5f"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["No. SEP : " + $P{no_sep}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{no_sep}.replaceAll( "2","" ).replaceAll( "3","" ).equals("") ? " ":("No. SEP : " + $P{no_sep}))]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
