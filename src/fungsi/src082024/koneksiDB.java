@@ -52,13 +52,13 @@ public class koneksiDB {
                         "                                                                           \n"+
                         "  *Pengembangan pada: KOP Surat Report, Hasil Lab., Kunci Tombol, Warna Hijau untuk Versi Modif.                         \n"+
                         "  1) Form/Java: RMPenilaianAwalKeperawatanRalan.java 0, SuratButaWarna.java 1, SuratBebasNarkoba.java 1-3, DlgIKBBayi.java 1, SuratKeteranganSehat.java 1, DlgPasienMati.java 1, SuratSakit.java 1, DlgCariPeriksaLab.java, DlgPermintaanLaboratorium.java, koneksiDB.java, sekuel.java;    \n"+
-                        "   ) Form/Java: DlgCopyResep.java, DlgRawatJalan.java, DlgCariPeriksaLabPA.java, DlgResepObat.java, DlgDaftarPermintaanResep.java, RMDataResumePasien.java;    \n"+
+                        "   ) Form/Java: DlgCopyResep.java, DlgRawatJalan.java, DlgCariPeriksaLabPA.java, DlgResepObat.java, DlgDaftarPermintaanResep.java, RMDataResumePasien.java, DlgKasirRalan.java;    \n"+
                         "  2) Report: rptLabelDiet.jrxml, rptBebasNarkoba.jasper, rptBebasNarkoba1.jasper, rptBebasNarkoba2.jasper, rptCetakPenilaianAwalKeperawatanRalan.jasper, rptPeriksaLab.jasper (Short), rptPeriksaLab2.jasper (Long), rptPeriksaLab3.jasper (Swab), rptSKL1.jasper 1, rptSKL2.jasper 1, rptSuratKematian.jasper 1, rptSuratKeteranganSehat.jasper 1, rptSuratSakit5.jasper 1, rptSuratTidakButaWarna.jasper 1;     \n"+
-                        "   ) Report: rptPeriksaLabPADTHJ.jasper dr. Frau, rptPeriksaLabPADTHJ2.jasper dr. Frau, rptResep.jasper, rptLaporanResume.jasper;      \n"+
+                        "   ) Report: rptPeriksaLabPADTHJ.jasper dr. Frau, rptPeriksaLabPADTHJ2.jasper dr. Frau, rptResep.jasper, rptLaporanResume.jasper, rptBarcodeRawat.jasper;      \n"+
                         "  3) Database: surat_skbn-no_surat(varchar 25 to 30), pasien_bayi-umur_ibu dan umur_ayah(varchar 8 to 10);     \n"+
                         "  4) Perbaikan: Permintaan Lab., Hasil Periksa Lab. PA., Perbesar limit iputan Lab. PA dan varchar pada tabel database detail_periksa_labpa menjadi text agar deskripsi bisa panjang;     \n"+
                         "  5) Tambahan: Lengkapi SOAP dokter Rajal, Tambah Menu pada Periksa Lab. PA dan Cetak mode 1-2 MDT / Morfologi Darah Tepi; Disable Edit dan Hapus pada Obat Terlayani;     \n"+
-                        "  Re-Compile_By: Bang Riyan Hidayat Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 13.55 06/08/2024 - RS Islam PKU Muhammadiyah Palangka Raya.");
+                        "  Re-Compile_By: Bang Riyan Hidayat Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 09.07 24/08/2024 - RS Islam PKU Muhammadiyah Palangka Raya.");
             }catch(Exception e){
                 System.out.println("Notif : "+e);
                 try {
