@@ -105,7 +105,7 @@
 					<font size="6" isBold="true"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[.RSI PKU MUHAMMADIYAH PALANGKARAYA]]></text>
+				<text><![CDATA[RSI PKU MUHAMMADIYAH PALANGKARAYA]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="9" y="46" width="41" height="6" uuid="a373834f-a02c-4572-839b-335187933b57"/>
@@ -121,7 +121,7 @@
 					<font fontName="Tahoma" size="4"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{prb}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($P{prb}.replaceAll( "2","" ).replaceAll( "3","" ).equals("") ? " " : ($P{prb}.replaceAll( "2","" ).replaceAll( "3","" ).equals("Potensi PRB") ? "Potensi PRB" :"Potensi PRB."))]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
