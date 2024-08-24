@@ -9986,9 +9986,10 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         if(!TPasienCari.getText().equals("")){
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             Map<String, Object> param = new HashMap<>();
-            param.put("nama",TPasienCari.getText());
+            param.put("nama",TPasienCari.getText() + " / " + Sequel.cariIsi("select jk from pasien where no_rkm_medis=?",TNoRMCari.getText()));
             param.put("alamat",Sequel.cariIsi("select date_format(tgl_lahir,'%d/%m/%Y') from pasien where no_rkm_medis=?",TNoRMCari.getText()));
             param.put("norm",TNoRMCari.getText());
+            param.put("prb",Sequel.cariIsi("SELECT prb FROM bridging_sep INNER JOIN bpjs_prb ON bpjs_prb.no_sep = bridging_sep.no_sep WHERE bridging_sep.no_rawat=?",TNoRw.getText()));
             param.put("parameter","%"+TCari.getText().trim()+"%");
             param.put("namars",akses.getnamars());
             param.put("alamatrs",akses.getalamatrs());
