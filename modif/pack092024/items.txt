@@ -1,0 +1,10 @@
+                        "  *Pengembangan/modifikasi pada:                          \n"+
+                        "  1) Form/Java: rekammedis/RMDataResumePasien.java (Kondisi Pasien Pulang); simrskhanza/DlgIKBBayi.java (Tgl Lhr Ibu Ayah, Tunggal & Kembar); simrskhanza/DlgPasienMati.java; surat/SuratButaWarna.java (1); /SuratKeteranganSehat.java (1); surat/SuratSakit.java (1); simrskhanza/DlgKasirRalan.java (Surat Keterangan Sehat 3 - Oke); simrskhanza/DlgReg.java (Surat Keterangan Sehat 3 - Oke); /fungsi/sekuel.java (AKTIFKANTRACKSQL);       \n"+
+                        "   ) Form/Java: ;    \n"+
+                        "  2) Report: rptSuratSakit5.jasper (1); rptSuratKeteranganSehat.jasper (1); rptSuratTidakButaWarna.jasper (1); rptLaporanResume.jasper; rptSKL1.jasper & rptSKL2.jasper;     \n"+
+                        "   ) Report: ;     \n"+
+                        "  3) Database: ;     \n"+
+                        "  4) Perbaikan: ;     \n"+
+                        "  5) Tambahan: ;     \n"+
+                        "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64; Git Clone 09 September 2024. \n"+
+                        "  Re-Compile_by: Bang Riyan Hidayat Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 13.49 22/09/2024 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
