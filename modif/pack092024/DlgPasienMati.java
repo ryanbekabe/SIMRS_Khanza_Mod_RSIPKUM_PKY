@@ -10,6 +10,7 @@
  */
 
 package simrskhanza;
+import AESsecurity.EnkripsiAES;
 import fungsi.WarnaTable;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
@@ -313,7 +314,7 @@ public class DlgPasienMati extends javax.swing.JDialog {
         MnCetakSuratMati.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnCetakSuratMati.setForeground(java.awt.Color.darkGray);
         MnCetakSuratMati.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnCetakSuratMati.setText("Surat Kematian 1");
+        MnCetakSuratMati.setText("Surat Kematian 1 - Oke");
         MnCetakSuratMati.setName("MnCetakSuratMati"); // NOI18N
         MnCetakSuratMati.setPreferredSize(new java.awt.Dimension(190, 28));
         MnCetakSuratMati.addActionListener(new java.awt.event.ActionListener() {
@@ -1010,8 +1011,9 @@ private void MnCetakSuratMatiActionPerformed(java.awt.event.ActionEvent evt) {//
           param.put("logo",Sequel.cariGambar("select gambar.kopsurat from gambar"));
           finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",KdDokter.getText());
 //                param.put("finger","https://rsipalangkaraya.online/suratsakit/?token="+EnkripsiAES.encrypt(NoSurat.getText())); 
-          param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+NmDokter.getText()+"\nID "+(finger.equals("")?KdDokter.getText():finger)+"\n"+DTPTgl.getSelectedItem());  
-          Valid.MyReportqry("rptSuratKematian.jasper","report","::[ Surat Kematian ]::",
+//          param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+NmDokter.getText()+"\nID "+(finger.equals("")?KdDokter.getText():finger)+"\n"+DTPTgl.getSelectedItem());   
+          param.put("finger","https://rsipalangkaraya.online/verifqr/?id="+EnkripsiAES.encrypt("{'x':'skm','t':'"+TKtg.getText()+"'}"));
+            Valid.MyReportqry("rptSuratKematian.jasper","report","::[ Surat Kematian ]::",
                 "select pasien_mati.tanggal,pasien_mati.jam,pasien_mati.no_rkm_medis,pasien.nm_pasien, "+
                 "pasien.jk,pasien.pekerjaan,pasien.tmp_lahir,pasien.tgl_lahir,pasien.gol_darah,pasien.stts_nikah,pasien.umur,pasien.alamat, "+
                 "pasien.agama,pasien_mati.keterangan,pasien_mati.temp_meninggal,pasien_mati.icd1,pasien_mati.icd2,"+
