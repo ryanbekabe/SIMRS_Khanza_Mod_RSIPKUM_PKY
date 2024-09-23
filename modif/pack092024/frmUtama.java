@@ -1058,7 +1058,15 @@ import ziscsr.ZISPengeluaranPenerimaDankes;
 import ziscsr.ZISPenghasilanPenerimaDankes;
 import ziscsr.ZISTernakPenerimaDankes;
 import ziscsr.ZISUkuranRumahPenerimaDankes;
+import java.net.HttpURLConnection;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  *
@@ -1175,6 +1183,74 @@ public class frmUtama extends javax.swing.JFrame {
             }     
         }catch(Exception e){            
         } 
+
+        // Menggunakan Timer untuk memberikan delay 5 detik
+//        Timer timer = new Timer(5000, new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                try {
+//                    // URL yang ingin diakses
+//                    String url = "https://hanyajasa.com/?datastatistik=";
+//                    
+//                    // Membuat koneksi ke URL
+//                    HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+//                    connection.setRequestMethod("GET");
+//
+//                    // Membaca respon dari server
+//                    BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+//                    String inputLine;
+//                    StringBuilder content = new StringBuilder();
+//
+//                    while ((inputLine = in.readLine()) != null) {
+//                        content.append(inputLine);
+//                    }
+//
+//                    // Menutup koneksi
+//                    in.close();
+//                    connection.disconnect();
+//
+//                    // Menampilkan hasil respon di console (atau bisa juga diproses lebih lanjut)
+//                    System.out.println("Response: " + content.toString());
+
+//                } catch (Exception ex) {
+//                    ex.printStackTrace();
+//                }
+
+
+
+
+
+        try {
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            LblIP.setText(""+inetAddress.getHostAddress());
+            akses.setalamatip(""+inetAddress.getHostAddress());
+            // URL yang ingin diakses
+            String url = "http://192.168.88.100/?simrsv=10_19_23-09-2024&ip="+LblIP.getText()+"&usernya="+edAdmin.getText();
+
+            // Membuat koneksi ke URL
+            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+            connection.setRequestMethod("GET");
+
+            // Membaca respon dari server
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String inputLine;
+            StringBuilder content = new StringBuilder();
+
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+
+            // Menutup koneksi
+            in.close();
+            connection.disconnect();
+
+            // Menampilkan hasil respon di console (atau bisa juga diproses lebih lanjut)
+            System.out.println("Response: " + content.toString());
+
+        } catch (Exception e) {
+            System.out.println("Notif mGET : "+e);
+        }
+
     }
     
     public static frmUtama getInstance() {
@@ -8262,6 +8338,32 @@ public class frmUtama extends javax.swing.JFrame {
                 akses.setperiksalabmbfalse();
                 akses.setpermintaanradiologifalse();
                 akses.setperiksaradiologifalse();
+
+                try {
+                    InetAddress inetAddress = InetAddress.getLocalHost();
+                    LblIP.setText(""+inetAddress.getHostAddress());
+                    akses.setalamatip(""+inetAddress.getHostAddress());
+                    // URL yang ingin diakses
+                    String url = "http://192.168.88.100/?simrsv=10_19_23-09-2024&ip="+LblIP.getText()+"&usernyaHJd="+lblUser.getText();
+                    // Membuat koneksi ke URL
+                    HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+                    connection.setRequestMethod("GET");
+                    // Membaca respon dari server
+                    BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    String inputLine;
+                    StringBuilder content = new StringBuilder();
+                    while ((inputLine = in.readLine()) != null) {
+                        content.append(inputLine);
+                    }
+                    // Menutup koneksi
+                    in.close();
+                    connection.disconnect();
+                    // Menampilkan hasil respon di console (atau bisa juga diproses lebih lanjut)
+//                    System.out.println("Response HJd: " + content.toString()+url);
+                } catch (Exception e) {
+                    System.out.println("Notif mGET : "+e);
+                }
+
                 edAdmin.setText("");
                 edPwd.setText("");
                 BtnLog.setText("Log In");
@@ -8318,8 +8420,35 @@ public class frmUtama extends javax.swing.JFrame {
                         Sequel.menyimpan("tracker","'Admin Utama',current_date(),current_time()","Login");
                     }
                     else if(AKTIFKANTRACKSQL.equals("no")){
-                        Sequel.menyimpan("tracker","'Admin Utama',current_date(),current_time()","Login");
+                        Sequel.menyimpan("tracker","'Admin Utama',current_date(),current_time()","Login Mod HJ");
                     }
+
+                try {
+                    InetAddress inetAddress = InetAddress.getLocalHost();
+                    LblIP.setText(""+inetAddress.getHostAddress());
+                    akses.setalamatip(""+inetAddress.getHostAddress());
+                    // URL yang ingin diakses
+                    String url = "http://192.168.88.100/?simrsv=10_19_23-09-2024&ip="+LblIP.getText()+"&usernyaHJa="+edAdmin.getText();
+                    // Membuat koneksi ke URL
+                    HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+                    connection.setRequestMethod("GET");
+                    // Membaca respon dari server
+                    BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    String inputLine;
+                    StringBuilder content = new StringBuilder();
+                    while ((inputLine = in.readLine()) != null) {
+                        content.append(inputLine);
+                    }
+                    // Menutup koneksi
+                    in.close();
+                    connection.disconnect();
+                    // Menampilkan hasil respon di console (atau bisa juga diproses lebih lanjut)
+//                    System.out.println("Response HJa: " + content.toString()+url);
+                } catch (Exception e) {
+                    System.out.println("Notif mGET : "+e);
+                }
+                    
+
                 }else if(akses.getjml2()>=1){  
                     BtnMenu.setEnabled(true);
                     DlgLogin.dispose();
@@ -8370,12 +8499,38 @@ public class frmUtama extends javax.swing.JFrame {
                     btnResepObatDepan.setEnabled(akses.getresep_obat());
                     if(AKTIFKANTRACKSQL.equals("yes")){
                         Sequel.menyimpan("tracker","'"+edAdmin.getText()+"',current_date(),current_time()","Login");
-                        Sequel.menyimpan("tracker","'"+edAdmin.getText()+"',current_date(),current_time()","Login Mod 22092024");
+//                        Sequel.menyimpan("tracker","'"+edAdmin.getText()+"',current_date(),current_time()","Login Mod 22092024");
                     }
                     else if(AKTIFKANTRACKSQL.equals("no")){
-                        Sequel.menyimpan("tracker","'"+edAdmin.getText()+"',current_date(),current_time()","Login");
-                        Sequel.menyimpan("tracker","'"+edAdmin.getText()+"',current_date(),current_time()","Login Mod 22092024");
+//                        Sequel.menyimpan("tracker","'"+edAdmin.getText()+"',current_date(),current_time()","Login");
+                        Sequel.menyimpan("tracker","'"+edAdmin.getText()+"',current_date(),current_time()","Login Mod HJ");
                     }
+
+                try {
+                    InetAddress inetAddress = InetAddress.getLocalHost();
+                    LblIP.setText(""+inetAddress.getHostAddress());
+                    akses.setalamatip(""+inetAddress.getHostAddress());
+                    // URL yang ingin diakses
+                    String url = "http://192.168.88.100/?simrsv=10_19_23-09-2024&ip="+LblIP.getText()+"&usernyaHJb="+edAdmin.getText();
+                    // Membuat koneksi ke URL
+                    HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+                    connection.setRequestMethod("GET");
+                    // Membaca respon dari server
+                    BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    String inputLine;
+                    StringBuilder content = new StringBuilder();
+                    while ((inputLine = in.readLine()) != null) {
+                        content.append(inputLine);
+                    }
+                    // Menutup koneksi
+                    in.close();
+                    connection.disconnect();
+                    // Menampilkan hasil respon di console (atau bisa juga diproses lebih lanjut)
+//                    System.out.println("Response HJb: " + content.toString()+url);
+                } catch (Exception e) {
+                    System.out.println("Notif mGET : "+e);
+                }
+                
                 }else if((akses.getjml1()==0)&&(akses.getjml2()==0)){
                     JOptionPane.showMessageDialog(null,"Maaf, Gagal login. ID User atau password ada yang salah ...!");
                     BtnToolReg.setEnabled(false);
@@ -8397,6 +8552,33 @@ public class frmUtama extends javax.swing.JFrame {
                     btnDataPenyerahanDarah.setEnabled(false);
                     btnDaftarPermintaanResep.setEnabled(false);
                     btnResepObatDepan.setEnabled(false);
+ 
+
+                try {
+                    InetAddress inetAddress = InetAddress.getLocalHost();
+                    LblIP.setText(""+inetAddress.getHostAddress());
+                    akses.setalamatip(""+inetAddress.getHostAddress());
+                    // URL yang ingin diakses
+                    String url = "http://192.168.88.100/?simrsv=10_19_23-09-2024&ip="+LblIP.getText()+"&usernyaHJc="+edAdmin.getText();
+                    // Membuat koneksi ke URL
+                    HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+                    connection.setRequestMethod("GET");
+                    // Membaca respon dari server
+                    BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    String inputLine;
+                    StringBuilder content = new StringBuilder();
+                    while ((inputLine = in.readLine()) != null) {
+                        content.append(inputLine);
+                    }
+                    // Menutup koneksi
+                    in.close();
+                    connection.disconnect();
+                    // Menampilkan hasil respon di console (atau bisa juga diproses lebih lanjut)
+//                    System.out.println("Response HJc: " + content.toString()+url);
+                } catch (Exception e) {
+                    System.out.println("Notif mGET : "+e);
+                }
+
                     edAdmin.setText("");
                     edPwd.setText("");           
                      
@@ -8406,7 +8588,8 @@ public class frmUtama extends javax.swing.JFrame {
                     BtnLog.setText("Log In");
                     MnLogin.setText("Log In");
                     lblStts.setText("Status Admin : ");
-                    lblUser.setText("Log Out");   
+                    lblUser.setText("Log Out");                  
+                
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);

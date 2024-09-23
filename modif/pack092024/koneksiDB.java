@@ -49,7 +49,7 @@ public class koneksiDB {
                         "  Informasi dan panduan bisa dicek di halaman https://github.com/mas-elkhanza/SIMRS-Khanza/wiki \n"+
                         "  Bagi yang ingin berdonasi untuk pengembangan aplikasi ini bisa ke BSI 1015369872 atas nama Windiarto\n"+
                         "  *Pengembangan/modifikasi pada:                          \n"+
-                        "  1) Form/Java: rekammedis/RMDataResumePasien.java (1) (Kondisi Pasien Pulang); simrskhanza/DlgIKBBayi.java (Tgl Lhr Ibu; Tgl Lhr Ayah, Surat Keterangan Lahir 1 - Tunggal; Surat Keterangan Lahir 2 - Kembar); simrskhanza/DlgPasienMati.java (1) (Ket./NoSrt, Surat Kematian 1 - Oke); surat/SuratButaWarna.java (1); surat/SuratKeteranganSehat.java (1); surat/SuratSakit.java (1) (Cetak Surat Sakit 1 - Oke); simrskhanza/DlgKasirRalan.java (Surat Keterangan Sehat 3 - Oke); simrskhanza/DlgReg.java (Surat Keterangan Sehat 3 - Oke); /fungsi/sekuel.java (AKTIFKANTRACKSQL);       \n"+
+                        "  1) Form/Java: rekammedis/RMDataResumePasien.java (1) (Kondisi Pasien Pulang); simrskhanza/DlgIKBBayi.java (Tgl Lhr Ibu; Tgl Lhr Ayah, Surat Keterangan Lahir 1 - Tunggal; Surat Keterangan Lahir 2 - Kembar); simrskhanza/DlgPasienMati.java (1) (Ket./NoSrt, Surat Kematian 1 - Oke); surat/SuratButaWarna.java (1); surat/SuratKeteranganSehat.java (1); surat/SuratSakit.java (1) (Cetak Surat Sakit 1 - Oke); simrskhanza/DlgKasirRalan.java (Surat Keterangan Sehat 3 - Oke); simrskhanza/DlgReg.java (Surat Keterangan Sehat 3 - Oke); fungsi/sekuel.java (AKTIFKANTRACKSQL); simrskhanza/frmUtama.java;       \n"+
                         "   ) Form/Java: ;    \n"+
                         "  2) Report: rptSuratSakit5.jasper (1); rptSuratKeteranganSehat.jasper (1); rptSuratTidakButaWarna.jasper (1); rptLaporanResume.jasper (1); rptSKL1.jasper & rptSKL2.jasper; rptSuratKematian.jasper (1);     \n"+
                         "   ) Report: ;     \n"+
@@ -57,7 +57,7 @@ public class koneksiDB {
                         "  4) Perbaikan: ;     \n"+
                         "  5) Tambahan: ;     \n"+
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64; Git Clone 09 September 2024. \n"+
-                        "  Re-Compile_by: Bang Riyan Hidayat Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 09.48 23/09/2024 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Riyan Hidayat Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 11.06 23/09/2024 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
             }catch(Exception e){
                 System.out.println("Notif : "+e);
