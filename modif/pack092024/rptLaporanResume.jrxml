@@ -515,7 +515,7 @@ where resume_pasien.no_rawat= $P{norawat}]]>
 				<textFieldExpression><![CDATA["( "+$F{nm_dokter}+" )"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="Float" x="343" y="576" width="182" height="11" uuid="e310e9c8-eb47-4aab-8710-9d2c1ca5fff8"/>
+				<reportElement positionType="Float" x="337" y="576" width="182" height="11" uuid="e310e9c8-eb47-4aab-8710-9d2c1ca5fff8"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -523,7 +523,7 @@ where resume_pasien.no_rawat= $P{norawat}]]>
 				<text><![CDATA[Dokter Penanggung Jawab]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement positionType="Float" x="347" y="590" width="176" height="41" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" uuid="92ab0356-8454-4b64-a117-5ac52c90d28f">
+				<reportElement positionType="Float" x="341" y="587" width="174" height="52" isRemoveLineWhenBlank="true" forecolor="#030303" uuid="92ab0356-8454-4b64-a117-5ac52c90d28f">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">

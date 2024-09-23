@@ -266,8 +266,8 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pekerjaan}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="111" y="278" width="430" height="21" uuid="fb2f2451-7a7b-4a2f-864e-162e54db2fed"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="111" y="278" width="430" height="21" uuid="fb2f2451-7a7b-4a2f-864e-162e54db2fed"/>
 				<textElement>
 					<font fontName="Tahoma" size="12"/>
 					<paragraph lineSpacing="Single"/>
@@ -400,7 +400,7 @@
 				<textFieldExpression><![CDATA["Memerlukan istirahat selama "+$P{hari}+" hari karena sakit, terhitung dari tanggal "+$P{TanggalAwal}+" sampai dengan "+$P{TanggalAkhir}+"."]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement x="329" y="430" width="179" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" uuid="0bb5b2fd-8cae-48c1-9ab3-ce5be31f7a4a">
+				<reportElement x="329" y="428" width="177" height="71" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="0bb5b2fd-8cae-48c1-9ab3-ce5be31f7a4a">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">

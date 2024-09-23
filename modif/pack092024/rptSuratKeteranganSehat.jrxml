@@ -22,6 +22,9 @@
 	<field name="nm_dokter" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="no_ijn_praktek" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="jk" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -51,7 +54,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="580" splitType="Stretch">
+		<band height="616" splitType="Stretch">
 			<staticText>
 				<reportElement x="3" y="121" width="549" height="15" uuid="0eac3d93-afe1-40fb-a4b2-743ba65a60d8"/>
 				<textElement textAlignment="Center">
@@ -118,7 +121,7 @@
 				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="true">
-				<reportElement x="320" y="475" width="230" height="21" uuid="2727512b-bb2d-42f4-bed3-645fce487a0f"/>
+				<reportElement x="310" y="475" width="230" height="21" uuid="2727512b-bb2d-42f4-bed3-645fce487a0f"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -325,7 +328,7 @@
 				<textFieldExpression><![CDATA[$F{keperluan}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="320" y="558" width="232" height="19" uuid="816320f6-7c29-4933-b34e-e68305a2256d"/>
+				<reportElement x="310" y="572" width="232" height="19" uuid="816320f6-7c29-4933-b34e-e68305a2256d"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12"/>
 				</textElement>
@@ -383,7 +386,7 @@
 				<text><![CDATA[Dan berlaku jangka waktu 1 (satu) bulan.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="320" y="496" width="230" height="20" uuid="0c56558e-a979-49cd-b1cd-fac284284ae3"/>
+				<reportElement x="310" y="496" width="230" height="20" uuid="0c56558e-a979-49cd-b1cd-fac284284ae3"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="12"/>
 					<paragraph lineSpacing="Single"/>
@@ -408,7 +411,7 @@
 				<textFieldExpression><![CDATA["Nomor : "+$F{no_surat}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="164" y="232" width="146" height="17" uuid="732e8cfa-a0a1-4542-a607-2b8a0842cd1a">
+				<reportElement positionType="Float" x="360" y="233" width="185" height="17" forecolor="#FFFFFF" uuid="732e8cfa-a0a1-4542-a607-2b8a0842cd1a">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -439,8 +442,15 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{namakeluarga}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern=" dd MMMMM yyyy">
-				<reportElement positionType="Float" x="290" y="232" width="146" height="17" uuid="e55dd38b-4500-441f-a4db-5b25f067397c">
+			<textField>
+				<reportElement x="297" y="593" width="257" height="19" uuid="3951d859-43ad-4253-8e1d-5b972e2efa93"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SIP. "+$F{no_ijn_praktek}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="164" y="232" width="249" height="17" uuid="e55dd38b-4500-441f-a4db-5b25f067397c">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -449,8 +459,16 @@
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tmp_lahir}+", "+new java.text.SimpleDateFormat("dd-MM-yyyy", new java.util.Locale("id", "ID")).format($F{tgl_lahir})]]></textFieldExpression>
 			</textField>
+			<componentElement>
+				<reportElement x="333" y="514" width="186" height="58" isRemoveLineWhenBlank="true" uuid="a547de18-6b8f-4e99-bc70-6cf457e98802">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
 		</band>
 	</detail>
 	<summary>

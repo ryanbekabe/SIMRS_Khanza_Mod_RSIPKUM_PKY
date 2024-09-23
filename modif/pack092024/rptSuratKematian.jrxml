@@ -362,6 +362,14 @@ inner join dokter on pasien_mati.kd_dokter=dokter.kd_dokter]]>
 				</textElement>
 				<textFieldExpression><![CDATA["SIP. "+$F{no_ijn_praktek}]]></textFieldExpression>
 			</textField>
+			<componentElement>
+				<reportElement positionType="Float" x="340" y="488" width="173" height="51" isRemoveLineWhenBlank="true" forecolor="#030303" uuid="03b9bbcc-ab29-4daa-a6d5-2385516bf4e7">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
 		</band>
 	</detail>
 	<summary>
