@@ -11,6 +11,7 @@
 	<parameter name="kontakrs" class="java.lang.String"/>
 	<parameter name="emailrs" class="java.lang.String"/>
 	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="finger" class="java.lang.String"/>
 	<parameter name="nomor" class="java.lang.String"/>
 	<parameter name="logo2" class="java.io.InputStream"/>
 	<queryString>
@@ -100,6 +101,9 @@
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="no_skl" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="no_ijn_praktek" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="no_ktp" class="java.lang.String"/>
@@ -299,7 +303,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement positionType="Float" mode="Transparent" x="287" y="676" width="138" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="2af79c8a-485f-4040-a40a-01bae2faebff"/>
+				<reportElement positionType="Float" mode="Transparent" x="283" y="652" width="138" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="2af79c8a-485f-4040-a40a-01bae2faebff"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -307,7 +311,7 @@
 				<textFieldExpression><![CDATA[$P{kotars}+", "]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd MMMMM yyyy" isBlankWhenNull="true">
-				<reportElement positionType="Float" mode="Transparent" x="380" y="676" width="160" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="d73cdcb5-b51d-4c1a-9dbb-7f01bee6532b"/>
+				<reportElement positionType="Float" mode="Transparent" x="376" y="652" width="160" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="d73cdcb5-b51d-4c1a-9dbb-7f01bee6532b"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -315,7 +319,7 @@
 				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="Float" mode="Transparent" x="298" y="698" width="251" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="72a21057-ae31-40c1-8c3f-78cdb390e383"/>
+				<reportElement positionType="Float" mode="Transparent" x="294" y="675" width="251" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="72a21057-ae31-40c1-8c3f-78cdb390e383"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -323,7 +327,7 @@
 				<text><![CDATA[Dokter Penanggung Jawab]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="">
-				<reportElement positionType="Float" x="298" y="768" width="251" height="22" uuid="b28612d2-94cd-4a38-a689-a7be2f14737e"/>
+				<reportElement positionType="Float" x="294" y="749" width="251" height="22" uuid="b28612d2-94cd-4a38-a689-a7be2f14737e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12" isUnderline="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -566,6 +570,22 @@
 				<reportElement x="18" y="2" width="520" height="118" uuid="f3488c61-675f-4f95-8006-c710aff7945e"/>
 				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 			</image>
+			<componentElement>
+				<reportElement positionType="Float" x="336" y="698" width="171" height="51" isRemoveLineWhenBlank="true" forecolor="#030303" uuid="bc2217df-e655-4fa9-8cd3-05b0fd3a94c1">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField>
+				<reportElement x="278" y="773" width="275" height="19" uuid="091de701-36c3-4dd6-bd7e-aa6f88165886"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SIP. "+$F{no_ijn_praktek}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>
