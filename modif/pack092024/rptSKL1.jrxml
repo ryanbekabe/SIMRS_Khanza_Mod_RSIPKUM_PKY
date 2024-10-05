@@ -52,6 +52,12 @@
 	<field name="nm_ibu" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="nama_ibu_bayi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ktp_ibu" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="umur_ibu" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -427,7 +433,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="">
-				<reportElement x="174" y="497" width="259" height="22" uuid="2c1f04fd-7e76-489a-ba32-8dad604b3d0f"/>
+				<reportElement x="174" y="497" width="46" height="22" forecolor="#FFFFFF" uuid="2c1f04fd-7e76-489a-ba32-8dad604b3d0f"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12"/>
 					<paragraph lineSpacing="Single"/>
@@ -585,6 +591,22 @@
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA["SIP. "+$F{no_ijn_praktek}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="">
+				<reportElement x="103" y="420" width="195" height="22" forecolor="#FFFFFF" uuid="7c588bf6-768d-4392-a79f-41fb95e36505"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_ibu_bayi}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="">
+				<reportElement x="175" y="497" width="239" height="22" uuid="d4b4f56d-f5d2-4256-a1f0-f5ac0d4a9e81"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{ktp_ibu} == null ? "-" : $F{ktp_ibu}.equals("") ? "-" : $F{ktp_ibu})]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

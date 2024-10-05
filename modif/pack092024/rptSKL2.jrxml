@@ -52,6 +52,12 @@
 	<field name="nm_ibu" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="nama_ibu_bayi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ktp_ibu" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="umur_ibu" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -127,7 +133,7 @@
 				<textFieldExpression><![CDATA["Nomor :           /71024/           / "]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="">
-				<reportElement x="175" y="469" width="251" height="22" uuid="bd99a637-a761-4303-9dd2-5a6f01c84697"/>
+				<reportElement x="175" y="470" width="251" height="22" uuid="bd99a637-a761-4303-9dd2-5a6f01c84697"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12"/>
 					<paragraph lineSpacing="Single"/>
@@ -395,7 +401,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="67" y="469" width="94" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="dd347aa1-977c-47ed-a9ee-fef01e44f66d"/>
+				<reportElement mode="Transparent" x="67" y="470" width="94" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="dd347aa1-977c-47ed-a9ee-fef01e44f66d"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -403,7 +409,7 @@
 				<text><![CDATA[Tanggal Lahir]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="161" y="469" width="10" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="e4892450-b387-4b36-b173-e67d1d104d3e"/>
+				<reportElement mode="Transparent" x="161" y="470" width="10" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="e4892450-b387-4b36-b173-e67d1d104d3e"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -427,7 +433,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="">
-				<reportElement x="174" y="497" width="259" height="22" uuid="2c1f04fd-7e76-489a-ba32-8dad604b3d0f"/>
+				<reportElement x="174" y="497" width="86" height="22" forecolor="#FFFFFF" uuid="2c1f04fd-7e76-489a-ba32-8dad604b3d0f"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="12"/>
 					<paragraph lineSpacing="Single"/>
@@ -586,6 +592,22 @@
 					<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
 				</jr:QRCode>
 			</componentElement>
+			<textField isStretchWithOverflow="true" pattern="">
+				<reportElement x="103" y="420" width="195" height="22" forecolor="#FFFFFF" uuid="ed7fc384-d9e2-4dff-83f5-e4df608bff87"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_ibu_bayi}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="">
+				<reportElement x="175" y="497" width="239" height="22" uuid="db5cca96-0c04-40f0-8517-4eece41b547c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{ktp_ibu} == null ? "-" : $F{ktp_ibu}.equals("") ? "-" : $F{ktp_ibu})]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>

@@ -3199,7 +3199,8 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                 Valid.MyReportqry("rptSKL1.jasper","report","::[ Surat Kelahiran Bayi ]::",
                        "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
                         "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur,pasien.pekerjaanpj, "+
-                        "pasien.tgl_daftar,pasien.nm_ibu,dokter.kd_dokter,dokter.nm_dokter,dokter.no_ijn_praktek,pasien_bayi.umur_ibu, "+
+//                        "pasien.tgl_daftar,pasien.nm_ibu,dokter.kd_dokter,dokter.nm_dokter,dokter.no_ijn_praktek,pasien_bayi.umur_ibu, "+
+                        "pasien.tgl_daftar,pasien.nm_ibu as nama_ibu_bayi,(SELECT pasien.no_ktp FROM pasien WHERE pasien.nm_pasien = nama_ibu_bayi) AS ktp_ibu,dokter.kd_dokter,dokter.nm_dokter,dokter.no_ijn_praktek,pasien_bayi.umur_ibu, "+
                         "pasien_bayi.nama_ayah,pasien_bayi.umur_ayah,pasien.no_ktp,"+
                         "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, "+
                         "pasien_bayi.berat_badan,pasien_bayi.panjang_badan, pasien_bayi.lingkar_kepala, "+
@@ -3750,7 +3751,7 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             Valid.MyReportqry("rptSKL2.jasper","report","::[ Surat Kelahiran Bayi Kembar]::",
                "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
                 "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur,pasien.pekerjaanpj, "+
-                "pasien.tgl_daftar,pasien.nm_ibu,dokter.kd_dokter,dokter.nm_dokter,dokter.no_ijn_praktek,pasien_bayi.umur_ibu, "+
+                "pasien.tgl_daftar,pasien.nm_ibu as nama_ibu_bayi,(SELECT pasien.no_ktp FROM pasien WHERE pasien.nm_pasien = nama_ibu_bayi) AS ktp_ibu,dokter.kd_dokter,dokter.nm_dokter,dokter.no_ijn_praktek,pasien_bayi.umur_ibu, "+
 
 //                "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
 //                "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur, "+
@@ -3769,21 +3770,6 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                 "and pasien.kd_kel=kelurahan.kd_kel and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab "+
                 "where pasien_bayi.no_rkm_medis='"+NoRm.getText()+"'",param);
 
-//        Valid.MyReportqry("rptSKL1.jasper","report","::[ Surat Kelahiran Bayi ]::",
-//               "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
-//                "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur,pasien.pekerjaanpj, "+
-//                "pasien.tgl_daftar,pasien.nm_ibu,dokter.kd_dokter,dokter.nm_dokter,dokter.no_ijn_praktek,pasien_bayi.umur_ibu, "+
-//                "pasien_bayi.nama_ayah,pasien_bayi.umur_ayah,pasien.no_ktp,"+
-//                "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat, "+
-//                "pasien_bayi.berat_badan,pasien_bayi.panjang_badan, pasien_bayi.lingkar_kepala, "+
-//                "pasien_bayi.proses_lahir,pasien_bayi.anakke, pasien_bayi.keterangan, "+
-//                "pasien_bayi.diagnosa,pasien_bayi.penyulit_kehamilan,pasien_bayi.ketuban,"+
-//                "pasien_bayi.lingkar_perut,pasien_bayi.lingkar_dada,pegawai.nama,"+
-//                "pasien_bayi.no_skl from pasien inner join pegawai inner join dokter inner join pasien_bayi "+
-//                "inner join kelurahan inner join kecamatan inner join kabupaten "+
-//                "on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis and pasien_bayi.penolong=pegawai.nik and dokter.kd_dokter=pegawai.nik "+
-//                "and pasien.kd_kel=kelurahan.kd_kel and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab "+
-//                "where pasien_bayi.no_rkm_medis='"+NoRm.getText()+"'",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnSKL1ActionPerformed
