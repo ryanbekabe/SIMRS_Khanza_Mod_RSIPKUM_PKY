@@ -11618,7 +11618,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
                             System.out.println("stamp dataranap30: " + timestampranap30);
 
                             if(timestamptoday-timestampranap30>86400 && timestamptoday-timestampranap30<=2592000){
-//				if(timestamptoday-timestampranap30<=2592000){
+//                            if(timestamptoday-timestampranap30<=2592000){
                                 System.out.println("Potensi Re-Admisi " + rs.getString(8));
                                 message.append(rs.getString(3)).append(" - ").append(rs.getString(7)).append(" - ")
                                        .append(rs.getString(8)).append("\n");
