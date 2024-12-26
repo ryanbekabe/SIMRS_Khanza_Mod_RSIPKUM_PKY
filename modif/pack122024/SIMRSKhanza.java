@@ -26,16 +26,16 @@ public class SIMRSKhanza {
         WidgetUtilities.invokeLater(() -> {
             
 //        DlgIKBBayi form=new DlgIKBBayi(null,false);
-        DlgRawatJalan form=new DlgRawatJalan(null,false);
-        form.isCek();
-        form.SetPj("-");
-        form.SetPoli("-");
-        form.setSize(1800,900);
-        form.setVisible(true);
+//        DlgRawatJalan form=new DlgRawatJalan(null,false);
+//        form.isCek();
+//        form.SetPj("-");
+//        form.SetPoli("-");
+//        form.setSize(1800,900);
+//        form.setVisible(true);
         
-//           frmUtama utama=frmUtama.getInstance();
-//           utama.isWall();
-//           utama.setVisible(true);
+           frmUtama utama=frmUtama.getInstance();
+           utama.isWall();
+           utama.setVisible(true);
         }); 
     }
     
