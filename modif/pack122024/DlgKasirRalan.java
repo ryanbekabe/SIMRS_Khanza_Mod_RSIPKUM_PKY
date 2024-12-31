@@ -771,6 +771,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jMenu6 = new javax.swing.JMenu();
         MnLabelTracker = new javax.swing.JMenuItem();
         MnLabelTracker1 = new javax.swing.JMenuItem();
+        MnLabelTracker1b = new javax.swing.JMenuItem();
         MnLabelTracker2 = new javax.swing.JMenuItem();
         MnLabelTracker3 = new javax.swing.JMenuItem();
         MnBarcode = new javax.swing.JMenuItem();
@@ -3056,6 +3057,22 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         });
         jMenu6.add(MnLabelTracker1);
 
+        MnLabelTracker1b.setBackground(new java.awt.Color(255, 255, 254));
+        MnLabelTracker1b.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnLabelTracker1b.setForeground(new java.awt.Color(50, 50, 50));
+        MnLabelTracker1b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnLabelTracker1b.setText("Label Tracker 2 B - Radiologi");
+        MnLabelTracker1b.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnLabelTracker1b.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnLabelTracker1b.setName("MnLabelTracker1b"); // NOI18N
+        MnLabelTracker1b.setPreferredSize(new java.awt.Dimension(180, 26));
+        MnLabelTracker1b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnLabelTracker1bActionPerformed(evt);
+            }
+        });
+        jMenu6.add(MnLabelTracker1b);        
+        
         MnLabelTracker2.setBackground(new java.awt.Color(255, 255, 254));
         MnLabelTracker2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnLabelTracker2.setForeground(new java.awt.Color(50, 50, 50));
@@ -9915,7 +9932,28 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
             param.put("emailrs",akses.getemailrs());
             param.put("no_rawat",TNoRw.getText());
             param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
-            Valid.MyReport("rptLabelTracker2.jasper",param,"::[ Label Tracker ]::");
+//            param.put("nmpemeriksaan",Sequel.cariIsi("SELECT `jns_perawatan_radiologi`.`nm_perawatan` FROM `permintaan_radiologi` INNER JOIN `permintaan_pemeriksaan_radiologi` ON `permintaan_pemeriksaan_radiologi`.`noorder`=`permintaan_radiologi`.`noorder` INNER JOIN `jns_perawatan_radiologi` ON `jns_perawatan_radiologi`.`kd_jenis_prw` = `permintaan_pemeriksaan_radiologi`.`kd_jenis_prw` WHERE `permintaan_radiologi`.`no_rawat`=?",TNoRw.getText()));
+            Valid.MyReport("rptLabelTracker2b.jasper",param,"::[ Label Tracker ]::");
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_MnLabelTracker1ActionPerformed
+    
+    private void MnLabelTracker1bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnLabelTracker1ActionPerformed
+        if(TPasienCari.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            Map<String, Object> param = new HashMap<>();
+            param.put("namars",akses.getnamars());
+            param.put("alamatrs",akses.getalamatrs());
+            param.put("kotars",akses.getkabupatenrs());
+            param.put("propinsirs",akses.getpropinsirs());
+            param.put("kontakrs",akses.getkontakrs());
+            param.put("emailrs",akses.getemailrs());
+            param.put("no_rawat",TNoRw.getText());
+            param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
+            param.put("nmpemeriksaan",Sequel.cariIsi("SELECT `jns_perawatan_radiologi`.`nm_perawatan` FROM `permintaan_radiologi` INNER JOIN `permintaan_pemeriksaan_radiologi` ON `permintaan_pemeriksaan_radiologi`.`noorder`=`permintaan_radiologi`.`noorder` INNER JOIN `jns_perawatan_radiologi` ON `jns_perawatan_radiologi`.`kd_jenis_prw` = `permintaan_pemeriksaan_radiologi`.`kd_jenis_prw` WHERE `permintaan_radiologi`.`no_rawat`=?",TNoRw.getText()));
+            Valid.MyReport("rptLabelTracker2b.jasper",param,"::[ Label Tracker ]::");
             this.setCursor(Cursor.getDefaultCursor());
         }
     }//GEN-LAST:event_MnLabelTracker1ActionPerformed
@@ -14535,6 +14573,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     private javax.swing.JMenuItem MnKonselingFarmasi;
     private javax.swing.JMenuItem MnLabelTracker;
     private javax.swing.JMenuItem MnLabelTracker1;
+    private javax.swing.JMenuItem MnLabelTracker1b;
     private javax.swing.JMenuItem MnLabelTracker2;
     private javax.swing.JMenuItem MnLabelTracker3;
     private javax.swing.JMenuItem MnMeninggal;
