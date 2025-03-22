@@ -1106,8 +1106,10 @@ public final class SuratBebasNarkoba extends javax.swing.JDialog {
                 param.put("emailrs",akses.getemailrs());  
                 param.put("pjlabdokter",Sequel.cariIsi("select nm_dokter from dokter inner join surat_skbn on surat_skbn.kd_dokter=dokter.kd_dokter where surat_skbn.no_rawat=?",TNoRw.getText()));
                 param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter inner join surat_skbn on surat_skbn.kd_dokter=dokter.kd_dokter where surat_skbn.no_rawat=?",TNoRw.getText()));
+
                 finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",KdDok.getText());
-                param.put("finger","https://verifqr.rsipalangkaraya.co.id/verifqr/?id="+EnkripsiAES.encrypt("{'x':'skk','t':'"+NoSurat.getText()+"'}"));                param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+TDokter.getText()+"\nID "+(finger.equals("")?KdDok.getText():finger)+"\n"+TanggalSurat.getSelectedItem());  
+//                param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+TDokter.getText()+"\nID "+(finger.equals("")?KdDok.getText():finger)+"\n"+TanggalSurat.getSelectedItem());  
+                param.put("finger","https://verifqr.rsipalangkaraya.co.id/verifqr/?id="+EnkripsiAES.encrypt("{'x':'skk','t':'"+NoSurat.getText()+"'}"));
                 param.put("logo",Sequel.cariGambar("select gambar.kopsurat from gambar")); 
                 Valid.MyReportqry("rptBebasNarkoba1.jasper","report","::[ Surat SKBN 1 - 3 param]::",
                               " select reg_periksa.no_rawat,dokter.nm_dokter,dokter.no_ijn_praktek,pasien.tgl_lahir,pasien.nm_pasien,pasien.pekerjaan,"+
@@ -1144,10 +1146,11 @@ public final class SuratBebasNarkoba extends javax.swing.JDialog {
                 param.put("emailrs",akses.getemailrs());  
                 param.put("pjlabdokter",Sequel.cariIsi("select nm_dokter from dokter inner join surat_skbn on surat_skbn.kd_dokter=dokter.kd_dokter where surat_skbn.no_rawat=?",TNoRw.getText()));
                 param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter inner join surat_skbn on surat_skbn.kd_dokter=dokter.kd_dokter where surat_skbn.no_rawat=?",TNoRw.getText()));
+
                 finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",KdDok.getText());
                 param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+TDokter.getText()+"\nID "+(finger.equals("")?KdDok.getText():finger)+"\n"+TanggalSurat.getSelectedItem());  
                 param.put("finger","https://verifqr.rsipalangkaraya.co.id/verifqr/?id="+EnkripsiAES.encrypt("{'x':'skk','t':'"+NoSurat.getText()+"'}"));
-                param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
+                param.put("logo",Sequel.cariGambar("select gambar.kopsurat from gambar")); 
                 Valid.MyReportqry("rptBebasNarkoba2.jasper","report","::[ Surat SKBN 2 - 6 param ]::",
                 " select reg_periksa.no_rawat,dokter.nm_dokter,dokter.no_ijn_praktek,pasien.tgl_lahir,pasien.nm_pasien,pasien.pekerjaan,"+
                 " concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat,pasien.jk,reg_periksa.kd_dokter " +
@@ -1263,12 +1266,13 @@ public final class SuratBebasNarkoba extends javax.swing.JDialog {
                 param.put("kotars",akses.getkabupatenrs());
                 param.put("propinsirs",akses.getpropinsirs());
                 param.put("kontakrs",akses.getkontakrs());
+                param.put("emailrs",akses.getemailrs());  
                 param.put("pjlabdokter",Sequel.cariIsi("select nm_dokter from dokter inner join surat_skbn on surat_skbn.kd_dokter=dokter.kd_dokter where surat_skbn.no_rawat=?",TNoRw.getText()));
                 param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter inner join surat_skbn on surat_skbn.kd_dokter=dokter.kd_dokter where surat_skbn.no_rawat=?",TNoRw.getText()));
-                param.put("emailrs",akses.getemailrs());  
                 finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",KdDok.getText());
-                param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+TDokter.getText()+"\nID "+(finger.equals("")?KdDok.getText():finger)+"\n"+TanggalSurat.getSelectedItem());  
-                param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
+                // param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+TDokter.getText()+"\nID "+(finger.equals("")?KdDok.getText():finger)+"\n"+TanggalSurat.getSelectedItem());  
+                param.put("finger","https://verifqr.rsipalangkaraya.co.id/verifqr/?id="+EnkripsiAES.encrypt("{'x':'skk','t':'"+NoSurat.getText()+"'}"));
+                param.put("logo",Sequel.cariGambar("select gambar.kopsurat from gambar")); 
                 Valid.MyReportqry("rptBebasNarkoba.jasper","report","::[ Surat SKBN 4 - 2 param]::",
                               " select reg_periksa.no_rawat,dokter.nm_dokter,dokter.no_ijn_praktek,pasien.tgl_lahir,pasien.nm_pasien,pasien.pekerjaan,"+
                               " concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat,pasien.jk,reg_periksa.kd_dokter " +

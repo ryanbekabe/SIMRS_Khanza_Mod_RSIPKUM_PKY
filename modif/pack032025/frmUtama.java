@@ -208,14 +208,19 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Window;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.File;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
+
+import javax.imageio.ImageIO;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.ImageOutputStream;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -674,6 +679,9 @@ import ipsrs.IPSRSRingkasanPengeluaranBarangNonMedis;
 import ipsrs.IPSRSRingkasanReturBeliBarangNonMedis;
 import ipsrs.IPSRSRiwayatBarang;
 import ipsrs.IPSRSVerifikasiPenerimaan;
+import javafx.scene.robot.Robot;
+import javafx.scene.shape.Rectangle;
+
 import java.net.InetAddress;
 import kepegawaian.DlgAuditBundleIADP;
 import kepegawaian.DlgAuditBundleIDO;
@@ -1010,6 +1018,7 @@ import ziscsr.ZISPenghasilanPenerimaDankes;
 import ziscsr.ZISTernakPenerimaDankes;
 import ziscsr.ZISUkuranRumahPenerimaDankes;
 import java.net.HttpURLConnection;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -1020,14 +1029,15 @@ import java.net.URL;
 
 import java.awt.AWTException;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.Robot;
+//import java.awt.Rectangle;
+//import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.ImageOutputStream;
+
 /**
  *
  * @author perpustakaan
@@ -1143,30 +1153,6 @@ public class frmUtama extends javax.swing.JFrame {
             }     
         }catch(Exception e){            
         } 
-
-        try {
-            InetAddress inetAddress = InetAddress.getLocalHost();
-            LblIP.setText(""+inetAddress.getHostAddress());
-            akses.setalamatip(""+inetAddress.getHostAddress());
-            // URL yang ingin diakses
-            String url = "http://192.168.88.100/?simrsv=20250307&ip="+LblIP.getText()+"&usernya="+edAdmin.getText();
-
-            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-            connection.setRequestMethod("GET");
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            String inputLine;
-            StringBuilder content = new StringBuilder();
-
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine);
-            }
-
-            in.close();
-            connection.disconnect();
-        } catch (Exception e) {
-
-        }
     }
     
     public static frmUtama getInstance() {
@@ -1759,6 +1745,7 @@ public class frmUtama extends javax.swing.JFrame {
         jSeparator13 = new javax.swing.JPopupMenu.Separator();
         MnRekapHadir6 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
 
         DlgLogin.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         DlgLogin.setName("DlgLogin"); // NOI18N
@@ -1767,14 +1754,14 @@ public class frmUtama extends javax.swing.JFrame {
 
         internalFrame2.setBorder(null);
         internalFrame2.setName("internalFrame2"); // NOI18N
-        internalFrame2.setWarnaAtas(new java.awt.Color(225, 71, 152));
-        internalFrame2.setWarnaBawah(new java.awt.Color(225, 61, 142));
+        internalFrame2.setWarnaAtas(new java.awt.Color(0, 255, 255));
+        internalFrame2.setWarnaBawah(new java.awt.Color(0, 204, 204));
         internalFrame2.setLayout(null);
 
         internalFrame3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 125, 90), 1, true), ":: Silahkan Anda Login ::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame3.setName("internalFrame3"); // NOI18N
         internalFrame3.setRequestFocusEnabled(false);
-        internalFrame3.setWarnaAtas(new java.awt.Color(250, 200, 215));
+        internalFrame3.setWarnaAtas(new java.awt.Color(0, 204, 204));
         internalFrame3.setLayout(null);
 
         panelGlass1.setBackground(java.awt.Color.red);
@@ -1871,7 +1858,7 @@ public class frmUtama extends javax.swing.JFrame {
         DlgHome.setUndecorated(true);
         DlgHome.setResizable(false);
 
-        panelMenu.setBackground(new java.awt.Color(255, 253, 253));
+        panelMenu.setBackground(new java.awt.Color(51, 255, 255));
         panelMenu.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(223, 233, 213)), "::[ Menu Utama ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         panelMenu.setName("panelMenu"); // NOI18N
         panelMenu.setPreferredSize(new java.awt.Dimension(2412, 3653));
@@ -1879,7 +1866,7 @@ public class frmUtama extends javax.swing.JFrame {
         panelMenu.setWarnaBawah(new java.awt.Color(255, 252, 252));
         panelMenu.setLayout(new java.awt.BorderLayout(1, 1));
 
-        panelisi2.setBackground(new java.awt.Color(255, 253, 253));
+        panelisi2.setBackground(new java.awt.Color(51, 255, 255));
         panelisi2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(238, 240, 230)));
         panelisi2.setName("panelisi2"); // NOI18N
         panelisi2.setPreferredSize(new java.awt.Dimension(100, 40));
@@ -1948,6 +1935,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         panelMenu.add(panelisi2, java.awt.BorderLayout.PAGE_START);
 
+        scrollPane2.setBackground(new java.awt.Color(0, 255, 255));
         scrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(238, 240, 230)));
         scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane2.setName("scrollPane2"); // NOI18N
@@ -1964,7 +1952,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28/09/2024" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20/03/2025" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -7020,7 +7008,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("::[ Khanza SIMKES 2022 ]::");
-        setBackground(new java.awt.Color(255, 254, 254));
+        setBackground(new java.awt.Color(0, 204, 204));
         setIconImages(null);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentMoved(java.awt.event.ComponentEvent evt) {
@@ -7045,7 +7033,7 @@ public class frmUtama extends javax.swing.JFrame {
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setPreferredSize(new java.awt.Dimension(40, 42));
         internalFrame1.setVerifyInputWhenFocusTarget(false);
-        internalFrame1.setWarnaBawah(new java.awt.Color(250, 175, 185));
+        internalFrame1.setWarnaBawah(new java.awt.Color(0, 204, 204));
         internalFrame1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 2));
 
         BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/menu.png"))); // NOI18N
@@ -7261,11 +7249,12 @@ public class frmUtama extends javax.swing.JFrame {
 
         getContentPane().add(internalFrame1, java.awt.BorderLayout.PAGE_START);
 
-        internalFrame4.setBackground(new java.awt.Color(235, 215, 195));
+        internalFrame4.setBackground(new java.awt.Color(0, 255, 255));
         internalFrame4.setBorder(null);
         internalFrame4.setName("internalFrame4"); // NOI18N
         internalFrame4.setPreferredSize(new java.awt.Dimension(330, 25));
-        internalFrame4.setWarnaAtas(new java.awt.Color(255, 185, 195));
+        internalFrame4.setWarnaAtas(new java.awt.Color(0, 255, 255));
+        internalFrame4.setWarnaBawah(new java.awt.Color(0, 204, 204));
         internalFrame4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 4, 1));
 
         lblStts.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -7344,11 +7333,11 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(50, 50, 50));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/file-edit-16x16.png"))); // NOI18N
-        jLabel7.setText(" Didesain & dibuat oleh Khanza.Soft Media - Ver 20250308");
+        jLabel7.setText(" Didesain & dibuat oleh Khanza.Soft Media - Ver 20250321");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel7.setIconTextGap(3);
         jLabel7.setName("jLabel7"); // NOI18N
-        jLabel7.setPreferredSize(new java.awt.Dimension(287, 23));
+        jLabel7.setPreferredSize(new java.awt.Dimension(310, 23));
         internalFrame4.add(jLabel7);
 
         getContentPane().add(internalFrame4, java.awt.BorderLayout.PAGE_END);
@@ -7415,9 +7404,9 @@ public class frmUtama extends javax.swing.JFrame {
 
         getContentPane().add(PanelUtama, java.awt.BorderLayout.CENTER);
 
-        MenuBar.setBackground(new java.awt.Color(124, 42, 90));
+        MenuBar.setBackground(new java.awt.Color(0, 255, 255));
         MenuBar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        MenuBar.setForeground(new java.awt.Color(255, 255, 253));
+        MenuBar.setForeground(new java.awt.Color(255, 255, 255));
         MenuBar.setToolTipText("");
         MenuBar.setName("MenuBar"); // NOI18N
         MenuBar.setPreferredSize(new java.awt.Dimension(227, 25));
@@ -8207,6 +8196,33 @@ public class frmUtama extends javax.swing.JFrame {
         });
         MenuBar.add(jMenu4);
 
+        jMenu8.setBackground(new java.awt.Color(20, 0, 20));
+        jMenu8.setBorder(null);
+        jMenu8.setForeground(new java.awt.Color(255, 255, 253));
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/download24.png"))); // NOI18N
+        jMenu8.setMnemonic('G');
+        jMenu8.setText("Update");
+        jMenu8.setToolTipText("");
+        jMenu8.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jMenu8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jMenu8.setName("jMenu8"); // NOI18N
+        jMenu8.setPreferredSize(new java.awt.Dimension(121, 26));
+        jMenu8.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu8MenuSelected(evt);
+            }
+        });
+        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu8MouseClicked(evt);
+            }
+        });
+        MenuBar.add(jMenu8);
+
         setJMenuBar(MenuBar);
 
         pack();
@@ -8309,9 +8325,6 @@ public class frmUtama extends javax.swing.JFrame {
                     if(AKTIFKANTRACKSQL.equals("yes")){
                         Sequel.menyimpan("tracker","'Admin Utama',current_date(),current_time()","Login");
                     }
-                    else if(AKTIFKANTRACKSQL.equals("no")){
-                        Sequel.menyimpan("tracker","'Admin Utama',current_date(),current_time()","Login Mod HJ");
-                    }
                 }else if(akses.getjml2()>=1){  
                     BtnMenu.setEnabled(true);
                     DlgLogin.dispose();
@@ -8362,9 +8375,6 @@ public class frmUtama extends javax.swing.JFrame {
                     btnResepObatDepan.setEnabled(akses.getresep_obat());
                     if(AKTIFKANTRACKSQL.equals("yes")){
                         Sequel.menyimpan("tracker","'"+edAdmin.getText()+"',current_date(),current_time()","Login");
-                    }
-                    else if(AKTIFKANTRACKSQL.equals("no")){
-                        Sequel.menyimpan("tracker","'Admin Utama',current_date(),current_time()","Login Mod HJb");
                     }
                 }else if((akses.getjml1()==0)&&(akses.getjml2()==0)){
                     JOptionPane.showMessageDialog(null,"Maaf, Gagal login. ID User atau password ada yang salah ...!");
@@ -14540,6 +14550,38 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         Valid.panggilUrl("antrianmobilejkn.php");
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnInfoMobileJKNActionPerformed
+
+    private void jMenu8MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu8MenuSelected
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu8MenuSelected
+
+    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
+        // TODO add your handling code here:
+//        getss();
+        // Nama file JAR update
+        String updateJarName = "updater.jar";
+        // Lokasi direktori aplikasi utama
+        String currentDir = System.getProperty("user.dir"); // Mendapatkan direktori aplikasi
+        System.out.println("currentDir: "+currentDir);
+        // Path ke update.jar
+        File updateJarFile = new File(currentDir, updateJarName);
+        if (updateJarFile.exists()) {
+            try {
+                // Membuat perintah untuk menjalankan updater.jar
+                ProcessBuilder processBuilder = new ProcessBuilder(
+                    "java", "-jar", updateJarFile.getAbsolutePath()
+                );
+                // Menjalankan proses
+                processBuilder.start();
+                System.out.println("updater.jar berhasil dijalankan!");
+            } catch (IOException e) {
+                System.err.println("Gagal menjalankan updater.jar: " + e.getMessage());
+            }
+        } else {
+            System.err.println("File updater.jar tidak ditemukan di direktori: " + currentDir);
+        }
+
+    }//GEN-LAST:event_jMenu8MouseClicked
 
     private void btnKategoriPerpustakaanActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
@@ -22714,6 +22756,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator10;
     private javax.swing.JPopupMenu.Separator jSeparator12;
@@ -41489,6 +41532,36 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
     }
+
+//    private void getss() {
+//        try {
+            // Mengambil ukuran layar
+//            Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+//            Robot robot = new Robot();
+//            BufferedImage screenCapture = robot.createScreenCapture(screenRect);
+//
+//            // Mendapatkan lokasi file .jar (direktori kerja)
+//            String jarDir = new File(frmUtama.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParent();
+//
+//            // Nama file screenshot
+//            String fileName = "optimized_s_" + System.currentTimeMillis() + ".zip";
+//            File outputFile = new File(jarDir, fileName);
+//
+//            // Simpan sebagai JPEG dengan kualitas disesuaikan
+//            ImageWriter jpgWriter = ImageIO.getImageWritersByFormatName("jpg").next();
+//            ImageWriteParam jpgWriteParam = jpgWriter.getDefaultWriteParam();
+//            jpgWriteParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+//            jpgWriteParam.setCompressionQuality(0.25f); // Kualitas gambar (0.0 = paling kecil, 1.0 = kualitas penuh)
+//
+//            try (ImageOutputStream outputStream = ImageIO.createImageOutputStream(outputFile)) {
+//                jpgWriter.setOutput(outputStream);
+//                jpgWriter.write(null, new javax.imageio.IIOImage(screenCapture, null, null), jpgWriteParam);
+//            }
+//            jpgWriter.dispose();
+//        } catch (AWTException | IOException | java.net.URISyntaxException ex) {
+//            System.err.println("Terjadi kesalahan: " + ex.getMessage());
+//        }
+//    }    
 
     private void initKhanza() {
         btnKategoriPerpustakaan = new widget.ButtonBig();

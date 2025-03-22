@@ -49,14 +49,14 @@ public class koneksiDB {
                         "  Informasi dan panduan bisa dicek di halaman https://github.com/mas-elkhanza/SIMRS-Khanza/wiki \n"+
                         "  Bagi yang ingin berdonasi untuk pengembangan aplikasi ini bisa ke BSI 1015369872 atas nama Windiarto\n"+
                         "                            \n"+
-                        "  *Pengembangan/modifikasi dari GitHub 20250222_11032025:                          \n"+
+                        "  *Pengembangan/modifikasi dari GitHub 20250222_18032025:                          \n"+
                         "  1) Form/Java:    \n"+
                         "        fungsi/koneksiDB.java (1) (Changelog);\n"+
                         "        fungsi/sekuel.java (1) (AKTIFKANTRACKSQL);\n"+
 
                         "        inventory/DlgCopyResep.java (1) (Silakan konfirmasi ke bagian Farmasi);\n"+
                         "        inventory/DlgInputStok.java (0 lewati dulu) (Tambah kolom Ekspired);\n"+
-                        "        inventory/DlgResepObat.java (0);\n"+
+                        "        inventory/DlgResepObat.java (1) (Tambah No.SEP di rptresep jika pasien BPJS);\n"+
                         "        inventory/DlgStokOpname.java (0 lewati dulu) (Tambah kolom Ekspired);\n"+
                         "        inventory/InventoryObatBHPTidakBergerak.java (0 lewati dulu) (Tambah kolom Ekspired);\n"+
 
@@ -66,12 +66,13 @@ public class koneksiDB {
                         "        rekammedis/RMDataResumePasienRanap.java (1) (KOP Surat);\n"+
                         "        rekammedis/RMPenilaianAwalMedisIGD.java (1) (V. DIAGNOSIS/ASESMEN DAN RETRIASE, BtnEdit disable jika Ranap);\n"+
                         "        rekammedis/RMPenilaianAwalMedisRanapDewasa.java (1) (KOP Surat);\n"+
-                        "        rekammedis/RMPenilaianAwalKeperawatanIGD.java (1) (KOP);\n"+
+                        "        rekammedis/RMPenilaianAwalKeperawatanIGD.java (1) (KOP Surat);\n"+
+                        "        rekammedis/RMPenilaianAwalKeperawatanRanap.java (1) (KOP Surat);\n"+
                         "        rekammedis/RMRiwayatPerawatan.java (0) (Gambar Radiologi kebesaran);\n"+
                         "        rekammedis/RMSkriningTBC.java (1) (KOP Surat; Skrining bisa oleh hanya perawat);\n"+
 
-                        "        simrskhanza/DlgAbout.java (1);\n"+
-                        "        simrskhanza/DlgCariPeriksaLab.java (01) (Judul pemeriksaan Lab. tetap di atas);\n"+
+                        "        simrskhanza/DlgAbout.java (1) (Versi Git dan build app);\n"+
+                        "        simrskhanza/DlgCariPeriksaLab.java (0) (Judul pemeriksaan Lab. tetap di atas);\n"+
                         "        simrskhanza/DlgCariPeriksaLabPA.java (1) (MDT 1-3, batasInput 1024);\n"+
                         "        simrskhanza/DlgCariPeriksaRadiologi.java (1) (KOP);\n"+
                         "        simrskhanza/DlgCariReg.java (0) ();\n"+
@@ -82,25 +83,61 @@ public class koneksiDB {
                         "        simrskhanza/DlgPasienMati.java (1) (Ket./NoSrt, Surat Kematian 1 - Oke);\n"+
                         "        simrskhanza/DlgRawatJalan.java (1) (Suhu harap dilengkapi, dll...);\n"+
                         "        simrskhanza/DlgReg.java (1) (Surat Keterangan Sehat 3 - Oke; - MJKN);\n"+
-                        "        simrskhanza/frmUtama.java (0) (Tambah tombol Update dan updater.jar);\n"+
+                        
+                        "        simrskhanza/frmUtama.java (1) (Tambah tombol Update dan updater.jar);\n"+
 
                         "        surat/SuratBebasNarkoba.java (1) (3 Jenis Parameter, Perpanjang Field Nomor Surat, nama dokter dari tabel surat_skbn database);\n"+
-                        "        surat/SuratButaWarna.java (1);\n"+
+                        "        surat/SuratButaWarna.java (1) (KOP Surat);\n"+
                         "        surat/SuratKeteranganRawatInap.java (1) (NoSurat 30; Mode Print A Dirawat dan B Sakit);\n"+
-                        "        surat/SuratKeteranganSehat.java (1);\n"+
+                        "        surat/SuratKeteranganSehat.java (1) (KOP Surat);\n"+
                         "        surat/SuratSakit.java (1) (Cetak Surat Sakit 1 - Oke);\n"+
-                        "  Re-Compile_by: Bang Riyan Hidayat Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 13:32 11/03/2025 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+
+                        "  2) Report:    \n"+
+                        "        rptBebasNarkoba.jasper (1);\n"+
+                        "        rptBebasNarkoba1.jasper (1);\n"+
+                        "        rptBebasNarkoba2.jasper (1);\n"+
+                        
+                        "        rptCetakPenilaianAwalKeperawatanRalan.jasper (0);\n"+
+                        "        rptCetakPenilaianAwalKeperawatanIGD.jasper (1) (KOP Surat);\n"+
+                        "        rptCetakPenilaianAwalMedisIGD.jasper (1) (KOP Surat);\n"+
+                        "        rptCetakPenilaianAwalMedisRanap.jasper (1) (KOP Surat, SIP dokter);\n"+
+                        "        rptCetakPenilaianAwalKeperawatanRanap.jasper (1) (KOP Surat);\n"+
+                        "        rptCetakPenilaianAwalKeperawatanRanap2.jasper (0) (Nama perawat belum muncul);\n"+
+
+                        "        rptFormulirSkriningTBC.jasper (1) (KOP Surat);\n"+
+                        "        rptFormulirSkriningTBCD.jasper (0);\n"+
+
+                        "        rptLabelDiet.jasper (1) (Menu layak konsumsi jam ...);\n"+
+                        "        rptLaporanResume.jasper (1) (KOP Surat, SIP);\n"+
+                        "        rptLaporanResumeRanap.jasper (1) (KOP Surat);\n"+
+
+                        "        rptPeriksaLab.jasper (1)(Short);\n"+
+                        "        rptPeriksaLabPermintaan.jasper;\n"+
+                        "        rptPeriksaLab2.jasper (1)(Long);\n"+
+                        "        rptPeriksaLab2Permintaan.jasper;\n"+
+                        "        rptPeriksaLab3.jasper (1)(Swab);\n"+
+                        "        rptPeriksaLab3Permintaan.jasper;\n"+
+                        "        rptPeriksaLab4.jasper (1);\n"+
+                        "        rptPeriksaLab4Permintaan.jasper;\n"+
+                        "        rptPeriksaLabPADTHJ.jasper (1);\n"+
+                        "        rptPeriksaLabPADTHJ2.jasper (1);\n"+
+                        "        rptPeriksaLabPADTHJ3.jasper (1);\n"+
+                        "        rptPeriksaRadiologi.jasper (1);\n"+
+
+                        "        rptResep.jasper (1) (Tampil No.SEP jika BPJS);\n"+
+
+                        "        rptSKL1.jasper (1) (KOP Surat, NIK Ibu);\n"+
+                        "        rptSKL2.jasper (1) (KOP Surat, NIK Ibu);\n"+
+                        "        rptSuratKematian.jasper (1) (KOP Surat);\n"+
+                        "        rptSuratKeteranganRawatInap.jasper (1) (KOP Surat);\n"+
+                        "        rptSuratKeteranganRawatInapB.jasper (1);\n"+
+                        "        rptSuratKeteranganSehat.jasper (1);\n"+
+                        "        rptSuratSakit5.jasper (1);\n"+
+                        "        rptSuratTidakButaWarna.jasper (1);\n"+
+                        
+                        "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
+                        "  Re-Compile_by: Bang Riyan Hidayat Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 21/03/2025 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
-
-
-
-                        
-                        
-                        
-                        
-                        
-                        
-                        
 
             }catch(Exception e){
                 System.out.println("Notif : "+e);

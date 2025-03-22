@@ -173,7 +173,7 @@ public class DlgAbout extends javax.swing.JDialog {
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(50, 50, 50));
-        jLabel17.setText("250222_11032025");
+        jLabel17.setText("250222_21032025");
         jLabel17.setToolTipText("");
         jLabel17.setName("jLabel17"); // NOI18N
         panelGlass1.add(jLabel17);
