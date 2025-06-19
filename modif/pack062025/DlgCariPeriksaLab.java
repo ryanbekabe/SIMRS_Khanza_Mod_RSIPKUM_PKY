@@ -1916,7 +1916,16 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("emailrs",akses.getemailrs());   
                         param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
                         param.put("noktp",Sequel.cariIsi("select pasien.no_ktp from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
-                        param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where dokter.kd_dokter=?",rs.getString("dokter_perujuk")));
+//                        param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where dokter.kd_dokter=?",rs.getString("dokter_perujuk")));
+//                        param.put("sipdokter",Sequel.cariIsi("select dokter.no_ijn_praktek from periksa_lab inner join dokter on periksa_lab.kd_dokter=periksa_lab.kd_dokter where periksa_lab.no_rawat=?",rs.getString("no_rawat")));
+                        param.put("sipdokter", Sequel.cariIsi(
+                            "SELECT dokter.no_ijn_praktek " +
+                            "FROM periksa_lab " +
+                            "INNER JOIN dokter ON periksa_lab.kd_dokter = dokter.kd_dokter " +
+                            "WHERE periksa_lab.no_rawat = ? " +
+                            "LIMIT 1",
+                            rs.getString("no_rawat")
+                        ));
                         param.put("tgl_lahir",Sequel.cariIsi("select date_format(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
                         pspermintaan=koneksi.prepareStatement(
                                 "select noorder,DATE_FORMAT(tgl_permintaan,'%d-%m-%Y') as tgl_permintaan,jam_permintaan from permintaan_lab where "+
@@ -2207,7 +2216,16 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
                         param.put("noktp",Sequel.cariIsi("select pasien.no_ktp from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
                         param.put("tgl_lahir",Sequel.cariIsi("select date_format(pasien.tgl_lahir,'%d-%m-%Y') as tgl_lahir from pasien where pasien.no_rkm_medis=?",rs.getString("no_rkm_medis")));
-                        param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where dokter.kd_dokter=?",rs.getString("dokter_perujuk")));
+//                        param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where dokter.kd_dokter=?",rs.getString("dokter_perujuk")));
+//                        param.put("sipdokter",Sequel.cariIsi("select dokter.no_ijn_praktek from periksa_lab inner join dokter on periksa_lab.kd_dokter=periksa_lab.kd_dokter where periksa_lab.no_rawat=?",rs.getString("no_rawat")));
+                        param.put("sipdokter", Sequel.cariIsi(
+                            "SELECT dokter.no_ijn_praktek " +
+                            "FROM periksa_lab " +
+                            "INNER JOIN dokter ON periksa_lab.kd_dokter = dokter.kd_dokter " +
+                            "WHERE periksa_lab.no_rawat = ? " +
+                            "LIMIT 1",
+                            rs.getString("no_rawat")
+                        ));
                         pspermintaan=koneksi.prepareStatement(
                                 "select noorder,DATE_FORMAT(tgl_permintaan,'%d-%m-%Y') as tgl_permintaan,jam_permintaan from permintaan_lab where "+
                                 "no_rawat=? and tgl_hasil=? and jam_hasil=?");
@@ -2363,7 +2381,16 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("kontakrs",akses.getkontakrs());
                         param.put("emailrs",akses.getemailrs());   
                         param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
-                        param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where dokter.kd_dokter=?",rs.getString("dokter_perujuk")));
+//                        param.put("sipdokter",Sequel.cariIsi("select dokter.no_ijn_praktek from periksa_lab inner join dokter on periksa_lab.kd_dokter=periksa_lab.kd_dokter where periksa_lab.no_rawat=?",rs.getString("no_rawat")));
+//                        param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where dokter.kd_dokter=?",rs.getString("dokter_perujuk")));
+                        param.put("sipdokter", Sequel.cariIsi(
+                            "SELECT dokter.no_ijn_praktek " +
+                            "FROM periksa_lab " +
+                            "INNER JOIN dokter ON periksa_lab.kd_dokter = dokter.kd_dokter " +
+                            "WHERE periksa_lab.no_rawat = ? " +
+                            "LIMIT 1",
+                            rs.getString("no_rawat")
+                        ));
                         pspermintaan=koneksi.prepareStatement(
                                 "select noorder,DATE_FORMAT(tgl_permintaan,'%d-%m-%Y') as tgl_permintaan,jam_permintaan from permintaan_lab where "+
                                 "no_rawat=? and tgl_hasil=? and jam_hasil=?");
@@ -2521,7 +2548,16 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("kontakrs",akses.getkontakrs());
                         param.put("emailrs",akses.getemailrs());   
                         param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
-                        param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where dokter.kd_dokter=?",rs.getString("dokter_perujuk")));
+//                        param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where dokter.kd_dokter=?",rs.getString("dokter_perujuk")));
+//                        param.put("sipdokter",Sequel.cariIsi("select dokter.no_ijn_praktek from periksa_lab inner join dokter on periksa_lab.kd_dokter=periksa_lab.kd_dokter where periksa_lab.no_rawat=?",rs.getString("no_rawat")));
+                        param.put("sipdokter", Sequel.cariIsi(
+                            "SELECT dokter.no_ijn_praktek " +
+                            "FROM periksa_lab " +
+                            "INNER JOIN dokter ON periksa_lab.kd_dokter = dokter.kd_dokter " +
+                            "WHERE periksa_lab.no_rawat = ? " +
+                            "LIMIT 1",
+                            rs.getString("no_rawat")
+                        ));
                         pspermintaan=koneksi.prepareStatement(
                                 "select noorder,DATE_FORMAT(tgl_permintaan,'%d-%m-%Y') as tgl_permintaan,jam_permintaan from permintaan_lab where "+
                                 "no_rawat=? and tgl_hasil=? and jam_hasil=?");
@@ -3955,6 +3991,16 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("kontakrs",akses.getkontakrs());
                         param.put("emailrs",akses.getemailrs());   
                         param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
+//                        param.put("sipdokter",Sequel.cariIsi("select dokter.no_ijn_praktek from periksa_lab inner join dokter on periksa_lab.kd_dokter=periksa_lab.kd_dokter where periksa_lab.no_rawat=?",rs.getString("no_rawat")," limit 0,1"));
+                        param.put("sipdokter", Sequel.cariIsi(
+                            "SELECT dokter.no_ijn_praktek " +
+                            "FROM periksa_lab " +
+                            "INNER JOIN dokter ON periksa_lab.kd_dokter = dokter.kd_dokter " +
+                            "WHERE periksa_lab.no_rawat = ? " +
+                            "LIMIT 1",
+                            rs.getString("no_rawat")
+                        ));
+
                         pspermintaan=koneksi.prepareStatement(
                                 "select noorder,DATE_FORMAT(tgl_permintaan,'%d-%m-%Y') as tgl_permintaan,jam_permintaan from permintaan_lab where "+
                                 "no_rawat=? and tgl_hasil=? and jam_hasil=?");
@@ -4112,7 +4158,17 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("kontakrs",akses.getkontakrs());
                         param.put("emailrs",akses.getemailrs());   
                         param.put("logo",Sequel.cariGambar("select setting.logo from setting")); 
-                        param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where dokter.kd_dokter=?",rs.getString("dokter_perujuk")));
+//                        param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where dokter.kd_dokter=?",rs.getString("dokter_perujuk")));
+//                        param.put("sipdokter",Sequel.cariIsi("select dokter.no_ijn_praktek from periksa_lab inner join dokter on periksa_lab.kd_dokter=periksa_lab.kd_dokter where periksa_lab.no_rawat=?",rs.getString("no_rawat")," limit 0,1"));
+                        param.put("sipdokter", Sequel.cariIsi(
+                            "SELECT dokter.no_ijn_praktek " +
+                            "FROM periksa_lab " +
+                            "INNER JOIN dokter ON periksa_lab.kd_dokter = dokter.kd_dokter " +
+                            "WHERE periksa_lab.no_rawat = ? " +
+                            "LIMIT 1",
+                            rs.getString("no_rawat")
+                        ));
+
                         pspermintaan=koneksi.prepareStatement(
                                 "select noorder,DATE_FORMAT(tgl_permintaan,'%d-%m-%Y') as tgl_permintaan,jam_permintaan from permintaan_lab where "+
                                 "no_rawat=? and tgl_hasil=? and jam_hasil=?");
@@ -4271,7 +4327,16 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("kontakrs",akses.getkontakrs());
                         param.put("emailrs",akses.getemailrs());   
                         param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
-                        param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where dokter.kd_dokter=?",rs.getString("dokter_perujuk")));
+//                        param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where dokter.kd_dokter=?",rs.getString("dokter_perujuk")));
+//                        param.put("sipdokter",Sequel.cariIsi("select dokter.no_ijn_praktek from periksa_lab inner join dokter on periksa_lab.kd_dokter=periksa_lab.kd_dokter where periksa_lab.no_rawat=?",rs.getString("no_rawat")));
+                        param.put("sipdokter", Sequel.cariIsi(
+                            "SELECT dokter.no_ijn_praktek " +
+                            "FROM periksa_lab " +
+                            "INNER JOIN dokter ON periksa_lab.kd_dokter = dokter.kd_dokter " +
+                            "WHERE periksa_lab.no_rawat = ? " +
+                            "LIMIT 1",
+                            rs.getString("no_rawat")
+                        ));
                         pspermintaan=koneksi.prepareStatement(
                                 "select noorder,DATE_FORMAT(tgl_permintaan,'%d-%m-%Y') as tgl_permintaan,jam_permintaan from permintaan_lab where "+
                                 "no_rawat=? and tgl_hasil=? and jam_hasil=?");

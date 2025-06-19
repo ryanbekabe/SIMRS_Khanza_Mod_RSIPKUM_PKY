@@ -56,11 +56,12 @@ public class koneksiDB {
                         
                         "        inventory/DlgCopyResep.java (1) (Silakan konfirmasi ke bagian Farmasi);\n"+
                         "        inventory/DlgInputStok.java (0 lewati dulu) (Tambah kolom Ekspired);\n"+
-                        "        inventory/DlgResepObat.java (1) (Tambah No.SEP di rptresep jika pasien BPJS);\n"+
+                        "        inventory/DlgResepObat.java (1) (Tambah No.SEP di rptresep jika pasien BPJS, E-Tiket Obat);\n"+
                         "        inventory/DlgStokOpname.java (0 lewati dulu) (Tambah kolom Ekspired);\n"+
                         "        inventory/InventoryObatBHPTidakBergerak.java (0 lewati dulu) (Tambah kolom Ekspired);\n"+
                         
                         "        laporan/DlgRl38.java (1) (Tambah JK L P 13062025);\n"+
+                        "        laporan/DlgRL4A.java (0) ();\n"+
                         
                         "        permintaan/DlgPermintaanKonsultasiMedik.java (1) (KOP, SIP dr.);\n"+
                         
@@ -75,7 +76,7 @@ public class koneksiDB {
                         
                         "        simrskhanza/DlgAbout.java (1) (Versi Git dan build app 13062025);\n"+
                         "        simrskhanza/DlgCariPeriksaLab.java (0) (Judul pemeriksaan Lab. tetap di atas);\n"+
-                        "        simrskhanza/DlgCariPeriksaLabPA.java (1) (MDT 1-3, batasInput 1024);\n"+
+                        "        simrskhanza/DlgCariPeriksaLabPA.java (1) (MDT 1-3, batasInput 1024; SIP dokter sesuai kd_dokter);\n"+
                         "        simrskhanza/DlgCariPeriksaRadiologi.java (2) (KOP; perbaiki bug simpan gambar pada Windows);\n"+
                         "        simrskhanza/DlgCariReg.java (0) ();\n"+
                         "        simrskhanza/DlgIGD.java (1) (Notif Potensi Re-Admisi, lebih dari 1 hari 24 jam dan kurang dari sama dengan 30 hari kemarin, nonaktifkan menu Penilaian Awal jika sudah Ranap 26052025);\n"+
@@ -105,6 +106,8 @@ public class koneksiDB {
                         "        rptCetakPenilaianAwalMedisRanap.jasper (1) (KOP Surat, SIP dokter);\n"+
                         "        rptCetakPenilaianAwalKeperawatanRanap.jasper (1) (KOP Surat);\n"+
                         "        rptCetakPenilaianAwalKeperawatanRanap2.jasper (0) (Nama perawat belum muncul);\n"+
+
+                        "        rptItemResep.jasper (1) (E-Tiket penambahan Bismillah dan ED);\n"+
                         
                         "        rptFormulirSkriningTBC.jasper (1) (KOP Surat);\n"+
                         "        rptFormulirSkriningTBCD.jasper (0);\n"+
@@ -121,9 +124,9 @@ public class koneksiDB {
                         "        rptPeriksaLab3Permintaan.jasper;\n"+
                         "        rptPeriksaLab4.jasper (1);\n"+
                         "        rptPeriksaLab4Permintaan.jasper (1 13062025) (SIP dr.);\n"+
-                        "        rptPeriksaLabPADTHJ.jasper (1);\n"+
-                        "        rptPeriksaLabPADTHJ2.jasper (1);\n"+
-                        "        rptPeriksaLabPADTHJ3.jasper (1);\n"+
+                        "        rptPeriksaLabPADTHJ.jasper (1) (SIP dokter 19062025);\n"+
+                        "        rptPeriksaLabPADTHJ2.jasper (1) (SIP dokter 19062025);\n"+
+                        "        rptPeriksaLabPADTHJ3.jasper (1) (SIP dokter 19062025);\n"+
                         "        rptPeriksaRadiologi.jasper (1);\n"+
                         
                         "        rptResep.jasper (1) (Tampil No.SEP jika BPJS);\n"+
@@ -138,7 +141,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Riyan Hidayat Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 13/06/2025 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Riyan Hidayat Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 19/06/2025 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
 
             }catch(Exception e){
