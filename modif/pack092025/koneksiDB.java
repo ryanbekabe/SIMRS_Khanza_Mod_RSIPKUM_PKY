@@ -51,7 +51,9 @@ public class koneksiDB {
                         "                            \n"+
                         "  *Pengembangan/modifikasi dari GitHub 20250222_18032025:                          \n"+
                         "  1) Form/Java:    \n"+
-                        "        fungsi/koneksiDB.java (1) (Changelog 13062025);\n"+
+                        "        bridging/ApiSatuSehat.java (1) (SSL -> TLSv1.2 25082025);\n"+
+
+                        "        fungsi/koneksiDB.java (1) (Changelog 13062025, 25082025);\n"+
                         "        fungsi/sekuel.java (1) (AKTIFKANTRACKSQL);\n"+
                         
                         "        inventory/DlgCopyResep.java (1) (Silakan konfirmasi ke bagian Farmasi);\n"+
@@ -71,17 +73,18 @@ public class koneksiDB {
                         "        rekammedis/RMDataCatatanObservasiRanapPostPartum.java (1) (TFU: 15 -> 50 11072025);\n"+
                         "        rekammedis/RMDataResumePasien.java (1) (Kondisi Pasien Pulang = Kondisi.setModel);\n"+
                         "        rekammedis/RMDataResumePasienRanap.java (1) (KOP Surat);\n"+
+                        "        rekammedis/RMHasilPemeriksaanEKG.java (1) (KOP Surat, SIP, hapus primary key dari DB agar bisa input banyak 21082025, SegmenST -> tbSegmenST: Normal, Tidak Normal; GelombangT -> tbGelombangT: Normal, Tidak Normal 24052025);\n"+
                         "        rekammedis/RMPenilaianAwalMedisIGD.java (1) (V. DIAGNOSIS/ASESMEN DAN RETRIASE, BtnEdit disable jika Ranap);\n"+
                         "        rekammedis/RMPenilaianAwalMedisRanapDewasa.java (1) (KOP Surat);\n"+
                         "        rekammedis/RMPenilaianAwalKeperawatanIGD.java (1) (KOP Surat);\n"+
                         "        rekammedis/RMPenilaianAwalKeperawatanRanap.java (1) (KOP Surat);\n"+
                         "        rekammedis/RMRiwayatPerawatan.java (1) (Fix gambar Radiologi kebesaran);\n"+
-                        "        rekammedis/RMSkriningTBC.java (1) (KOP Surat; Skrining bisa oleh hanya perawat);\n"+
+                        "        rekammedis/RMSkriningTBC.java (1) (KOP Surat; Skrining bisa oleh hanya perawat);\n"+                      
                         
                         "        simrskhanza/DlgAbout.java (1) (Versi Git dan build app 13062025 11072025 02082025);\n"+
                         "        simrskhanza/DlgCariPeriksaLab.java (0) (Judul pemeriksaan Lab. tetap di atas);\n"+
                         "        simrskhanza/DlgCariPeriksaLabPA.java (1) (MDT 1-3, batasInput 1024; SIP dokter sesuai kd_dokter; Cetak Sputum Gram 11072025);\n"+
-                        "        simrskhanza/DlgCariPeriksaLabPA2.java (1) (Tambahan menu khusus dr. Frau. 13072025);\n"+
+                        "        simrskhanza/DlgCariPeriksaLabPA2.java (1) (Tambahan menu khusus dr. Frau. 11082025);\n"+
                         "        simrskhanza/DlgCariPeriksaRadiologi.java (2) (KOP; perbaiki bug simpan gambar pada Windows);\n"+
                         "        simrskhanza/DlgCariReg.java (0) ();\n"+
                         "        simrskhanza/DlgCariTagihanOperasi.java (1) (KOP Surat, pangkas beberapa field, SIP 02082025);\n"+
@@ -93,7 +96,7 @@ public class koneksiDB {
                         "        simrskhanza/DlgRawatJalan.java (1) (Suhu harap dilengkapi, dll...);\n"+
                         "        simrskhanza/DlgReg.java (1) (Surat Keterangan Sehat 3 - Oke; - MJKN);\n"+
                         
-                        "        simrskhanza/frmUtama.java (1) (Tambah tombol Update dan updater.jar; btnLaboratoriumPA2 13072025 02082025);\n"+
+                        "        simrskhanza/frmUtama.java (1) (Tambah tombol Update dan updater.jar; btnLaboratoriumPA2 13072025 11082025);\n"+
                         
                         "        surat/SuratBebasNarkoba.java (1) (3 Jenis Parameter, Perpanjang Field Nomor Surat, nama dokter dari tabel surat_skbn database);\n"+
                         "        surat/SuratButaWarna.java (1) (KOP Surat);\n"+
@@ -106,6 +109,7 @@ public class koneksiDB {
                         "        rptBebasNarkoba1.jasper (1);\n"+
                         "        rptBebasNarkoba2.jasper (1);\n"+
                         
+                        "        rptCetakHasilPemeriksaanEKG.jasper (1) (KOP Surat; SIP, DB hasil_pemeriksaan_ekg segmenst gelombangt enum('Normal', 'Tidak Normal') -> VarChar 15, no_rawat hapus primary; tanggal kd_dokter secondary key 25082025);\n"+
                         "        rptCetakPenilaianAwalKeperawatanRalan.jasper (0);\n"+
                         "        rptCetakPenilaianAwalKeperawatanIGD.jasper (1) (KOP Surat);\n"+
                         "        rptCetakPenilaianAwalMedisIGD.jasper (1) (KOP Surat);\n"+
@@ -150,7 +154,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Sam - www.HanyaJasa.Com - hanyajasa@gmail.com, 09/08/2025 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Sam - www.HanyaJasa.Com - hanyajasa@gmail.com, 25/08/2025 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
 
             }catch(Exception e){

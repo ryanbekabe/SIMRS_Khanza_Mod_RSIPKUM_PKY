@@ -1900,7 +1900,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02/08/2025" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24/08/2025" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -6944,7 +6944,7 @@ public class frmUtama extends javax.swing.JFrame {
         });
 
         btnLaboratoriumPA2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/6008661_bacteria_coronavirus_covid_laboratory_microscope_icon.png"))); // NOI18N
-        btnLaboratoriumPA2.setText("Periksa Lab PA - 2");
+        btnLaboratoriumPA2.setText("Periksa Lab MDT dan Sputum");
         btnLaboratoriumPA2.setIconTextGap(0);
         btnLaboratoriumPA2.setName("btnLaboratoriumPA2"); // NOI18N
         btnLaboratoriumPA2.setPreferredSize(new java.awt.Dimension(200, 90));
@@ -7292,7 +7292,8 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(50, 50, 50));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/file-edit-16x16.png"))); // NOI18N
-        jLabel7.setText(" Didesain & dibuat oleh Khanza.Soft Media - Mod Ver 20250809");
+        jLabel7.setText(" Didesain & dibuat oleh Khanza.Soft Media - Mod Ver 20250825");
+        jLabel7.setToolTipText("");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel7.setIconTextGap(3);
         jLabel7.setName("jLabel7"); // NOI18N
