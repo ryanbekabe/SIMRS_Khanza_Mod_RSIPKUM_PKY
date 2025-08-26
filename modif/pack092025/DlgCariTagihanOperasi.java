@@ -2951,6 +2951,7 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
         if(tbDokter.getSelectedRow()>-1){
             if(!tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString().equals("")){
                 Map<String, Object> param = new HashMap<>();    
+                System.out.println("Nilai ruang line 2954");
                 param.put("namars",akses.getnamars());
                 param.put("alamatrs",akses.getalamatrs());
                 param.put("kotars",akses.getkabupatenrs());
@@ -2960,6 +2961,11 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
                 param.put("logo",Sequel.cariGambar("select gambar.kopsurat from gambar"));
                 param.put("norawat",tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString());  
                 param.put("tanggaloperasi",tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString());  
+                //String norawatnya = tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString()); 
+                //param.put("ruang",Sequel.cariIsi("select nm_bangsal from bangsal inner join kamar inner join kamar_inap on bangsal.kd_bangsal=kamar.kd_bangsal and kamar_inap.kd_kamar=kamar.kd_kamar where no_rawat=? order by tgl_masuk desc limit 1 ",rs.getString("no_rawat")));
+                String norawatnya = tbDokter.getValueAt(tbDokter.getSelectedRow(), 1).toString();
+                param.put("ruang", Sequel.cariIsi("select nm_bangsal from bangsal inner join kamar on bangsal.kd_bangsal=kamar.kd_bangsal inner join kamar_inap on kamar_inap.kd_kamar=kamar.kd_kamar where no_rawat=? order by tgl_masuk desc limit 1",norawatnya));
+                System.out.println("Nilai norawatnya line 2968: " + norawatnya);
                 kodeoperator=Sequel.cariIsi("select operasi.operator1 from operasi where operasi.no_rawat='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString()+"' and tgl_operasi='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()+"'");
                 finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",kodeoperator);
                 param.put("sipdokter",Sequel.cariIsi("select dokter.no_ijn_praktek from dokter where dokter.kd_dokter='"+kodeoperator+"'"));
@@ -2997,6 +3003,7 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
                                 "and concat(pemeriksaan_ralan.tgl_perawatan,' ',pemeriksaan_ralan.jam_rawat) <= '"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()+"' "+
                                 "order by pemeriksaan_ralan.tgl_perawatan desc,pemeriksaan_ralan.jam_rawat desc limit 1").executeQuery();
                             if(rs.next()){
+                                System.out.println("Nilai ruang line 3006");
                                 param.put("tgl_perawatan",rs.getDate("tgl_perawatan"));
                                 param.put("jam_rawat",rs.getString("jam_rawat"));
                                 param.put("alergi",rs.getString("alergi"));
@@ -3005,6 +3012,9 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
                                 param.put("penilaian",rs.getString("penilaian"));
                                 param.put("rtl",rs.getString("rtl"));
                                 param.put("ruang",Sequel.cariIsi("select poliklinik.nm_poli from poliklinik inner join reg_periksa on reg_periksa.kd_poli=poliklinik.kd_poli where reg_periksa.no_rawat=?",rs.getString("no_rawat")));
+                                String ruang = Sequel.cariIsi("select poliklinik.nm_poli from poliklinik inner join reg_periksa on reg_periksa.kd_poli=poliklinik.kd_poli where reg_periksa.no_rawat=?", rs.getString("no_rawat"));
+                                System.out.println("Nilai ruang line 3016: " + ruang);
+                                //param.put("ruang", ruang);
                                 param.put("suhu_tubuh",rs.getString("suhu_tubuh"));
                                 param.put("tensi",rs.getString("tensi"));
                                 param.put("tinggi",rs.getString("tinggi"));
@@ -3034,6 +3044,7 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
                                 "and concat(pemeriksaan_ranap.tgl_perawatan,' ',pemeriksaan_ranap.jam_rawat) <= '"+tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()+"' "+
                                 "order by pemeriksaan_ranap.tgl_perawatan desc,pemeriksaan_ranap.jam_rawat desc limit 1").executeQuery();
                             if(rs.next()){
+                                System.out.println("Nilai ruang line 3047");
                                 param.put("tgl_perawatan",rs.getDate("tgl_perawatan"));
                                 param.put("jam_rawat",rs.getString("jam_rawat"));
                                 param.put("alergi",rs.getString("alergi"));
@@ -3042,6 +3053,8 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
                                 param.put("penilaian",rs.getString("penilaian"));
                                 param.put("rtl",rs.getString("rtl"));
                                 param.put("ruang",Sequel.cariIsi("select nm_bangsal from bangsal inner join kamar inner join kamar_inap on bangsal.kd_bangsal=kamar.kd_bangsal and kamar_inap.kd_kamar=kamar.kd_kamar where no_rawat=? order by tgl_masuk desc limit 1 ",rs.getString("no_rawat")));
+                                String ruang = Sequel.cariIsi("select nm_bangsal from bangsal inner join kamar inner join kamar_inap on bangsal.kd_bangsal=kamar.kd_bangsal and kamar_inap.kd_kamar=kamar.kd_kamar where no_rawat=? order by tgl_masuk desc limit 1 ",rs.getString("no_rawat"));
+                                System.out.println("Nilai ruang line 3056: " + ruang);
                                 param.put("suhu_tubuh",rs.getString("suhu_tubuh"));
                                 param.put("tensi",rs.getString("tensi"));
                                 param.put("tinggi",rs.getString("tinggi"));
@@ -3062,6 +3075,7 @@ private void MnHapusObatOperasiActionPerformed(java.awt.event.ActionEvent evt) {
                     }
                 }
                 Valid.MyReport("rptLaporanOperasi.jasper","report","::[ Laporan Operasi ]::",param);
+                System.out.println("Nilai ruang line 3078");
             }else{
                 JOptionPane.showMessageDialog(rootPane,"Silahkan pilih data, klik pada No.Rawat ..!!");
             } 
