@@ -58,6 +58,7 @@ public class koneksiDB {
                         
                         "        inventory/DlgCopyResep.java (1) (Silakan konfirmasi ke bagian Farmasi);\n"+
                         "        inventory/DlgInputStok.java (0 lewati dulu) (Tambah kolom Ekspired);\n"+
+                        "        inventory/DlgPermintaanResepPulang.java (1) (Sembunyikan stok obat yang kosong 28082025);\n"+
                         "        inventory/DlgResepObat.java (1) (Tambah No.SEP di rptresep jika pasien BPJS, E-Tiket Obat);\n"+
                         "        inventory/DlgStokOpname.java (0 lewati dulu) (Tambah kolom Ekspired);\n"+
                         "        inventory/InventoryObatBHPTidakBergerak.java (0 lewati dulu) (Tambah kolom Ekspired);\n"+
@@ -154,7 +155,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Sam - www.HanyaJasa.Com - hanyajasa@gmail.com, 25/08/2025 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Sam - www.HanyaJasa.Com - hanyajasa@gmail.com, 26/08/2025 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
 
             }catch(Exception e){
