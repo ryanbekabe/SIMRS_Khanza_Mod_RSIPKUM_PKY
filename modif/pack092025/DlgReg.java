@@ -235,6 +235,8 @@ import surat.SuratSakit;
 import surat.SuratSakitPihak2;
 import surat.SuratTidakHamil;
 import java.text.ParseException;
+import java.awt.Desktop;
+import java.net.URI;
 
 /**
  *
@@ -1313,6 +1315,7 @@ public final class DlgReg extends javax.swing.JDialog {
         jLabel10 = new widget.Label();
         LCount = new widget.Label();
         BtnKeluar = new widget.Button();
+        BtnKeluarVerifWajah = new widget.Button();
         panelGlass7 = new widget.panelisi();
         jLabel15 = new widget.Label();
         DTPCari1 = new widget.Tanggal();
@@ -6416,6 +6419,36 @@ public final class DlgReg extends javax.swing.JDialog {
         });
         panelGlass6.add(BtnKeluar);
 
+        BtnKeluarVerifWajah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/PatientData.png"))); // NOI18N
+        BtnKeluarVerifWajah.setMnemonic('V');
+        BtnKeluarVerifWajah.setText("Verif Wajah");
+        BtnKeluarVerifWajah.setToolTipText("Alt+V");
+        BtnKeluarVerifWajah.setName("BtnKeluarVerifWajah"); // NOI18N
+        BtnKeluarVerifWajah.setPreferredSize(new java.awt.Dimension(180, 30));
+        BtnKeluarVerifWajah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String Var_From_SQL_Query = Sequel.cariIsi("select pasien.no_ktp from pasien where pasien.no_rkm_medis=?", TNoRM.getText());
+                String url = "https://rsipalangkaraya.online/verifikasiwajah/?nik=" + Var_From_SQL_Query;
+                JOptionPane.showMessageDialog(null, "Verifikasi wajah pada " + Var_From_SQL_Query);
+                try {
+                if (Desktop.isDesktopSupported()) {
+                    Desktop.getDesktop().browse(new URI(url));
+                } else {
+                    JOptionPane.showMessageDialog(null, "Desktop browsing not supported");
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Gagal membuka browser: " + e.getMessage());
+                }
+//                BtnKeluarActionPerformed(evt);
+            }
+        });
+        BtnKeluarVerifWajah.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+//                BtnKeluarVerifWajah(evt);
+            }
+        });
+        panelGlass6.add(BtnKeluarVerifWajah);
+        
         jPanel2.add(panelGlass6, java.awt.BorderLayout.PAGE_END);
 
         panelGlass7.setName("panelGlass7"); // NOI18N
@@ -15487,6 +15520,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
     private widget.Button BtnEdit;
     private widget.Button BtnHapus;
     private widget.Button BtnKeluar;
+    private widget.Button BtnKeluarVerifWajah;
     private widget.Button BtnKeluar3;
     private widget.Button BtnKeluar4;
     private widget.Button BtnPasien;
