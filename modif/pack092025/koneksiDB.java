@@ -96,7 +96,7 @@ public class koneksiDB {
                         "        simrskhanza/DlgKasirRalan.java (1) (Surat Keterangan Sehat 3 - Oke, Label Radiologi, Tambah tulisan pasien - MJKN, PenilaianAwalMedisIGD MessageDialog Akses ke menu ini kami nonaktifkan);\n"+
                         "        simrskhanza/DlgPasienMati.java (1) (Ket./NoSrt, Surat Kematian 1 - Oke);\n"+
                         "        simrskhanza/DlgRawatJalan.java (1) (Suhu harap dilengkapi, dll...);\n"+
-                        "        simrskhanza/DlgReg.java (1) (Surat Keterangan Sehat 3 - Oke; - MJKN. PRB; JK < 17thn rptBarcodeRawat.jasper 09092025);\n"+
+                        "        simrskhanza/DlgReg.java (1) (Surat Keterangan Sehat 3 - Oke; - MJKN. PRB; JK < 17thn rptBarcodeRawat.jasper; Verifikasi Wajah ke web 09092025,16092025);\n"+
                         
                         "        simrskhanza/frmUtama.java (1) (Tambah tombol Update dan updater.jar; btnLaboratoriumPA2 13072025 11082025);\n"+
                         
@@ -159,7 +159,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Sam - www.HanyaJasa.Com - hanyajasa@gmail.com, 10/09/2025 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Sam - www.HanyaJasa.Com - hanyajasa@gmail.com, 16/09/2025 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
 
             }catch(Exception e){
