@@ -1,1 +1,39 @@
 09082025
+
+
+/Users/windiartonugroho/src/simrskhanza/DlgReg.java
+import java.awt.Desktop;
+import java.net.URI;
+        BtnKeluarVerifWajah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/PatientData.png"))); // NOI18N
+        BtnKeluarVerifWajah.setMnemonic('V');
+        BtnKeluarVerifWajah.setText("0920 Verif Wajah");
+        BtnKeluarVerifWajah.setToolTipText("Alt+V");
+        BtnKeluarVerifWajah.setName("BtnKeluarVerifWajah"); // NOI18N
+        BtnKeluarVerifWajah.setPreferredSize(new java.awt.Dimension(180, 30));
+        BtnKeluarVerifWajah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String Var_From_SQL_Query = Sequel.cariIsi("select pasien.no_ktp from pasien where pasien.no_rkm_medis=?", TNoRM.getText());
+                String url = "https://rsipalangkaraya.online/verifikasiwajah/?nik=" + Var_From_SQL_Query;
+                JOptionPane.showMessageDialog(null, "Verifikasi wajah pada " + Var_From_SQL_Query);
+                try {
+                if (Desktop.isDesktopSupported()) {
+                    Desktop.getDesktop().browse(new URI(url));
+                } else {
+                    JOptionPane.showMessageDialog(null, "Desktop browsing not supported");
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Gagal membuka browser: " + e.getMessage());
+                }
+//                LabelCatatan.setText(Sequel.cariIsi("select pasien.no_rkm_medis,pasien.no_ktp from pasien where pasien.no_rkm_medis=?",TNoRM.getText()));
+//                JOptionPane.showMessageDialog(null, "Verifikasi wajah pada " + TNoRM.getText());
+//                JOptionPane.showMessageDialog(null, "Hello World 6462");
+//                BtnKeluarVerifWajahActionPerformed(evt);
+            }
+        });
+        BtnKeluarVerifWajah.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+//                JOptionPane.showMessageDialog(null, "Hello World 6468");
+//                BtnKeluarVerifWajahKeyPressed(evt);
+            }
+        });
+        panelGlass6.add(BtnKeluarVerifWajah);
