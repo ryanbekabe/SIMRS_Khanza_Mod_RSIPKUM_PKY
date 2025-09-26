@@ -6429,7 +6429,7 @@ public final class DlgReg extends javax.swing.JDialog {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 String Var_From_SQL_Query = Sequel.cariIsi("select pasien.no_ktp from pasien where pasien.no_rkm_medis=?", TNoRM.getText());
                 String url = "https://rsipalangkaraya.online/verifikasiwajah/?nik=" + Var_From_SQL_Query;
-                JOptionPane.showMessageDialog(null, "Verifikasi wajah pada " + Var_From_SQL_Query);
+                JOptionPane.showMessageDialog(null, "Verifikasi wajah pada: " + TPasien.getText() + " - NIK: "+ Var_From_SQL_Query);
                 try {
                 if (Desktop.isDesktopSupported()) {
                     Desktop.getDesktop().browse(new URI(url));
