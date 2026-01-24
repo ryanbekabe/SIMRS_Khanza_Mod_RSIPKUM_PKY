@@ -241,7 +241,7 @@ public class DlgBilingRanap extends javax.swing.JDialog {
         initComponents();
         //this.setLocation(8,1);
         //setSize(891,640);
-        System.out.println("Line 244 keuangan-DlgBilingRanap.java: "+x);
+//        System.out.println("Line 244 keuangan-DlgBilingRanap.java: "+x);
 
         Object[] rowRwJlDr={"Pilih","Keterangan","Tagihan/Tindakan/Terapi","","Biaya","Jumlah","Tambahan","Total Biaya",""};
         tabModeRwJlDr=new DefaultTableModel(null,rowRwJlDr){
@@ -5198,8 +5198,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                              subttlop=subttlop+rsobatoperasi.getDouble("hargasatuan");
                              subttlopb=subttlopb+rsobatoperasi.getDouble("total");
                         }
-                        System.out.println("Line 5201: " + subttlop);
-                        tabModeRwJlDr.addRow(new Object[]{true,"","Total Obat & BHP Operasi line 5202 : " + Valid.SetAngka(subttlop) + " | " + Valid.SetAngka(subttlopb),"", null,null,null, null,"Obat"});
+//                        System.out.println("Line 5201: " + subttlop);
+//                        tabModeRwJlDr.addRow(new Object[]{true,"","Total Obat & BHP Operasi line 5202 : " + Valid.SetAngka(subttlop) + " | " + Valid.SetAngka(subttlopb),"", null,null,null, null,"Obat"});
+                        tabModeRwJlDr.addRow(new Object[]{true, "", "Total Obat & BHP Operasi ", ":",  subttlop, null, null, subttlopb, "Obat"});
                     }
                 }else{
                     if(rsobatoperasi.next()){
