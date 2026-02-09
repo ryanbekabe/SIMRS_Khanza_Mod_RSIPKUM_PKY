@@ -5200,7 +5200,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         }
 //                        System.out.println("Line 5201: " + subttlop);
 //                        tabModeRwJlDr.addRow(new Object[]{true,"","Total Obat & BHP Operasi line 5202 : " + Valid.SetAngka(subttlop) + " | " + Valid.SetAngka(subttlopb),"", null,null,null, null,"Obat"});
-                        tabModeRwJlDr.addRow(new Object[]{true, "", "Total Obat & BHP Operasi ", ":",  subttlop, null, null, subttlopb, "Obat"});
+                        tabModeRwJlDr.addRow(new Object[]{true, "", "Total Obat & BHP Operasi : " + subttlop + "  ___ " + subttlopb, ".",  null, null, null, null, "Obat"});
                     }
                 }else{
                     if(rsobatoperasi.next()){
