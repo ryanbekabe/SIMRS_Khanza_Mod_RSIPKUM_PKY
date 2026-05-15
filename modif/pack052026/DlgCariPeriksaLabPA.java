@@ -2391,13 +2391,19 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                             pspermintaan.setString(3,rs.getString("jam"));
                             rspermintaan=pspermintaan.executeQuery();
                             if(rspermintaan.next()){
-                                param.put("nopermintaan",rspermintaan.getString("noorder"));   
-                                param.put("tanggalpermintaan",rspermintaan.getString("tgl_permintaan"));  
+                                param.put("nopermintaan",rspermintaan.getString("noorder"));
+                                param.put("tanggalpermintaan",rspermintaan.getString("tgl_permintaan"));
                                 param.put("jampermintaan",rspermintaan.getString("jam_permintaan"));
-//                                Valid.MyReport("rptPeriksaLabPermintaanPA.jasper","report","::[ Pemeriksaan Laboratorium ]::",param);   
-                                Valid.MyReport("rptPeriksaLabPermintaanPADT.jasper","report","::[ Pemeriksaan Laboratorium ]::",param);   
+//                                Valid.MyReport("rptPeriksaLabPermintaanPA.jasper","report","::[ Pemeriksaan Laboratorium ]::",param);
+                                Valid.MyReport("rptPeriksaLabPermintaanPADT.jasper","report","::[ Pemeriksaan Laboratorium ]::",param);
                             }else{
-                                Valid.MyReport("rptPeriksaLabPAHJ.jasper","report","::[ Pemeriksaan Laboratorium ]::",param);   
+                                param.put("nopermintaan",Sequel.cariIsi(
+                                    "select ifnull(group_concat(distinct pm.noorder separator ', '),'') "+
+                                    "from permintaan_labpa pm "+
+                                    "inner join permintaan_pemeriksaan_labpa pp on pm.noorder=pp.noorder "+
+                                    "where pm.no_rawat='"+rs.getString("no_rawat")+"' "+
+                                    "and pp.kd_jenis_prw='"+tbDokter.getValueAt(tbDokter.getSelectedRow(),15).toString()+"'"));
+                                Valid.MyReport("rptPeriksaLabPAHJ.jasper","report","::[ Pemeriksaan Laboratorium ]::",param);
                             }
                         } catch (Exception e) {
                             System.out.println("Notif : "+e);
