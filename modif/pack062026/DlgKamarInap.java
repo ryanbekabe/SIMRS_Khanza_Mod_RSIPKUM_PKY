@@ -10789,12 +10789,28 @@ public class DlgKamarInap extends javax.swing.JDialog {
                 menuItem.setFont(new java.awt.Font("Tahoma", 0, 11));
                 menuItem.setForeground(new java.awt.Color(50,50,50));
                 menuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
-                menuItem.setText("Surat Keterangan Rawat Inap - " + nmDokter);
+                
+                String menuText = "10792 Surat Keterangan Rawat Inap - " + nmDokter;
+                menuItem.setText(menuText);
                 menuItem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                 menuItem.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-                menuItem.setPreferredSize(new java.awt.Dimension(300, 26));
+                
+                // Hitung lebar berdasarkan seluruh teks yang ditampilkan
+                java.awt.FontMetrics fm = menuItem.getFontMetrics(menuItem.getFont());
+                int totalTextWidth = fm.stringWidth(menuText);
+                int iconWidth = 20;      // lebar icon dengan margin
+                int leftPadding = 10;    // padding kiri setelah icon
+                int rightPadding = 15;   // padding kanan
+                int minWidth = 320;      // lebar minimum
+                int maxWidth = 650;      // lebar maksimum agar tidak terlalu panjang
+                
+                int preferredWidth = Math.max(minWidth, totalTextWidth + iconWidth + leftPadding + rightPadding);
+                preferredWidth = Math.min(preferredWidth, maxWidth);
+                
+                menuItem.setPreferredSize(new java.awt.Dimension(preferredWidth, 26));
                 menuItem.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        JOptionPane.showMessageDialog(null, "10813 Dokter yang dipilih: " + nmDokter);
                         cetakSuratKeteranganRawatInapDPJP(noRawat, kdDokter, nmDokter);
                     }
                 });
@@ -10809,12 +10825,28 @@ public class DlgKamarInap extends javax.swing.JDialog {
                 menuItem.setFont(new java.awt.Font("Tahoma", 0, 11));
                 menuItem.setForeground(new java.awt.Color(50,50,50));
                 menuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
-                menuItem.setText("Surat Keterangan Rawat Inap - " + nmDokterDefault);
+                
+                String menuText = "10812 Surat Keterangan Rawat Inap - " + nmDokterDefault;
+                menuItem.setText(menuText);
                 menuItem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                 menuItem.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-                menuItem.setPreferredSize(new java.awt.Dimension(300, 26));
+                
+                // Hitung lebar berdasarkan seluruh teks yang ditampilkan (sama dengan case DPJP)
+                java.awt.FontMetrics fm = menuItem.getFontMetrics(menuItem.getFont());
+                int totalTextWidth = fm.stringWidth(menuText);
+                int iconWidth = 20;      // lebar icon dengan margin
+                int leftPadding = 10;    // padding kiri setelah icon
+                int rightPadding = 15;   // padding kanan
+                int minWidth = 320;      // lebar minimum
+                int maxWidth = 650;      // lebar maksimum agar tidak terlalu panjang
+                
+                int preferredWidth = Math.max(minWidth, totalTextWidth + iconWidth + leftPadding + rightPadding);
+                preferredWidth = Math.min(preferredWidth, maxWidth);
+                
+                menuItem.setPreferredSize(new java.awt.Dimension(preferredWidth, 26));
                 menuItem.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        JOptionPane.showMessageDialog(null, "10849 Dokter yang dipilih: " + nmDokterDefault);
                         String kdDokterDefault = Sequel.cariIsi("SELECT kd_dokter FROM reg_periksa WHERE no_rawat=?", noRawat);
                         if(kdDokterDefault == null) kdDokterDefault = "";
                         cetakSuratKeteranganRawatInapDPJP(noRawat, kdDokterDefault, nmDokterDefault);
@@ -10853,7 +10885,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
                           "ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis AND reg_periksa.kd_dokter = dokter.kd_dokter " +
                           "WHERE reg_periksa.no_rawat = ?";
             
-            Valid.MyReportqry("rptSuratSakit2.jasper", "report", "::[ Surat Keterangan Rawat Inap - " + nmDokter + " ]::", query, param);
+            Valid.MyReportqry("rptSuratSakit2.jasper", "report", "::[ 10856 Surat Keterangan Rawat Inap - " + nmDokter + " ]::", query, param);
             this.setCursor(Cursor.getDefaultCursor());
         } catch (Exception e) {
             System.out.println("Error printing Surat Keterangan Rawat Inap: " + e);
