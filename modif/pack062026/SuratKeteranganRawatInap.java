@@ -126,7 +126,7 @@ public final class SuratKeteranganRawatInap extends javax.swing.JDialog {
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
-        MnCetakSuratRawat = new javax.swing.JMenuItem();
+        MnCetakSuratRawat = new javax.swing.JMenu();
         MnCetakSuratRawat1 = new javax.swing.JMenu();
         internalFrame1 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
@@ -173,10 +173,12 @@ public final class SuratKeteranganRawatInap extends javax.swing.JDialog {
         MnCetakSuratRawat.setText("Cetak Surat Keterangan Rawat Inap - Dirawat");
         MnCetakSuratRawat.setName("MnCetakSuratRawat"); // NOI18N
         MnCetakSuratRawat.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnCetakSuratRawat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnCetakSuratRawatActionPerformed(evt);
+        MnCetakSuratRawat.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                populateMenuSuratDirawatDPJP();
             }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {}
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {}
         });
         jPopupMenu1.add(MnCetakSuratRawat);
 
@@ -805,38 +807,137 @@ public final class SuratKeteranganRawatInap extends javax.swing.JDialog {
         Valid.pindah(evt,NoSurat,TanggalAkhir);
     }//GEN-LAST:event_TanggalAwalKeyPressed
 
-    private void MnCetakSuratRawatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnCetakSuratRawatActionPerformed
-       if(TPasien.getText().trim().equals("")){
+    private void populateMenuSuratDirawatDPJP(){
+        MnCetakSuratRawat.removeAll();
+
+        if(TPasien.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
-        }else{
+            return;
+        }
+
+        final String noRawat = TNoRw.getText();
+        try {
+            PreparedStatement psDpjpMenu = koneksi.prepareStatement(
+                "SELECT DISTINCT dpjp_ranap.kd_dokter, dokter.nm_dokter FROM dpjp_ranap " +
+                "INNER JOIN dokter ON dpjp_ranap.kd_dokter = dokter.kd_dokter " +
+                "WHERE dpjp_ranap.no_rawat = ? " +
+                "ORDER BY dokter.nm_dokter ASC");
+            psDpjpMenu.setString(1, noRawat);
+            ResultSet rsDpjpMenu = psDpjpMenu.executeQuery();
+
+            int countDPJP = 0;
+            while(rsDpjpMenu.next()){
+                countDPJP++;
+                final String kdDokter = rsDpjpMenu.getString("kd_dokter");
+                final String nmDokter = rsDpjpMenu.getString("nm_dokter");
+
+                javax.swing.JMenuItem menuItem = new javax.swing.JMenuItem();
+                menuItem.setBackground(new java.awt.Color(250, 250, 250));
+                menuItem.setFont(new java.awt.Font("Tahoma", 0, 11));
+                menuItem.setForeground(new java.awt.Color(50, 50, 50));
+                menuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
+
+                String menuText = "Cetak Surat Keterangan Rawat Inap - Dirawat - " + nmDokter;
+                menuItem.setText(menuText);
+                menuItem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                menuItem.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+                // Hitung lebar berdasarkan seluruh teks yang ditampilkan
+                java.awt.FontMetrics fm = menuItem.getFontMetrics(menuItem.getFont());
+                int totalTextWidth = fm.stringWidth(menuText);
+                int iconWidth = 20;      // lebar icon dengan margin
+                int leftPadding = 10;    // padding kiri setelah icon
+                int rightPadding = 15;   // padding kanan
+                int minWidth = 320;      // lebar minimum
+                int maxWidth = 650;      // lebar maksimum agar tidak terlalu panjang
+
+                int preferredWidth = Math.max(minWidth, totalTextWidth + iconWidth + leftPadding + rightPadding);
+                preferredWidth = Math.min(preferredWidth, maxWidth);
+
+                menuItem.setPreferredSize(new java.awt.Dimension(preferredWidth, 26));
+                menuItem.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        cetakSuratDirawatDPJP(kdDokter, nmDokter);
+                    }
+                });
+                MnCetakSuratRawat.add(menuItem);
+            }
+
+            if(countDPJP == 0){
+                // Fallback: tidak ada DPJP, pakai dokter dari reg_periksa (dokter penanggung jawab)
+                final String kdDokterDefault = Sequel.cariIsi("select kd_dokter from reg_periksa where no_rawat=?", noRawat);
+                final String nmDokterDefault = Sequel.cariIsi("select nm_dokter from dokter inner join reg_periksa on reg_periksa.kd_dokter=dokter.kd_dokter where reg_periksa.no_rawat=?", noRawat);
+
+                javax.swing.JMenuItem menuItem = new javax.swing.JMenuItem();
+                menuItem.setBackground(new java.awt.Color(250, 250, 250));
+                menuItem.setFont(new java.awt.Font("Tahoma", 0, 11));
+                menuItem.setForeground(new java.awt.Color(50, 50, 50));
+                menuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
+
+                String menuText = "Cetak Surat Keterangan Rawat Inap - Dirawat - " + nmDokterDefault;
+                menuItem.setText(menuText);
+                menuItem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                menuItem.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+                java.awt.FontMetrics fm = menuItem.getFontMetrics(menuItem.getFont());
+                int totalTextWidth = fm.stringWidth(menuText);
+                int preferredWidth = Math.max(320, totalTextWidth + 20 + 10 + 15);
+                preferredWidth = Math.min(preferredWidth, 650);
+
+                menuItem.setPreferredSize(new java.awt.Dimension(preferredWidth, 26));
+                menuItem.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        cetakSuratDirawatDPJP(kdDokterDefault == null ? "" : kdDokterDefault, nmDokterDefault);
+                    }
+                });
+                MnCetakSuratRawat.add(menuItem);
+            }
+
+            rsDpjpMenu.close();
+            psDpjpMenu.close();
+
+        } catch (Exception e) {
+            System.out.println("Error populating DPJP menu Surat Dirawat: " + e);
+        }
+    }
+
+    private void cetakSuratDirawatDPJP(String kdDokter, String nmDokter){
+        if(TPasien.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+            return;
+        }
+        try {
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                Map<String, Object> param = new HashMap<>();
-                param.put("TanggalAwal",TanggalAwal.getSelectedItem().toString());
-                param.put("TanggalAkhir",TanggalAkhir.getSelectedItem().toString());
-                param.put("nosakit",NoSurat.getText());
-                param.put("dokter",Sequel.cariIsi("select nm_dokter from dokter inner join dpjp_ranap on dpjp_ranap.kd_dokter=dokter.kd_dokter where dpjp_ranap.no_rawat=?",TNoRw.getText()));
-                param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter inner join dpjp_ranap on dpjp_ranap.kd_dokter=dokter.kd_dokter where dpjp_ranap.no_rawat=?",TNoRw.getText()));
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());  
-                param.put("finger","https://verifqr.rsipalangkaraya.co.id/verifqr/?id="+EnkripsiAES.encrypt("{'x':'skn','t':'"+NoSurat.getText()+"'}"));
-                param.put("logo",Sequel.cariGambar("select gambar.kopsurat from gambar")); //Modif Edit jadi KOP Surat
-                param.put("penyakit",Sequel.cariIsi("select concat(diagnosa_pasien.kd_penyakit,' ',penyakit.nm_penyakit) from diagnosa_pasien inner join reg_periksa inner join penyakit "+
-                    "on diagnosa_pasien.no_rawat=reg_periksa.no_rawat and diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit "+
-                    "where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='1'",TNoRw.getText()));
-                Valid.MyReportqry("rptSuratKeteranganRawatInap.jasper","report","::[ Surat Keterangan Rawat Inap - Dirawat ]::",
-                              "select DATE_FORMAT(reg_periksa.tgl_registrasi,'%d-%m-%Y')as tgl_registrasi,perusahaan_pasien.nama_perusahaan,reg_periksa.no_rawat,dokter.nm_dokter,dokter.no_ijn_praktek,pasien.keluarga,pasien.namakeluarga,pasien.tgl_lahir,pasien.jk," +
-                              " pasien.nm_pasien,pasien.tmp_lahir,pasien.tgl_lahir,pasien.jk,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,pasien.pekerjaan,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat" +
-                              " from reg_periksa inner join pasien inner join dokter inner join kelurahan inner join perusahaan_pasien inner join kecamatan inner join kabupaten" +
-                              " on reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.kd_dokter=dokter.kd_dokter and pasien.kd_kel=kelurahan.kd_kel "+
-                              "and pasien.perusahaan_pasien=perusahaan_pasien.kode_perusahaan and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab "+
-                              "where reg_periksa.no_rawat='"+TNoRw.getText()+"' ",param);
-                this.setCursor(Cursor.getDefaultCursor());  
-       }
-    }//GEN-LAST:event_MnCetakSuratRawatActionPerformed
+            Map<String, Object> param = new HashMap<>();
+            param.put("TanggalAwal",TanggalAwal.getSelectedItem().toString());
+            param.put("TanggalAkhir",TanggalAkhir.getSelectedItem().toString());
+            param.put("nosakit",NoSurat.getText());
+            param.put("dokter",nmDokter);
+            param.put("sipdokter",Sequel.cariIsi("select no_ijn_praktek from dokter where kd_dokter=?",kdDokter));
+            param.put("namars",akses.getnamars());
+            param.put("alamatrs",akses.getalamatrs());
+            param.put("kotars",akses.getkabupatenrs());
+            param.put("propinsirs",akses.getpropinsirs());
+            param.put("kontakrs",akses.getkontakrs());
+            param.put("emailrs",akses.getemailrs());
+            param.put("finger","https://verifqr.rsipalangkaraya.co.id/verifqr/?id="+EnkripsiAES.encrypt("{'x':'skn','t':'"+NoSurat.getText()+"'}"));
+            param.put("logo",Sequel.cariGambar("select gambar.kopsurat from gambar")); //Modif Edit jadi KOP Surat
+            param.put("penyakit",Sequel.cariIsi("select concat(diagnosa_pasien.kd_penyakit,' ',penyakit.nm_penyakit) from diagnosa_pasien inner join reg_periksa inner join penyakit "+
+                "on diagnosa_pasien.no_rawat=reg_periksa.no_rawat and diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit "+
+                "where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas='1'",TNoRw.getText()));
+            Valid.MyReportqry("rptSuratKeteranganRawatInap.jasper","report","::[ Surat Keterangan Rawat Inap - Dirawat - "+nmDokter+" ]::",
+                          "select DATE_FORMAT(reg_periksa.tgl_registrasi,'%d-%m-%Y')as tgl_registrasi,perusahaan_pasien.nama_perusahaan,reg_periksa.no_rawat,dokter.nm_dokter,dokter.no_ijn_praktek,pasien.keluarga,pasien.namakeluarga,pasien.tgl_lahir,pasien.jk," +
+                          " pasien.nm_pasien,pasien.tmp_lahir,pasien.tgl_lahir,pasien.jk,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,pasien.pekerjaan,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat" +
+                          " from reg_periksa inner join pasien inner join dokter inner join kelurahan inner join perusahaan_pasien inner join kecamatan inner join kabupaten" +
+                          " on reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.kd_dokter=dokter.kd_dokter and pasien.kd_kel=kelurahan.kd_kel "+
+                          "and pasien.perusahaan_pasien=perusahaan_pasien.kode_perusahaan and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab "+
+                          "where reg_periksa.no_rawat='"+TNoRw.getText()+"' ",param);
+            this.setCursor(Cursor.getDefaultCursor());
+        } catch (Exception e) {
+            System.out.println("Error printing Surat Keterangan Rawat Inap - Dirawat: " + e);
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }
 
     private void populateMenuSuratSakitDPJP(){
         MnCetakSuratRawat1.removeAll();
@@ -1001,7 +1102,7 @@ public final class SuratKeteranganRawatInap extends javax.swing.JDialog {
     private widget.Tanggal DTPCari2;
     private widget.PanelBiasa FormInput;
     private widget.Label LCount;
-    private javax.swing.JMenuItem MnCetakSuratRawat;
+    private javax.swing.JMenu MnCetakSuratRawat;
     private javax.swing.JMenu MnCetakSuratRawat1;
     private widget.TextBox NoSurat;
     private javax.swing.JPanel PanelInput;
