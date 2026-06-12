@@ -5661,6 +5661,12 @@ public class DlgKamarInap extends javax.swing.JDialog {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbKamInMouseClicked(evt);
             }
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                if(javax.swing.SwingUtilities.isRightMouseButton(evt)) {
+                    populateMenuSuratKeteranganRawatInapDPJP();
+                }
+            }
         });
         tbKamIn.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -10790,7 +10796,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
                 menuItem.setForeground(new java.awt.Color(50,50,50));
                 menuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
                 
-                String menuText = "10792 Surat Keterangan Rawat Inap - " + nmDokter;
+                String menuText = "Surat Keterangan Rawat Inap - " + nmDokter;
                 menuItem.setText(menuText);
                 menuItem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                 menuItem.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -10810,13 +10816,12 @@ public class DlgKamarInap extends javax.swing.JDialog {
                 menuItem.setPreferredSize(new java.awt.Dimension(preferredWidth, 26));
                 menuItem.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        JOptionPane.showMessageDialog(null, "10813 Dokter yang dipilih: " + nmDokter);
-                        cetakSuratKeteranganRawatInapDPJP(noRawat, kdDokter, nmDokter);
+                        bukaFormSuratSakitDPJP(noRawat, kdDokter, nmDokter);
                     }
                 });
                 MnLaporanSuratKeteranganRawatInap.add(menuItem);
             }
-            
+
             if(countDPJP == 0){
                 // Fallback: tidak ada DPJP, pakai dokter dari kolom 18 (Dokter P.J.)
                 final String nmDokterDefault = tbKamIn.getValueAt(rowInduk, 18).toString();
@@ -10826,7 +10831,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
                 menuItem.setForeground(new java.awt.Color(50,50,50));
                 menuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
                 
-                String menuText = "10812 Surat Keterangan Rawat Inap - " + nmDokterDefault;
+                String menuText = "Surat Keterangan Rawat Inap - " + nmDokterDefault;
                 menuItem.setText(menuText);
                 menuItem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                 menuItem.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -10846,51 +10851,35 @@ public class DlgKamarInap extends javax.swing.JDialog {
                 menuItem.setPreferredSize(new java.awt.Dimension(preferredWidth, 26));
                 menuItem.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        JOptionPane.showMessageDialog(null, "10849 Dokter yang dipilih: " + nmDokterDefault);
                         String kdDokterDefault = Sequel.cariIsi("SELECT kd_dokter FROM reg_periksa WHERE no_rawat=?", noRawat);
                         if(kdDokterDefault == null) kdDokterDefault = "";
-                        cetakSuratKeteranganRawatInapDPJP(noRawat, kdDokterDefault, nmDokterDefault);
+                        bukaFormSuratSakitDPJP(noRawat, kdDokterDefault, nmDokterDefault);
                     }
                 });
                 MnLaporanSuratKeteranganRawatInap.add(menuItem);
             }
-            
+
             rsDpjpMenu.close();
             psDpjpMenu.close();
-            
+
         } catch (Exception e) {
             System.out.println("Error populating DPJP menu: " + e);
         }
     }
-    
-    private void cetakSuratKeteranganRawatInapDPJP(String noRawat, String kdDokter, String nmDokter){
-        try {
-            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            Map<String, Object> param = new HashMap<>();
-            param.put("namars", akses.getnamars());
-            param.put("alamatrs", akses.getalamatrs());
-            param.put("kotars", akses.getkabupatenrs());
-            param.put("propinsirs", akses.getpropinsirs());
-            param.put("kontakrs", akses.getkontakrs());
-            param.put("emailrs", akses.getemailrs());
-            param.put("logo", Sequel.cariGambar("select setting.logo from setting"));
-            
-            // Tambahkan parameter dokter DPJP
-            param.put("dokterpj", nmDokter);
-            
-            String query = "SELECT reg_periksa.no_rkm_medis, dokter.nm_dokter, pasien.keluarga, pasien.namakeluarga, " +
-                          "pasien.tgl_lahir, pasien.jk, pasien.nm_pasien, pasien.jk, " +
-                          "concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur) as umur, pasien.pekerjaan, pasien.alamat " +
-                          "FROM reg_periksa INNER JOIN pasien INNER JOIN dokter " +
-                          "ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis AND reg_periksa.kd_dokter = dokter.kd_dokter " +
-                          "WHERE reg_periksa.no_rawat = ?";
-            
-            Valid.MyReportqry("rptSuratSakit2.jasper", "report", "::[ 10856 Surat Keterangan Rawat Inap - " + nmDokter + " ]::", query, param);
-            this.setCursor(Cursor.getDefaultCursor());
-        } catch (Exception e) {
-            System.out.println("Error printing Surat Keterangan Rawat Inap: " + e);
-            this.setCursor(Cursor.getDefaultCursor());
-        }
+
+    /**
+     * Saat dokter DPJP dipilih: tampilkan nama dokter, buka form
+     * SuratKeteranganRawatInap dengan no_rawat & dokter terpilih, lalu
+     * cetak Surat Keterangan Rawat Inap - Sakit (rptSuratKeteranganRawatInapB.jasper).
+     */
+    private void bukaFormSuratSakitDPJP(String noRawat, String kdDokter, String nmDokter){
+        JOptionPane.showMessageDialog(null, "Dokter yang dipilih: " + nmDokter);
+        SuratKeteranganRawatInap form = new SuratKeteranganRawatInap(null, false);
+        form.isCek();
+        form.setSize(internalFrame1.getWidth()-20, internalFrame1.getHeight()-20);
+        form.setLocationRelativeTo(internalFrame1);
+        form.setVisible(true);
+        form.cetakSuratSakitDariDPJP(noRawat, kdDokter, nmDokter);
     }
 
     private void BtnPrint5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPrint5ActionPerformed

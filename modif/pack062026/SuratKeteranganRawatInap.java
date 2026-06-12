@@ -172,7 +172,7 @@ public final class SuratKeteranganRawatInap extends javax.swing.JDialog {
         MnCetakSuratRawat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         MnCetakSuratRawat.setText("Cetak Surat Keterangan Rawat Inap - Dirawat");
         MnCetakSuratRawat.setName("MnCetakSuratRawat"); // NOI18N
-        MnCetakSuratRawat.setPreferredSize(new java.awt.Dimension(250, 26));
+        MnCetakSuratRawat.setPreferredSize(new java.awt.Dimension(260, 26));
         MnCetakSuratRawat.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuSelected(javax.swing.event.MenuEvent evt) {
                 populateMenuSuratDirawatDPJP();
@@ -188,7 +188,7 @@ public final class SuratKeteranganRawatInap extends javax.swing.JDialog {
         MnCetakSuratRawat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         MnCetakSuratRawat1.setText("Cetak Surat Keterangan Rawat Inap - Sakit");
         MnCetakSuratRawat1.setName("MnCetakSuratRawat1"); // NOI18N
-        MnCetakSuratRawat1.setPreferredSize(new java.awt.Dimension(250, 26));
+        MnCetakSuratRawat1.setPreferredSize(new java.awt.Dimension(260, 26));
         MnCetakSuratRawat1.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuSelected(javax.swing.event.MenuEvent evt) {
                 populateMenuSuratSakitDPJP();
@@ -837,7 +837,7 @@ public final class SuratKeteranganRawatInap extends javax.swing.JDialog {
                 menuItem.setForeground(new java.awt.Color(50, 50, 50));
                 menuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
 
-                String menuText = "Cetak Surat Keterangan Rawat Inap - Dirawat - " + nmDokter;
+                String menuText = "DPJP - Dirawat - " + nmDokter;
                 menuItem.setText(menuText);
                 menuItem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                 menuItem.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -874,7 +874,7 @@ public final class SuratKeteranganRawatInap extends javax.swing.JDialog {
                 menuItem.setForeground(new java.awt.Color(50, 50, 50));
                 menuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
 
-                String menuText = "Cetak Surat Keterangan Rawat Inap - Dirawat - " + nmDokterDefault;
+                String menuText = "DPJP - Dirawat - " + nmDokterDefault;
                 menuItem.setText(menuText);
                 menuItem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                 menuItem.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -969,7 +969,7 @@ public final class SuratKeteranganRawatInap extends javax.swing.JDialog {
                 menuItem.setForeground(new java.awt.Color(50, 50, 50));
                 menuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
 
-                String menuText = "Cetak Surat Keterangan Rawat Inap - Sakit - " + nmDokter;
+                String menuText = "DPJP - Sakit - " + nmDokter;
                 menuItem.setText(menuText);
                 menuItem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                 menuItem.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -1006,7 +1006,7 @@ public final class SuratKeteranganRawatInap extends javax.swing.JDialog {
                 menuItem.setForeground(new java.awt.Color(50, 50, 50));
                 menuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
 
-                String menuText = "Cetak Surat Keterangan Rawat Inap - Sakit - " + nmDokterDefault;
+                String menuText = "DPJP - Sakit - " + nmDokterDefault;
                 menuItem.setText(menuText);
                 menuItem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
                 menuItem.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -1217,9 +1217,21 @@ public final class SuratKeteranganRawatInap extends javax.swing.JDialog {
         TNoRw.setText(norwt);
         TCari.setText(norwt);
         isRawat();
-        isPsien(); 
+        isPsien();
         ChkInput.setSelected(true);
         isForm();
+    }
+
+    /**
+     * Dipanggil dari luar (mis. DlgKamarInap) saat memilih dokter DPJP.
+     * Mengisi form berdasarkan no_rawat lalu langsung mencetak
+     * Surat Keterangan Rawat Inap - Sakit (rptSuratKeteranganRawatInapB.jasper)
+     * untuk dokter yang dipilih.
+     */
+    public void cetakSuratSakitDariDPJP(String noRawat, String kdDokter, String nmDokter) {
+        emptTeks();          // set tanggal = hari ini + auto-generate No.Surat
+        setNoRm(noRawat);    // isi No.Rawat, No.RM, dan Nama Pasien
+        cetakSuratSakitDPJP(kdDokter, nmDokter);
     }
     private void isForm(){
         if(ChkInput.isSelected()==true){
