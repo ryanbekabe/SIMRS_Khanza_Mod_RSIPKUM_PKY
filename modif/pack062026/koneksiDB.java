@@ -98,17 +98,17 @@ public class koneksiDB {
                         "        simrskhanza/DlgCariTagihanOperasi.java (1) (KOP Surat, pangkas beberapa field, SIP 02082025);\n"+
                         "        simrskhanza/DlgIGD.java (1) (Notif Potensi Re-Admisi, lebih dari 1 hari 24 jam dan kurang dari sama dengan 30 hari kemarin, nonaktifkan menu Penilaian Awal jika sudah Ranap 26052025 08022025);\n"+
                         "        simrskhanza/DlgIKBBayi.java (1) (Tgl Lhr Ibu; Tgl Lhr Ayah, Limit karakter 8 ke 10 UmurIbu; UmurAyah, Surat Keterangan Lahir 1 - Tunggal; Surat Keterangan Lahir 2 - Kembar; TCariRMIbu jika gagal mendapatkan NIK Ibu, PenilaianAwalMedisIGD MessageDialog Akses ke menu ini kami nonaktifkan);\n"+
-                        "        simrskhanza/DlgKamarInap.java (1) (Label Radiologi);\n"+
+                        "        simrskhanza/DlgKamarInap.java (1) (Label Radiologi, cetak surat DPJP bisa dipilih 12062026);\n"+
                         "        simrskhanza/DlgKasirRalan.java (1) (Surat Keterangan Sehat 3 - Oke, Label Radiologi, Tambah tulisan pasien - MJKN, PenilaianAwalMedisIGD MessageDialog Akses ke menu ini kami nonaktifkan);\n"+
                         "        simrskhanza/DlgPasienMati.java (1) (Ket./NoSrt, Surat Kematian 1 - Oke);\n"+
                         "        simrskhanza/DlgRawatJalan.java (1) (Suhu harap dilengkapi, dll...);\n"+
                         "        simrskhanza/DlgReg.java (1) (Surat Keterangan Sehat 3 - Oke; - MJKN. PRB; JK < 17thn rptBarcodeRawat.jasper; Verifikasi Wajah ke web, notif nama dan NIK 09092025,16092025,25092025);\n"+
                         
-                        "        simrskhanza/frmUtama.java (1) (Tambah tombol Update dan updater.jar; btnLaboratoriumPA2; IDRG-Dev import integration_idrg.DlgListKlaim 13072025 11082025 25092025 10102025);\n"+
+                        "        simrskhanza/frmUtama.java (1) (Tambah tombol Update dan updater.jar, btnLaboratoriumPA2, IDRG-Dev import integration_idrg.DlgListKlaim 13072025 11082025 25092025 10102025);\n"+
                         
                         "        surat/SuratBebasNarkoba.java (1) (3 Jenis Parameter, Perpanjang Field Nomor Surat, nama dokter dari tabel surat_skbn database);\n"+
                         "        surat/SuratButaWarna.java (1) (KOP Surat);\n"+
-                        "        surat/SuratKeteranganRawatInap.java (1) (NoSurat 30; Mode Print A Dirawat dan B Sakit);\n"+
+                        "        surat/SuratKeteranganRawatInap.java (1) (NoSurat 30, Mode Print A Dirawat dan B Sakit, cetak surat DPJP bisa dipilih 12062026);\n"+
                         "        surat/SuratKeteranganSehat.java (1) (KOP Surat);\n"+
                         "        surat/SuratSakit.java (1) (Cetak Surat Sakit 1 - Oke);\n"+
                         
