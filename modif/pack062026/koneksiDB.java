@@ -92,7 +92,7 @@ public class koneksiDB {
                         "        simrskhanza/DlgAbout.java (1) (Versi Git dan build app 13062025 11072025 02082025 25092025);\n"+
                         "        simrskhanza/DlgCariPeriksaLab.java (0) (Judul pemeriksaan Lab. tetap di atas);\n"+
                         "        simrskhanza/DlgCariPeriksaLabPA.java (1) (MDT 1-3, batasInput 1024; SIP dokter sesuai kd_dokter; Cetak Sputum Gram; No.Permintaan 11072025 15052026);\n"+
-                        "        simrskhanza/DlgCariPeriksaLabPA2.java (1) (Tambahan menu khusus dr. Frau., tambah bisa cetak hasil dokter Sabilla 11082025 09062026);\n"+
+                        "        simrskhanza/DlgCariPeriksaLabPA2.java (1) (Tambahan menu khusus dr. Frau., tambah bisa cetak hasil dokter Sabilla, perbaikan Sputum Gram / Mikroskopis Sputum 11082025 09062026 15062026);\n"+
                         "        simrskhanza/DlgCariPeriksaRadiologi.java (2) (KOP; perbaiki bug simpan gambar pada Windows);\n"+
                         "        simrskhanza/DlgCariReg.java (0) ();\n"+
                         "        simrskhanza/DlgCariTagihanOperasi.java (1) (KOP Surat, pangkas beberapa field, SIP 02082025);\n"+
@@ -153,6 +153,8 @@ public class koneksiDB {
                         "        rptPeriksaLabPADTHJ2.jasper (1) (SIP dokter, support dr. spesialis lebih dari 1, 19062025 09062026);\n"+
                         "        rptPeriksaLabPADTHJ3.jasper (1) (SIP dokter, support dr. spesialis lebih dari 1, 19062025 09062026);\n"+
                         "        rptPeriksaLabPAHJ.jasper (1) (No.Permintaan 15052026 09062026);\n"+
+                        "        rptPeriksaLabPASGHJ.jasper (1) (SIP dokter, support dr. spesialis lebih dari 1, 15062026);\n"+
+                        "        rptPeriksaLabPermintaanPASGHJ.jasper (1) (SIP dokter, support dr. spesialis lebih dari 1, 15062026);\n"+
                         "        rptPeriksaRadiologi.jasper (1);\n"+
 
                         "        rptPermintaanRadiologi.jasper (1) (KOP, Penanggung Jawab 28012026);\n"+
@@ -169,7 +171,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 09/06/2026 13.45 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 15/06/2026 13.50 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
                 
 
