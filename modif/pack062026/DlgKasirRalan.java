@@ -253,7 +253,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
             validasicatatan=Sequel.cariIsi("select set_validasi_catatan.tampilkan_catatan from set_validasi_catatan"),
             Suspen_Piutang_Tindakan_Ralan="",Tindakan_Ralan="",Beban_Jasa_Medik_Dokter_Tindakan_Ralan="",Utang_Jasa_Medik_Dokter_Tindakan_Ralan="",
             Beban_Jasa_Medik_Paramedis_Tindakan_Ralan="",Utang_Jasa_Medik_Paramedis_Tindakan_Ralan="",Beban_KSO_Tindakan_Ralan="",Utang_KSO_Tindakan_Ralan="",
-            Beban_Jasa_Sarana_Tindakan_Ralan="",Utang_Jasa_Sarana_Tindakan_Ralan="",HPP_BHP_Tindakan_Ralan="",Persediaan_BHP_Tindakan_Ralan="",terbitsep="",
+            Beban_Jasa_Sarana_Tindakan_Ralan="",Utang_Jasa_Sarana_Tindakan_Ralan="",HPP_BHP_Tindakan_Ralan="",Persediaan_BHP_Tindakan_Ralan="",terbitsep="",ketsuratkontrol="",
             Beban_Jasa_Menejemen_Tindakan_Ralan="",Utang_Jasa_Menejemen_Tindakan_Ralan="",tampildiagnosa="",finger="",norawatdipilih="",normdipilih="",
             variabel="";
     public DlgBilingRalan billing=new DlgBilingRalan(null,false);
@@ -6762,6 +6762,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         tampildiagnosa="";
         filter="no";
         terbitsep="";
+        ketsuratkontrol="";
         TabRawatMouseClicked(null);
 }//GEN-LAST:event_BtnAllActionPerformed
 
@@ -13255,6 +13256,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
 
     private void MnBelumTerbitSEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBelumTerbitSEPActionPerformed
         terbitsep="and reg_periksa.kd_pj in (select password_asuransi.kd_pj from password_asuransi) and reg_periksa.no_rawat not in (select bridging_sep.no_rawat from bridging_sep)";
+        ketsuratkontrol="";
         TabRawatMouseClicked(null);
     }//GEN-LAST:event_MnBelumTerbitSEPActionPerformed
 
@@ -14001,16 +14003,19 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     
     private void MnSudahTerbitSEPActionPerformed(java.awt.event.ActionEvent evt) {
         terbitsep="and reg_periksa.kd_pj in (select password_asuransi.kd_pj from password_asuransi) and reg_periksa.no_rawat in (select bridging_sep.no_rawat from bridging_sep)";
+        ketsuratkontrol="";
         TabRawatMouseClicked(null);
     }
 
     private void MnSudahBuatSuratKontrolActionPerformed(java.awt.event.ActionEvent evt) {
         terbitsep="and reg_periksa.kd_pj in (select password_asuransi.kd_pj from password_asuransi) and reg_periksa.no_rawat in (select bridging_sep.no_rawat from bridging_sep where bridging_sep.no_sep in (select bridging_surat_kontrol_bpjs.no_sep from bridging_surat_kontrol_bpjs))";
+        ketsuratkontrol="Data di atas adalah pasien yang SUDAH dibuatkan Surat Kontrol";
         TabRawatMouseClicked(null);
     }
 
     private void MnBelumBuatSuratKontrolActionPerformed(java.awt.event.ActionEvent evt) {
         terbitsep="and reg_periksa.kd_pj in (select password_asuransi.kd_pj from password_asuransi) and reg_periksa.no_rawat in (select bridging_sep.no_rawat from bridging_sep where bridging_sep.no_sep not in (select bridging_surat_kontrol_bpjs.no_sep from bridging_surat_kontrol_bpjs))";
+        ketsuratkontrol="Data di atas adalah pasien yang BELUM dibuatkan Surat Kontrol";
         TabRawatMouseClicked(null);
     }
     
@@ -15252,9 +15257,12 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
             System.out.println("Notifikasi : "+e);
         }
         LCount.setText(""+tabModekasir.getRowCount());
+        if(!ketsuratkontrol.equals("")){
+            tabModekasir.addRow(new String[]{"","","",ketsuratkontrol,"","","","","","","","","","","","","","","",""});
+        }
     }
-    
-    private void tampilkasir2() {                   
+
+    private void tampilkasir2() {
         Valid.tabelKosong(tabModekasir2);
         try{   
             semua=CrPoli.getText().trim().equals("")&&CrPtg.getText().trim().equals("")&&cmbStatus.getSelectedItem().toString().equals("Semua")&&TCari.getText().trim().equals("");
