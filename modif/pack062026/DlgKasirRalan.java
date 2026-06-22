@@ -293,23 +293,23 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
             if(i==0){
                 column.setPreferredWidth(70);
             }else if(i==1){
-                column.setPreferredWidth(180);
+                column.setPreferredWidth(240);
             }else if(i==2){
                 column.setPreferredWidth(65);
             }else if(i==3){
-                column.setPreferredWidth(170);
+                column.setPreferredWidth(220);
             }else if(i==4){
                 column.setPreferredWidth(140);
             }else if(i==5){
                 column.setPreferredWidth(130);
             }else if(i==6){
-                column.setPreferredWidth(160);
+                column.setPreferredWidth(240);
             }else if(i==7){
                 column.setPreferredWidth(80);
             }else if(i==8){
                 column.setPreferredWidth(60);
             }else if(i==9){
-                column.setPreferredWidth(100);
+                column.setPreferredWidth(160);
             }else if(i==10){
                 column.setPreferredWidth(75);
             }else if(i==11){
@@ -13999,10 +13999,20 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         }
     } 
     
-    private void MnSudahTerbitSEPActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void MnSudahTerbitSEPActionPerformed(java.awt.event.ActionEvent evt) {
         terbitsep="and reg_periksa.kd_pj in (select password_asuransi.kd_pj from password_asuransi) and reg_periksa.no_rawat in (select bridging_sep.no_rawat from bridging_sep)";
         TabRawatMouseClicked(null);
-    }  
+    }
+
+    private void MnSudahBuatSuratKontrolActionPerformed(java.awt.event.ActionEvent evt) {
+        terbitsep="and reg_periksa.kd_pj in (select password_asuransi.kd_pj from password_asuransi) and reg_periksa.no_rawat in (select bridging_sep.no_rawat from bridging_sep where bridging_sep.no_sep in (select bridging_surat_kontrol_bpjs.no_sep from bridging_surat_kontrol_bpjs))";
+        TabRawatMouseClicked(null);
+    }
+
+    private void MnBelumBuatSuratKontrolActionPerformed(java.awt.event.ActionEvent evt) {
+        terbitsep="and reg_periksa.kd_pj in (select password_asuransi.kd_pj from password_asuransi) and reg_periksa.no_rawat in (select bridging_sep.no_rawat from bridging_sep where bridging_sep.no_sep not in (select bridging_surat_kontrol_bpjs.no_sep from bridging_surat_kontrol_bpjs))";
+        TabRawatMouseClicked(null);
+    }
     
     private void MnPenatalaksanaanTerapiOkupasiActionPerformed(java.awt.event.ActionEvent evt) {                                                      
         if(tabModekasir.getRowCount()==0){
@@ -15147,6 +15157,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     private widget.Table tbKasirRalan;
     private widget.Table tbKasirRalan2;
     // End of variables declaration//GEN-END:variables
+    private javax.swing.JMenuItem MnSudahBuatSuratKontrol,MnBelumBuatSuratKontrol;
     private javax.swing.JMenuItem MnPenilaianPreInduksi,MnHasilPemeriksaanUSG,MnHasilPemeriksaanUSGUrologi,MnHasilPemeriksaanUSGGynecologi,MnHasilPemeriksaanEKG,MnSudahTerbitSEP,MnPenatalaksanaanTerapiOkupasi,MnHasilPemeriksaanUSGNeonatus,
                                   MnHasilEndoskopiFaringLaring,MnHasilEndoskopiHidung,MnHasilEndoskopiTelinga,MnPenilaianPasienImunitasRendah,MnCatatanKeseimbanganCairan,MnCatatanObservasiCHBP,MnCatatanObservasiInduksiPersalinan,
                                   MnPermintaanKonsultasiMedik,MnDataOperasi,MnDataKonsultasiMedik,MnSkriningMerokokUsiaSekolahRemaja,MnSkriningKekerasanPadaWanita,MnSkriningObesitas,MnSkriningRisikoKankerPayudara,MnSkriningRisikoKankerParu,
@@ -16266,10 +16277,34 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         MnSudahTerbitSEP.setText("Sudah Terbit SEP BPJS");
         MnSudahTerbitSEP.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         MnSudahTerbitSEP.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        MnSudahTerbitSEP.setName("MnSudahTerbitSEP"); 
+        MnSudahTerbitSEP.setName("MnSudahTerbitSEP");
         MnSudahTerbitSEP.setPreferredSize(new java.awt.Dimension(320, 26));
         MnSudahTerbitSEP.addActionListener(this::MnSudahTerbitSEPActionPerformed);
-        
+
+        MnSudahBuatSuratKontrol = new javax.swing.JMenuItem();
+        MnSudahBuatSuratKontrol.setBackground(new java.awt.Color(255, 255, 254));
+        MnSudahBuatSuratKontrol.setFont(new java.awt.Font("Tahoma", 0, 11));
+        MnSudahBuatSuratKontrol.setForeground(new java.awt.Color(50, 50, 50));
+        MnSudahBuatSuratKontrol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
+        MnSudahBuatSuratKontrol.setText("Sudah Buat Surat Kontrol");
+        MnSudahBuatSuratKontrol.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnSudahBuatSuratKontrol.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnSudahBuatSuratKontrol.setName("MnSudahBuatSuratKontrol");
+        MnSudahBuatSuratKontrol.setPreferredSize(new java.awt.Dimension(320, 26));
+        MnSudahBuatSuratKontrol.addActionListener(this::MnSudahBuatSuratKontrolActionPerformed);
+
+        MnBelumBuatSuratKontrol = new javax.swing.JMenuItem();
+        MnBelumBuatSuratKontrol.setBackground(new java.awt.Color(255, 255, 254));
+        MnBelumBuatSuratKontrol.setFont(new java.awt.Font("Tahoma", 0, 11));
+        MnBelumBuatSuratKontrol.setForeground(new java.awt.Color(50, 50, 50));
+        MnBelumBuatSuratKontrol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png")));
+        MnBelumBuatSuratKontrol.setText("Belum Buat Surat Kontrol");
+        MnBelumBuatSuratKontrol.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnBelumBuatSuratKontrol.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnBelumBuatSuratKontrol.setName("MnBelumBuatSuratKontrol");
+        MnBelumBuatSuratKontrol.setPreferredSize(new java.awt.Dimension(320, 26));
+        MnBelumBuatSuratKontrol.addActionListener(this::MnBelumBuatSuratKontrolActionPerformed);
+
         MnDataOperasi = new javax.swing.JMenuItem();
         MnDataOperasi.setBackground(new java.awt.Color(255, 255, 254));
         MnDataOperasi.setFont(new java.awt.Font("Tahoma", 0, 11)); 
@@ -16704,6 +16739,8 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         MnBridging.add(ppDataIndukKecelakaan);
         MnBridging.add(MnBelumTerbitSEP);
         MnBridging.add(MnSudahTerbitSEP);
+        MnBridging.add(MnSudahBuatSuratKontrol);
+        MnBridging.add(MnBelumBuatSuratKontrol);
         MnBridging.add(MnSJP);
         MnBridging.add(MnPCare);
         MnBridging.add(MnRujukSisrute);
