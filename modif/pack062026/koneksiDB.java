@@ -80,7 +80,7 @@ public class koneksiDB {
                         "        rekammedis/RMCatatanPersalinan.java (1) (JahitanLuar2, JahitanDalam2 5 -> 50 11072025);\n"+
                         "        rekammedis/RMDataCatatanObservasiRanapPostPartum.java (1) (TFU: 15 -> 50 11072025);\n"+
                         "        rekammedis/RMDataResumePasien.java (1) (Kondisi Pasien Pulang = Kondisi.setModel);\n"+
-                        "        rekammedis/RMDataResumePasienRanap.java (1) (KOP Surat, Tgl. Keluar 08122025);\n"+
+                        "        rekammedis/RMDataResumePasienRanap.java (1) (KOP Surat, Tgl. Keluar, Print pilih DPJP utama Resume 08122025 24062026);\n"+
                         "        rekammedis/RMHasilPemeriksaanEKG.java (1) (KOP Surat, SIP, hapus primary key dari DB agar bisa input banyak 21082025, SegmenST -> tbSegmenST: Normal, Tidak Normal; GelombangT -> tbGelombangT: Normal, Tidak Normal 24052025);\n"+
                         "        rekammedis/RMPenilaianAwalMedisIGD.java (1) (V. DIAGNOSIS/ASESMEN DAN RETRIASE, BtnEdit disable jika Ranap);\n"+
                         "        rekammedis/RMPenilaianAwalMedisRanapDewasa.java (1) (KOP Surat);\n"+
@@ -171,7 +171,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 22/06/2026 13.50 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 24/06/2026 13.50 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
                 
 
