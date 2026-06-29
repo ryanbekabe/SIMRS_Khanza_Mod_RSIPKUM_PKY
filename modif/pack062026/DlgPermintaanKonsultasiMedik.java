@@ -6,9 +6,12 @@ import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
 import fungsi.akses;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -22,9 +25,13 @@ import java.sql.ResultSet;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.event.DocumentEvent;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.text.Document;
@@ -109,10 +116,32 @@ public class DlgPermintaanKonsultasiMedik extends javax.swing.JDialog {
             }else if(i==17){
                 column.setPreferredWidth(200);
             }else if(i==18){
-                column.setPreferredWidth(350);
+                column.setPreferredWidth(450);
             }
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
+
+        // Kolom 18 "Jawaban Konsultasi": tampilkan ikon VERIFIED bila sudah ada jawaban,
+        // dan UNVERIFIED bila belum ada jawaban (sel kosong).
+        final ImageIcon icoVerified=scaleIcon("/permintaan/verivied.png",90,20);
+        final ImageIcon icoUnverified=scaleIcon("/permintaan/unverivied.png",90,20);
+        tbObat.setRowHeight(24);
+        tbObat.getColumnModel().getColumn(18).setCellRenderer(new DefaultTableCellRenderer(){
+            @Override
+            public Component getTableCellRendererComponent(JTable table,Object value,boolean isSelected,boolean hasFocus,int row,int column){
+                JLabel lbl=(JLabel)super.getTableCellRendererComponent(table,value,isSelected,hasFocus,row,column);
+                lbl.setHorizontalAlignment(SwingConstants.LEFT);
+                lbl.setHorizontalTextPosition(SwingConstants.RIGHT);
+                lbl.setIconTextGap(6);
+                boolean adaJawaban=value!=null && !value.toString().trim().equals("");
+                lbl.setIcon(adaJawaban?icoVerified:icoUnverified);
+                lbl.setToolTipText(adaJawaban?value.toString():"Belum ada jawaban konsultasi");
+                if(!isSelected){
+                    lbl.setBackground(row%2==1?new Color(255,244,244):new Color(255,255,255));
+                }
+                return lbl;
+            }
+        });
 
         NoRw.setDocument(new batasInput((byte)17).getKata(NoRw));
         NoPermintaan.setDocument(new batasInput((byte)20).getKata(NoPermintaan));
@@ -1701,7 +1730,16 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
-    public void tampil() {     
+    // Memuat gambar dari classpath lalu menskalakannya agar pas di dalam sel tabel.
+    private ImageIcon scaleIcon(String path,int w,int h){
+        java.net.URL url=getClass().getResource(path);
+        if(url==null){
+            return null;
+        }
+        return new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(w,h,Image.SCALE_SMOOTH));
+    }
+
+    public void tampil() {
         Valid.tabelKosong(tabMode);
         try{ 
             sql="";

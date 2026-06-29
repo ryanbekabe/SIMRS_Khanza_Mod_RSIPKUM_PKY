@@ -74,7 +74,7 @@ public class koneksiDB {
                         "        laporan/DlgRL4A.java (1) (Sesuai SIRS RM salin dari Ichan 09092025);\n"+
                         "        laporan/DlgRL4B.java (1) (Sesuai SIRS RM salin dari Ichan 09092025);\n"+
                         
-                        "        permintaan/DlgPermintaanKonsultasiMedik.java (1) (KOP, SIP dr.);\n"+
+                        "        permintaan/DlgPermintaanKonsultasiMedik.java (0) (KOP, SIP dr., stempel sudah dijawab atau verifikasi 29062026);\n"+
                         "        permintaan/DlgCariPermintaanRadiologi.java (1) (KOP, Penanggung Jawab 28012026);\n"+
 
                         "        rekammedis/RMCatatanPersalinan.java (1) (JahitanLuar2, JahitanDalam2 5 -> 50 11072025);\n"+
@@ -171,7 +171,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 24/06/2026 13.50 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 29/06/2026 13.32 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
                 
 
