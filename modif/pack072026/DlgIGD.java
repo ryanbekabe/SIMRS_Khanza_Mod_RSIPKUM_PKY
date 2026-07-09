@@ -101,6 +101,7 @@ import rekammedis.RMDataAsuhanGizi;
 import rekammedis.RMDataCatatanCekGDS;
 import rekammedis.RMDataCatatanKeperawatanRalan;
 import rekammedis.RMDataCatatanKeseimbanganCairan;
+import rekammedis.RMPenilaianAwalFisikospritualCare;
 import rekammedis.RMDataCatatanObservasiCHBP;
 import rekammedis.RMDataCatatanObservasiIGD;
 import rekammedis.RMDataCatatanObservasiInduksiPersalinan;
@@ -11464,6 +11465,27 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         }
     }
     
+    private void MnPenilaianAwalFisikospritualCareActionPerformed(java.awt.event.ActionEvent evt) {
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, data registrasi sudah habis...!!!!");
+            TNoRM.requestFocus();
+        }else if(TPasien.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu data pasien dengan menklik data pada table...!!!");
+            tbPetugas.requestFocus();
+        }else{
+            if(tbPetugas.getSelectedRow()!= -1){
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                RMPenilaianAwalFisikospritualCare form=new RMPenilaianAwalFisikospritualCare(this,true);
+                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                form.setLocationRelativeTo(internalFrame1);
+                form.emptTeks();
+                form.setPasien(TNoRM.getText(),TPasien.getText(),TNoRw.getText(),DTPCari2.getDate());
+                form.setVisible(true);
+                this.setCursor(Cursor.getDefaultCursor());
+            }
+        }
+    }
+    
     private void MnPenilaianBayiBaruLahirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPenilaianAwalMedisRalanKebidananActionPerformed
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, data registrasi sudah habis...!!!!");
@@ -11814,7 +11836,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
     private javax.swing.JMenuItem MnPenilaianPreInduksi,MnHasilPemeriksaanEKG,MnSudahTerbitSEP,MnPenilaianPasienImunitasRendah,MnCatatanKeseimbanganCairan,MnCatatanObservasiCHBP,MnCatatanObservasiInduksiPersalinan,
                                   MnDataOperasi,MnSkriningMerokokUsiaSekolahRemaja,MnSkriningKekerasanPadaWanita,MnSkriningObesitas,MnSkriningRisikoKankerPayudara,MnSkriningRisikoKankerParu,MnSkriningKesehatanGigiMulutRemaja,
                                   MnSkriningTBC,MnCatatanAnastesiSedasi,MnSkriningPUMA,MnSkriningAdiksiNikotin,MnSkriningThalassemia,MnSkriningInstrumenSDQ,MnSkriningInstrumenSRQ,MnChecklistPemberianFibrinolitik,
-                                  MnSkriningKankerKolorektal,MnPenilaianPsikologKlinis,MnPenilaianDerajatDehidrasi,MnHasilPemeriksaanECHO,MnPenilaianBayiBaruLahir;
+                                  MnSkriningKankerKolorektal,MnPenilaianPsikologKlinis,MnPenilaianDerajatDehidrasi,MnHasilPemeriksaanECHO,MnPenilaianAwalFisikospritualCare,MnPenilaianBayiBaruLahir;
     private javax.swing.JMenu MnRMSkrining;
     
     // Fungsi untuk mengonversi string tanggal dan waktu menjadi timestamp di zona waktu Jakarta
@@ -12285,6 +12307,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         MnGabungNoRawat.setEnabled(akses.getgabung_norawat()); 
         MnHasilPemeriksaanEKG.setEnabled(akses.gethasil_pemeriksaan_ekg());
         MnHasilPemeriksaanECHO.setEnabled(akses.gethasil_pemeriksaan_echo());
+        MnPenilaianAwalFisikospritualCare.setEnabled(true);
         MnPenilaianPasienImunitasRendah.setEnabled(akses.getpenilaian_pasien_imunitas_rendah());
         MnCatatanKeseimbanganCairan.setEnabled(akses.getbalance_cairan());
         MnCatatanObservasiInduksiPersalinan.setEnabled(akses.getcatatan_observasi_induksi_persalinan());
@@ -12531,6 +12554,18 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         MnHasilPemeriksaanECHO.setName("MnHasilPemeriksaanECHO");
         MnHasilPemeriksaanECHO.setPreferredSize(new java.awt.Dimension(200, 26));
         MnHasilPemeriksaanECHO.addActionListener(this::MnHasilPemeriksaanECHOActionPerformed);
+        
+        MnPenilaianAwalFisikospritualCare = new javax.swing.JMenuItem();
+        MnPenilaianAwalFisikospritualCare.setBackground(new java.awt.Color(255, 255, 254));
+        MnPenilaianAwalFisikospritualCare.setFont(new java.awt.Font("Tahoma", 0, 11)); 
+        MnPenilaianAwalFisikospritualCare.setForeground(new java.awt.Color(50, 50, 50));
+        MnPenilaianAwalFisikospritualCare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); 
+        MnPenilaianAwalFisikospritualCare.setText("Penilaian Awal Fisikospritual Care");
+        MnPenilaianAwalFisikospritualCare.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnPenilaianAwalFisikospritualCare.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnPenilaianAwalFisikospritualCare.setName("MnPenilaianAwalFisikospritualCare");
+        MnPenilaianAwalFisikospritualCare.setPreferredSize(new java.awt.Dimension(240, 26));
+        MnPenilaianAwalFisikospritualCare.addActionListener(this::MnPenilaianAwalFisikospritualCareActionPerformed);
         
         MnSudahTerbitSEP = new javax.swing.JMenuItem();
         MnSudahTerbitSEP.setBackground(new java.awt.Color(255, 255, 254));
@@ -12846,6 +12881,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         
         MnRMIGD.add(MnHasilPemeriksaanEKG);
         MnRMIGD.add(MnHasilPemeriksaanECHO);
+        MnRMIGD.add(MnPenilaianAwalFisikospritualCare);
         
         MnBridging.add(MnSEP);
         MnBridging.add(ppSuratKontrol);
