@@ -82,7 +82,8 @@ public class koneksiDB {
                         "        rekammedis/RMDataResumePasien.java (1) (Kondisi Pasien Pulang = Kondisi.setModel);\n"+
                         "        rekammedis/RMDataResumePasienRanap.java (1) (KOP Surat, Tgl. Keluar, Print pilih DPJP utama Resume 08122025 24062026);\n"+
                         "        rekammedis/RMHasilPemeriksaanEKG.java (1) (KOP Surat, SIP, hapus primary key dari DB agar bisa input banyak 21082025, SegmenST -> tbSegmenST: Normal, Tidak Normal; GelombangT -> tbGelombangT: Normal, Tidak Normal 24052025);\n"+
-                        "        rekammedis/RMPenilaianAwalMedisIGD.java (1) (V. DIAGNOSIS/ASESMEN DAN RETRIASE, BtnEdit disable jika Ranap);\n"+
+                        "        rekammedis/RMPenilaianAwalFisikospritualCare.java (1) (Form penilaian awal Binroh 09072026);\n"+
+                        "        rekammedis/RMPenilaianAwalMedisIGD.java (1) (V. DIAGNOSIS/ASESMEN DAN RETRIASE, BtnEdit disable jika Ranap, tambah menu Penilaian Awal Fisikospritual Care 09072026);\n"+
                         "        rekammedis/RMPenilaianAwalMedisRanapDewasa.java (1) (KOP Surat);\n"+
                         "        rekammedis/RMPenilaianAwalKeperawatanIGD.java (1) (KOP Surat);\n"+
                         "        rekammedis/RMPenilaianAwalKeperawatanRanap.java (1) (KOP Surat);\n"+
@@ -171,7 +172,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 08/07/2026 13.05 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 10/07/2026 14.29 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
                 
 
