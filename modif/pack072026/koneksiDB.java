@@ -99,10 +99,10 @@ public class koneksiDB {
                         "        simrskhanza/DlgCariTagihanOperasi.java (1) (KOP Surat, pangkas beberapa field, SIP 02082025);\n"+
                         "        simrskhanza/DlgIGD.java (1) (Notif Potensi Re-Admisi, lebih dari 1 hari 24 jam dan kurang dari sama dengan 30 hari kemarin, nonaktifkan menu Penilaian Awal jika sudah Ranap, tambah menu Asesmen Awal Fisikospritual Care 26052025 08022025 14072026);\n"+
                         "        simrskhanza/DlgIKBBayi.java (1) (Tgl Lhr Ibu; Tgl Lhr Ayah, Limit karakter 8 ke 10 UmurIbu; UmurAyah, Surat Keterangan Lahir 1 - Tunggal; Surat Keterangan Lahir 2 - Kembar; TCariRMIbu jika gagal mendapatkan NIK Ibu, PenilaianAwalMedisIGD MessageDialog Akses ke menu ini kami nonaktifkan);\n"+
-                        "        simrskhanza/DlgKamarInap.java (1) (Label Radiologi, cetak surat DPJP bisa dipilih 12062026);\n"+
+                        "        simrskhanza/DlgKamarInap.java (1) (Label Radiologi, cetak surat DPJP bisa dipilih, messagebox pasien yang re-inap <= 30 hari 12062026 24072026);\n"+
                         "        simrskhanza/DlgKasirRalan.java (1) (Surat Keterangan Sehat 3 - Oke, Label Radiologi, Tambah tulisan pasien - MJKN, PenilaianAwalMedisIGD MessageDialog Akses ke menu ini kami nonaktifkan, Menu Sudah/Belum Buat Surat Kontrol 22062026);\n"+
                         "        simrskhanza/DlgPasienMati.java (1) (Ket./NoSrt, Surat Kematian 1 - Oke);\n"+
-                        "        simrskhanza/DlgRawatInap.java (1) (Disable tombol Edit dan Hapus jika sudah lewat 1x24 jam 23072026);\n"+
+                        "        simrskhanza/DlgRawatInap.java (1) (Penangangan Petugas Disable tombol Edit dan Hapus jika sudah lewat 1x24 jam 23072026);\n"+
                         "        simrskhanza/DlgRawatJalan.java (1) (Suhu harap dilengkapi, dll...);\n"+
                         "        simrskhanza/DlgReg.java (1) (Surat Keterangan Sehat 3 - Oke; - MJKN. PRB; JK < 17thn rptBarcodeRawat.jasper; Verifikasi Wajah ke web, notif nama dan NIK 09092025,16092025,25092025);\n"+
                         
@@ -173,7 +173,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 23/07/2026 13.52 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 24/07/2026 14.27 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
                 
 
