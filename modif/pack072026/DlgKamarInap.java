@@ -18083,43 +18083,59 @@ public class DlgKamarInap extends javax.swing.JDialog {
         key=kmr+" "+terbitsep;
         if(!TCari.getText().equals("")){
             key= kmr+"and (kamar_inap.no_rawat like '%"+TCari.getText().trim()+"%' or reg_periksa.no_rkm_medis like '%"+TCari.getText().trim()+"%' or pasien.nm_pasien like '%"+TCari.getText().trim()+"%' or "+
-               "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) like '%"+TCari.getText().trim()+"%' or kamar_inap.kd_kamar like '%"+TCari.getText().trim()+"%' or "+
-               "bangsal.nm_bangsal like '%"+TCari.getText().trim()+"%' or kamar_inap.diagnosa_awal like '%"+TCari.getText().trim()+"%' or kamar_inap.diagnosa_akhir like '%"+TCari.getText().trim()+"%' or "+
-               "kamar_inap.tgl_masuk like '%"+TCari.getText().trim()+"%' or dokter.nm_dokter like '%"+TCari.getText().trim()+"%' or kamar_inap.stts_pulang like '%"+TCari.getText().trim()+"%' or "+
-               "kamar_inap.tgl_keluar like '%"+TCari.getText().trim()+"%' or penjab.png_jawab like '%"+TCari.getText().trim()+"%' or pasien.agama like '%"+TCari.getText().trim()+"%') "+terbitsep;
+                "concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) like '%"+TCari.getText().trim()+"%' or kamar_inap.kd_kamar like '%"+TCari.getText().trim()+"%' or "+
+                "bangsal.nm_bangsal like '%"+TCari.getText().trim()+"%' or kamar_inap.diagnosa_awal like '%"+TCari.getText().trim()+"%' or kamar_inap.diagnosa_akhir like '%"+TCari.getText().trim()+"%' or "+
+                "kamar_inap.tgl_masuk like '%"+TCari.getText().trim()+"%' or dokter.nm_dokter like '%"+TCari.getText().trim()+"%' or kamar_inap.stts_pulang like '%"+TCari.getText().trim()+"%' or "+
+                "kamar_inap.tgl_keluar like '%"+TCari.getText().trim()+"%' or penjab.png_jawab like '%"+TCari.getText().trim()+"%' or pasien.agama like '%"+TCari.getText().trim()+"%') "+terbitsep;
         }
         
         Valid.tabelKosong(tabMode);
         try{
             ps=koneksi.prepareStatement(
-               "select kamar_inap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat,reg_periksa.p_jawab,reg_periksa.hubunganpj,"+
-               "penjab.png_jawab,concat(kamar_inap.kd_kamar,' ',bangsal.nm_bangsal) as kamar,kamar_inap.trf_kamar,kamar_inap.diagnosa_awal,kamar_inap.diagnosa_akhir," +
-               "kamar_inap.tgl_masuk,kamar_inap.jam_masuk,if(kamar_inap.tgl_keluar='0000-00-00','',kamar_inap.tgl_keluar) as tgl_keluar,if(kamar_inap.jam_keluar='00:00:00','',kamar_inap.jam_keluar) as jam_keluar,"+
-               "kamar_inap.ttl_biaya,kamar_inap.stts_pulang,kamar_inap.lama,dokter.nm_dokter,kamar_inap.kd_kamar,reg_periksa.kd_pj,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,reg_periksa.status_bayar, "+
-               "pasien.agama from kamar_inap inner join reg_periksa on kamar_inap.no_rawat=reg_periksa.no_rawat inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-               "inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel "+
-               "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
-               "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
-               (namadokter.equals("")?"where "+key+" "+order:"inner join dpjp_ranap on dpjp_ranap.no_rawat=reg_periksa.no_rawat where dpjp_ranap.kd_dokter='"+namadokter+"' and "+key+" "+order));
+                "select kamar_inap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) as alamat,reg_periksa.p_jawab,reg_periksa.hubunganpj,"+
+                "penjab.png_jawab,concat(kamar_inap.kd_kamar,' ',bangsal.nm_bangsal) as kamar,kamar_inap.trf_kamar,kamar_inap.diagnosa_awal,kamar_inap.diagnosa_akhir," +
+                "kamar_inap.tgl_masuk,kamar_inap.jam_masuk,if(kamar_inap.tgl_keluar='0000-00-00','',kamar_inap.tgl_keluar) as tgl_keluar,if(kamar_inap.jam_keluar='00:00:00','',kamar_inap.jam_keluar) as jam_keluar,"+
+                "kamar_inap.ttl_biaya,kamar_inap.stts_pulang,kamar_inap.lama,dokter.nm_dokter,kamar_inap.kd_kamar,reg_periksa.kd_pj,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,reg_periksa.status_bayar, "+
+                "pasien.agama from kamar_inap inner join reg_periksa on kamar_inap.no_rawat=reg_periksa.no_rawat inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                "inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel "+
+                "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
+                "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
+                (namadokter.equals("")?"where "+key+" "+order:"inner join dpjp_ranap on dpjp_ranap.no_rawat=reg_periksa.no_rawat where dpjp_ranap.kd_dokter='"+namadokter+"' and "+key+" "+order));
                 StringBuilder sbPasienInapKembali = new StringBuilder();
             try {
                 rs=ps.executeQuery();
-                while(rs.next()){
-                    System.out.println("Data tampil: no_rawat=" + rs.getString("no_rawat") + ", no_rkm_medis=" + rs.getString("no_rkm_medis") + ", nm_pasien=" + rs.getString("nm_pasien") + ", tgl_masuk=" + rs.getString("tgl_masuk") + ", jam_masuk=" + rs.getString("jam_masuk"));
-                    PreparedStatement pscek = null;
-                    ResultSet rscek = null;
+                // Tambahkan sebelum while(rs.next())
+                String tglSekarang = java.time.LocalDate.now(java.time.ZoneId.of("Asia/Jakarta"))
+                        .format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-                    try {
-                        pscek = koneksi.prepareStatement("select kamar_inap.tgl_masuk, kamar_inap.jam_masuk from kamar_inap inner join reg_periksa on kamar_inap.no_rawat=reg_periksa.no_rawat inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join penjab on reg_periksa.kd_pj=penjab.kd_pj where pasien.no_rkm_medis=? ORDER BY kamar_inap.no_rawat DESC LIMIT 1 OFFSET 1");
-                        pscek.setString(1, rs.getString("no_rkm_medis"));
-                        rscek = pscek.executeQuery();
+                while(rs.next()){
+//                    System.out.println("Data tampil: no_rawat=" + rs.getString("no_rawat") + ", no_rkm_medis=" + rs.getString("no_rkm_medis") + ", nm_pasien=" + rs.getString("nm_pasien") + ", tgl_masuk=" + rs.getString("tgl_masuk") + ", jam_masuk=" + rs.getString("jam_masuk"));
+
+                    // Hanya jalankan pengecekan jika tgl_masuk baris ini = hari ini
+                    if(tglSekarang.equals(rs.getString("tgl_masuk"))){
+                        PreparedStatement pscek = null;
+                        ResultSet rscek = null;
+
+                        try {
+                            pscek = koneksi.prepareStatement(
+                                "select kamar_inap.tgl_masuk, kamar_inap.jam_masuk, kamar_inap.no_rawat "+
+                                "from kamar_inap "+
+                                "inner join reg_periksa on kamar_inap.no_rawat=reg_periksa.no_rawat "+
+                                "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                                "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
+                                "where pasien.no_rkm_medis=? "+
+                                "GROUP BY kamar_inap.no_rawat "+
+                                "ORDER BY kamar_inap.no_rawat DESC LIMIT 1 OFFSET 1");
+                            // pscek = koneksi.prepareStatement("select kamar_inap.tgl_masuk, kamar_inap.jam_masuk, kamar_inap.no_rawat from kamar_inap inner join reg_periksa on kamar_inap.no_rawat=reg_periksa.no_rawat inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join penjab on reg_periksa.kd_pj=penjab.kd_pj where pasien.no_rkm_medis=? ORDER BY kamar_inap.no_rawat DESC LIMIT 1 OFFSET 1");
+                            pscek.setString(1, rs.getString("no_rkm_medis"));
+                            rscek = pscek.executeQuery();
                             if (rscek.next()) {
                                 String tglMasuk = rscek.getString("tgl_masuk");
                                 String jamMasuk = rscek.getString("jam_masuk");
 
                                 long unixTimestampMasuk = 0;
                                 try {
-                                    String dateTimeStr = tglMasuk + " " + jamMasuk; // contoh: "2026-07-20 20:36:48"
+                                    String dateTimeStr = tglMasuk + " " + jamMasuk;
                                     java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                                     java.time.LocalDateTime ldt = java.time.LocalDateTime.parse(dateTimeStr, formatter);
                                     unixTimestampMasuk = ldt.atZone(java.time.ZoneId.of("Asia/Jakarta")).toEpochSecond();
@@ -18127,21 +18143,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
                                     exParse.printStackTrace();
                                 }
 
-                                // Unix Timestamp waktu saat ini (WIB)
                                 long unixTimestampSekarang = java.time.ZonedDateTime.now(java.time.ZoneId.of("Asia/Jakarta")).toEpochSecond();
-
-                                // Selisih hari sejak tgl_masuk terakhir hingga saat ini
                                 long selisihHari = (unixTimestampSekarang - unixTimestampMasuk) / 86400;
                                 String keterangan = (selisihHari <= 30) ? "Pasien inap kembali (dalam 30 hari terakhir)" : "";
 
-                                System.out.println("Cek query: no_rkm_medis=" + rs.getString("no_rkm_medis")
-                                    + ", tgl_masuk=" + tglMasuk
-                                    + ", jam_masuk=" + jamMasuk
-                                    + ", Unix Timestamp=" + unixTimestampMasuk
-                                    + ", Unix Timestamp saat ini=" + unixTimestampSekarang
-                                    + ", Keterangan=" + keterangan);
+//                                System.out.println("Cek query: no_rkm_medis=" + rs.getString("no_rkm_medis")
+//                                    + ", tgl_masuk=" + tglMasuk
+//                                    + ", jam_masuk=" + jamMasuk
+//                                    + ", Unix Timestamp=" + unixTimestampMasuk
+//                                    + ", Unix Timestamp saat ini=" + unixTimestampSekarang
+//                                    + ", Keterangan=" + keterangan);
 
-                                // Kumpulkan data yang berstatus "Pasien inap kembali"
                                 if (keterangan.equals("Pasien inap kembali (dalam 30 hari terakhir)")) {
                                     sbPasienInapKembali.append("No. RKM Medis: ").append(rs.getString("no_rkm_medis"))
                                         .append(" | Nama: ").append(rs.getString("nm_pasien"))
@@ -18149,51 +18161,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
                                         .append("\n");
                                 }
                             }
-                        
-
-                    // try {
-                    //     pscek = koneksi.prepareStatement(
-                    //         "select kamar_inap.tgl_masuk, kamar_inap.jam_masuk from kamar_inap inner join reg_periksa on kamar_inap.no_rawat=reg_periksa.no_rawat inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join penjab on reg_periksa.kd_pj=penjab.kd_pj where pasien.no_rkm_medis=? ORDER BY kamar_inap.no_rawat DESC LIMIT 1 OFFSET 1");
-                    //     pscek.setString(1, rs.getString("no_rkm_medis"));
-                    //     rscek = pscek.executeQuery();
-
-                    //     if (rscek.next()) {
-                    //         String tglMasuk = rscek.getString("tgl_masuk");
-                    //         String jamMasuk = rscek.getString("jam_masuk");
-
-                    //         long unixTimestampMasuk = 0;
-                    //         try {
-                    //             String dateTimeStr = tglMasuk + " " + jamMasuk; // contoh: "2026-07-20 20:36:48"
-                    //             java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                    //             java.time.LocalDateTime ldt = java.time.LocalDateTime.parse(dateTimeStr, formatter);
-                    //             unixTimestampMasuk = ldt.atZone(java.time.ZoneId.of("Asia/Jakarta")).toEpochSecond();
-                    //         } catch (Exception exParse) {
-                    //             exParse.printStackTrace();
-                    //         }
-
-                    //         System.out.println("Cek query: no_rkm_medis=" + rs.getString("no_rkm_medis")
-                    //             + ", tgl_masuk=" + tglMasuk
-                    //             + ", jam_masuk=" + jamMasuk
-                    //             + ", Unix Timestamp=" + unixTimestampMasuk);
-                    //     }
-
-                        // if(rscek.next()){
-                        //     System.out.println("Cek query: no_rkm_medis=" + rs.getString("no_rkm_medis") + ", tgl_masuk=" + rscek.getString("tgl_masuk") + ", jam_masuk=" + rscek.getString("jam_masuk"));
-                        // }
-                    
-
-
-                    } catch (Exception ex) {
-                        System.out.println("Notifikasi cek query : " + ex);
-                    } finally {
-                        if(rscek != null){
-                            rscek.close();
-                        }
-                        if(pscek != null){
-                            pscek.close();
+                        } catch (Exception ex) {
+                            System.out.println("Notifikasi cek query : " + ex);
+                        } finally {
+                            if(rscek != null){
+                                rscek.close();
+                            }
+                            if(pscek != null){
+                                pscek.close();
+                            }
                         }
                     }
-
 
                     tabMode.addRow(new String[]{
                         rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien")+" ("+rs.getString("umur")+")",
@@ -18224,12 +18202,12 @@ public class DlgKamarInap extends javax.swing.JDialog {
                     }catch(Exception ex){
                         System.out.println("Notifikasi : "+ex);
                     }finally{
-                          if(rs2 != null){
-                              rs2.close();
-                          }
-                          if(psanak != null){
-                              psanak.close();
-                          }
+                            if(rs2 != null){
+                                rs2.close();
+                            }
+                            if(psanak != null){
+                                psanak.close();
+                            }
                     }
                 }
             } catch (Exception e) {
