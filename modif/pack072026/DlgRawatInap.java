@@ -256,6 +256,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         }
         tbRawatDr.setDefaultRenderer(Object.class, new WarnaTable());
+        tambahListenerKlikBarisRawatDr();
 
         tabModePr=new DefaultTableModel(null,new Object[]{
             "P","No.Rawat","No.R.M.","Nama Pasien","Perawatan/Tindakan","NIP","Petugas Yg Menangani","Tgl.Rawat","Jam Rawat","Biaya","Kode","Tarif Perawat","KSO","Jasa Sarana","BHP","Menejemen"}){
@@ -405,6 +406,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         }
         tbRawatDrPr.setDefaultRenderer(Object.class, new WarnaTable());
+        tambahListenerKlikBarisRawatDrPr();
         
         tabModePemeriksaan=new DefaultTableModel(null,new Object[]{
             "P","No.Rawat","No.R.M.","Nama Pasien","Tgl.Rawat","Jam","Suhu(C)","Tensi","Nadi(/menit)",
@@ -1060,58 +1062,83 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         }
     }
 
+
+    /**
+     * Method pembatas terpusat: mengecek apakah data sudah lewat 1x24 jam
+     * berdasarkan tanggal & jam rawat, lalu enable/disable BtnEdit & BtnHapus.
+     * Dipanggil baik dari listener mouse (klik baris) maupun listener keyboard
+     * (panah atas/bawah, enter) supaya perilakunya konsisten.
+     */
+    private void cekBatasWaktuEditHapus(Object tglRawatObj, Object jamRawatObj) {
+        if (tglRawatObj == null || jamRawatObj == null) {
+            return;
+        }
+        String tglRawat = tglRawatObj.toString().trim();
+        String jamRawat = jamRawatObj.toString().trim();
+        String dateTimeStr = tglRawat + " " + jamRawat;
+
+        long unixTimestamp = 0;
+        try {
+            // Formatting dan konversi tanggal rawat ke Epoch Second (WIB)
+            java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            java.time.LocalDateTime ldt = java.time.LocalDateTime.parse(dateTimeStr, formatter);
+            unixTimestamp = ldt.atZone(java.time.ZoneId.of("Asia/Jakarta")).toEpochSecond();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Mengambil Unix Timestamp detik saat ini
+        long unixTimestampSaatIni = java.time.Instant.now().getEpochSecond();
+
+        // Perhitungan selisih waktu (86.400 detik = 24 jam)
+        long selisihDetik = unixTimestampSaatIni - unixTimestamp;
+        long SATU_HARI_DETIK = 24 * 3600; // 86400 detik
+
+        String status;
+        if (selisihDetik >= SATU_HARI_DETIK) {
+            status = "Sudah berlalu 1x24 jam";
+            BtnEdit.setEnabled(false); // Disable tombol jika > 24 jam
+            BtnHapus.setEnabled(false); // Disable tombol jika > 24 jam
+        } else {
+            status = "Belum berlalu 1x24 jam";
+            BtnEdit.setEnabled(true);  // Enable tombol jika <= 24 jam
+            BtnHapus.setEnabled(true);  // Enable tombol jika <= 24 jam
+        }
+    }
+
+    private void tambahListenerKlikBarisRawatDr() {
+        tbRawatDr.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = tbRawatDr.rowAtPoint(evt.getPoint());
+                if (row >= 0) {
+                    cekBatasWaktuEditHapus(tbRawatDr.getValueAt(row, 7), tbRawatDr.getValueAt(row, 8));
+                }
+            }
+        });
+    }
+
     private void tambahListenerKlikBarisRawatPr() {
         tbRawatPr.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 int row = tbRawatPr.rowAtPoint(evt.getPoint());
                 if (row >= 0) {
-                    Object tglRawatObj = tbRawatPr.getValueAt(row, 7);
-                    Object jamRawatObj = tbRawatPr.getValueAt(row, 8);
+                    cekBatasWaktuEditHapus(tbRawatPr.getValueAt(row, 7), tbRawatPr.getValueAt(row, 8));
+                }
+            }
+        });
+    }
 
-                    if (tglRawatObj != null && jamRawatObj != null) {
-                        String tglRawat = tglRawatObj.toString().trim();
-                        String jamRawat = jamRawatObj.toString().trim();
-                        String dateTimeStr = tglRawat + " " + jamRawat;
-
-                        long unixTimestamp = 0;
-                        try {
-                            // Formatting dan konversi tanggal rawat ke Epoch Second (WIB)
-                            java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                            java.time.LocalDateTime ldt = java.time.LocalDateTime.parse(dateTimeStr, formatter);
-                            unixTimestamp = ldt.atZone(java.time.ZoneId.of("Asia/Jakarta")).toEpochSecond();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                        // Mengambil Unix Timestamp detik saat ini
-                        long unixTimestampSaatIni = java.time.Instant.now().getEpochSecond();
-
-                        // Perhitungan selisih waktu (86.400 detik = 24 jam)
-                        long selisihDetik = unixTimestampSaatIni - unixTimestamp;
-                        long SATU_HARI_DETIK = 24 * 3600; // 86400 detik
-
-                        String status;
-                        if (selisihDetik >= SATU_HARI_DETIK) {
-                            status = "Sudah berlalu 1x24 jam";
-                            BtnEdit.setEnabled(false); // Disable tombol jika > 24 jam
-                        } else {
-                            status = "Belum berlalu 1x24 jam";
-                            BtnEdit.setEnabled(true);  // Enable tombol jika <= 24 jam
-                        }
-
-                        // Tampilan pesan
-                        JOptionPane.showMessageDialog(
-                            DlgRawatInap.this,
-                            "Tgl.Rawat = " + tglRawat + "\n" +
-                            "Jam Rawat = " + jamRawat + "\n" +
-                            "Unix Timestamp = " + unixTimestamp + "\n" +
-                            "Unix Timestamp saat ini = " + unixTimestampSaatIni + "\n" +
-                            "Status = " + status,
-                            "Informasi Rawat",
-                            JOptionPane.INFORMATION_MESSAGE
-                        );
-                    }
+    private void tambahListenerKlikBarisRawatDrPr() {
+        tbRawatDrPr.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = tbRawatDrPr.rowAtPoint(evt.getPoint());
+                if (row >= 0) {
+                    // Kolom Tgl.Rawat & Jam Rawat pada tbRawatDrPr ada di indeks 9 & 10
+                    // (bukan 7 & 8, karena ada kolom tambahan Kode Dokter/Dokter/NIP)
+                    cekBatasWaktuEditHapus(tbRawatDrPr.getValueAt(row, 9), tbRawatDrPr.getValueAt(row, 10));
                 }
             }
         });
@@ -6578,6 +6605,10 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     getDataDr();
                 } catch (java.lang.NullPointerException e) {
                 }
+                int row = tbRawatDr.getSelectedRow();
+                if (row >= 0) {
+                    cekBatasWaktuEditHapus(tbRawatDr.getValueAt(row, 7), tbRawatDr.getValueAt(row, 8));
+                }
             }
                        
         }
@@ -6590,6 +6621,10 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     getDataPr();
                 } catch (java.lang.NullPointerException e) {
                 }
+                int row = tbRawatPr.getSelectedRow();
+                if (row >= 0) {
+                    cekBatasWaktuEditHapus(tbRawatPr.getValueAt(row, 7), tbRawatPr.getValueAt(row, 8));
+                }
             }
             
         }
@@ -6601,6 +6636,11 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 try {
                     getDataDrPr();
                 } catch (java.lang.NullPointerException e) {
+                }
+                int row = tbRawatDrPr.getSelectedRow();
+                if (row >= 0) {
+                    // Kolom Tgl.Rawat & Jam Rawat pada tbRawatDrPr ada di indeks 9 & 10
+                    cekBatasWaktuEditHapus(tbRawatDrPr.getValueAt(row, 9), tbRawatDrPr.getValueAt(row, 10));
                 }
             }
             
