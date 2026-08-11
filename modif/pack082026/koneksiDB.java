@@ -80,12 +80,12 @@ public class koneksiDB {
                         "        rekammedis/RMCatatanPersalinan.java (1) (JahitanLuar2, JahitanDalam2 5 -> 50 11072025);\n"+
                         "        rekammedis/RMDataCatatanObservasiRanapPostPartum.java (1) (TFU: 15 -> 50 11072025);\n"+
                         "        rekammedis/RMDataResumePasien.java (1) (Kondisi Pasien Pulang = Kondisi.setModel);\n"+
-                        "        rekammedis/RMDataResumePasienRanap.java (1) (KOP Surat, Tgl. Keluar, Print pilih DPJP utama Resume, Disabel Edit Resume jika sudah close bill 08122025 24062026 01082026);\n"+
+                        "        rekammedis/RMDataResumePasienRanap.java (1) (KOP Surat, Tgl. Keluar, Print pilih DPJP utama Resume, Disable Edit Resume jika sudah close bill req RQ 08122025 24062026 01082026);\n"+
                         "        rekammedis/RMHasilPemeriksaanEKG.java (1) (KOP Surat, SIP, hapus primary key dari DB agar bisa input banyak 21082025, SegmenST -> tbSegmenST: Normal, Tidak Normal; GelombangT -> tbGelombangT: Normal, Tidak Normal 24052025);\n"+
-                        "        rekammedis/RMPenilaianAwalFisikospritualCare.java (1) (Form penilaian awal Binroh 09072026);\n"+
-                        "        rekammedis/RMPenilaianAwalMedisIGD.java (1) (V. DIAGNOSIS/ASESMEN DAN RETRIASE, BtnEdit disable jika Ranap, tambah menu Penilaian Awal Fisikospritual Care 09072026);\n"+
+                        "        rekammedis/RMPenilaianAwalFisikospritualCare.java (1) (Form penilaian awal Binroh req MF 09072026);\n"+
+                        "        rekammedis/RMPenilaianAwalMedisIGD.java (1) (V. DIAGNOSIS/ASESMEN DAN RETRIASE, BtnEdit disable jika Ranap, tambah menu Penilaian Awal Fisikospritual Care, Disable Edit/Hapus jika sudah close bill req RQ 09072026 05082026);\n"+
                         "        rekammedis/RMPenilaianAwalMedisRanapDewasa.java (1) (KOP Surat);\n"+
-                        "        rekammedis/RMPenilaianAwalKeperawatanIGD.java (1) (KOP Surat);\n"+
+                        "        rekammedis/RMPenilaianAwalKeperawatanIGD.java (1) (KOP Surat, Disable Edit/Hapus jika sudah close bill req RQ 04082026);\n"+
                         "        rekammedis/RMPenilaianAwalKeperawatanRanap.java (1) (KOP Surat);\n"+
                         "        rekammedis/RMRiwayatPerawatan.java (1) (Fix gambar Radiologi kebesaran);\n"+
                         "        rekammedis/RMSkriningTBC.java (1) (KOP Surat; Skrining bisa oleh hanya perawat);\n"+                      
@@ -99,10 +99,10 @@ public class koneksiDB {
                         "        simrskhanza/DlgCariTagihanOperasi.java (1) (KOP Surat, pangkas beberapa field, SIP 02082025);\n"+
                         "        simrskhanza/DlgIGD.java (1) (Notif Potensi Re-Admisi, lebih dari 1 hari 24 jam dan kurang dari sama dengan 30 hari kemarin, nonaktifkan menu Penilaian Awal jika sudah Ranap, tambah menu Asesmen Awal Fisikospritual Care 26052025 08022025 14072026);\n"+
                         "        simrskhanza/DlgIKBBayi.java (1) (Tgl Lhr Ibu; Tgl Lhr Ayah, Limit karakter 8 ke 10 UmurIbu; UmurAyah, Surat Keterangan Lahir 1 - Tunggal; Surat Keterangan Lahir 2 - Kembar; TCariRMIbu jika gagal mendapatkan NIK Ibu, PenilaianAwalMedisIGD MessageDialog Akses ke menu ini kami nonaktifkan);\n"+
-                        "        simrskhanza/DlgKamarInap.java (1) (Label Radiologi, cetak surat DPJP bisa dipilih, messagebox pasien yang re-inap <= 30 hari bandingkan hari sekarang - req mbak Nur Ch 12062026 25072026);\n"+
+                        "        simrskhanza/DlgKamarInap.java (1) (Label Radiologi, cetak surat DPJP bisa dipilih, messagebox pasien yang re-inap <= 30 hari bandingkan hari sekarang - req NC 12062026 25072026);\n"+
                         "        simrskhanza/DlgKasirRalan.java (1) (Surat Keterangan Sehat 3 - Oke, Label Radiologi, Tambah tulisan pasien - MJKN, PenilaianAwalMedisIGD MessageDialog Akses ke menu ini kami nonaktifkan, Menu Sudah/Belum Buat Surat Kontrol 22062026);\n"+
                         "        simrskhanza/DlgPasienMati.java (1) (Ket./NoSrt, Surat Kematian 1 - Oke);\n"+
-                        "        simrskhanza/DlgRawatInap.java (1) (Penanganan Petugas; Penanganan Dokter; Penanganan Dokter dan Petugas - Disable tombol Edit dan Hapus jika sudah lewat 1x24 jam cekBatasWaktuEditHapus 23072026 29072026);\n"+
+                        "        simrskhanza/DlgRawatInap.java (1) (Penanganan Petugas; Penanganan Dokter; Penanganan Dokter dan Petugas - Disable tombol Edit dan Hapus jika sudah lewat 1x24 jam cekBatasWaktuEditHapus req RQ 23072026 29072026);\n"+
                         "        simrskhanza/DlgRawatJalan.java (1) (Suhu harap dilengkapi, dll...);\n"+
                         "        simrskhanza/DlgReg.java (1) (Surat Keterangan Sehat 3 - Oke; - MJKN. PRB; JK < 17thn rptBarcodeRawat.jasper; Verifikasi Wajah ke web, notif nama dan NIK 09092025,16092025,25092025);\n"+
                         
@@ -173,7 +173,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 01/08/2026 08.52 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 12/08/2026 10.25 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
                 
 
