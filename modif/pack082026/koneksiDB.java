@@ -67,6 +67,7 @@ public class koneksiDB {
                         
                         "        kepegawaian/DlgDokter.java (1) (Perbaiki fungsi simpan dokter 09082025);\n"+
                         
+                        "        keuangan/DlgBilingRalan.java (1) (Total Operasi Req Masrul 12082026);\n"+
                         "        keuangan/DlgBilingRanap.java (1) (Total Obat & BHP Operasi, perbaikan dipindahkan angkanya agar tidak terSUM, subttlopb saja yang ditampilkan 2124012026 09022026 23022026);\n"+
                         "        keuangan/Jurnal.java (1) (Tambah pada console indikator line ke pada Debet dan Kredit tidak sama, coba perbaiki debugnya 01072026);\n"+
 
@@ -173,7 +174,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 12/08/2026 10.25 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 12/08/2026 14.33 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
                 
 
