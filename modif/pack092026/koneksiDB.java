@@ -125,7 +125,7 @@ public class koneksiDB {
                         "        rptBebasNarkoba1.jasper (1);\n"+
                         "        rptBebasNarkoba2.jasper (1);\n"+
                         
-                        "        rptCetakEvaluasiAwalMPP.jasper (0) (Tampilkan asesmen 12092026);\n"+
+                        "        rptCetakEvaluasiAwalMPP.jasper (1) (Tampilkan asesmen dan perbaiki format hasil printout 12092026 17092026);\n"+
                         "        rptCetakHasilPemeriksaanEKG.jasper (1) (KOP Surat; SIP, DB hasil_pemeriksaan_ekg segmenst gelombangt enum('Normal', 'Tidak Normal') -> VarChar 15, no_rawat hapus primary; tanggal kd_dokter secondary key 25082025);\n"+
                         "        rptCetakPenilaianAwalKeperawatanRalan.jasper (0);\n"+
                         "        rptCetakPenilaianAwalKeperawatanIGD.jasper (1) (KOP Surat);\n"+
