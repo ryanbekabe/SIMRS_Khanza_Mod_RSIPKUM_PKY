@@ -1,1 +1,3 @@
 note22092026
+D:\SIMRSPKUPKU202608_UpdatedariGitMinim\src\fungsi\koneksiDB.java
+D:\SIMRSPKUPKU202608_UpdatedariGitMinim\src\inventory\DlgCopyResep.java
