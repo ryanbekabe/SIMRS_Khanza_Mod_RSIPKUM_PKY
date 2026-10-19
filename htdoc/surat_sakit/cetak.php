@@ -69,7 +69,8 @@ $ttdTgl = $rs['kabupaten'] . ', ' . tgl_panjang(date('Y-m-d', strtotime($d['tgl_
   table.id td { padding:1.2mm 0; vertical-align:top; }
   table.id td:nth-child(1) { width:38mm; } table.id td:nth-child(2) { width:4mm; }
   p { margin:0 0 4mm; text-align:justify; }
-  .ttd { width:75mm; margin:10mm 0 0 auto; text-align:center; }
+  .ttd { width:max-content; min-width:75mm; max-width:100%; margin:10mm 0 0 auto; text-align:center; }
+  .sip { white-space:nowrap; font-size:11pt; }
   #qr { margin:2mm auto; width:fit-content; min-height:2mm; }
   #qr img { width:26mm; height:26mm; }
   .dr { font-weight:bold; text-decoration:underline; }
@@ -94,6 +95,7 @@ $ttdTgl = $rs['kabupaten'] . ', ' . tgl_panjang(date('Y-m-d', strtotime($d['tgl_
     <tr><td>Alamat</td><td>:</td><td><?= e($d['alamat']) ?></td></tr>
   </table>
 
+  <p style="margin-bottom:1mm">DIAGNOSA</p>
   <p style="margin-bottom:1mm">Mengingat kondisinya saat ini maka memerlukan :</p>
   <p>Istirahat selama : <b><?= e($lama) ?></b> Hari sejak tanggal <b><?= e(tgl_panjang($d['tanggalawal'])) ?></b>
      s/d <b><?= e(tgl_panjang($d['tanggalakhir'])) ?></b>.</p>
@@ -104,7 +106,7 @@ $ttdTgl = $rs['kabupaten'] . ', ' . tgl_panjang(date('Y-m-d', strtotime($d['tgl_
     Dokter Pemeriksa
     <div id="qr"></div>
     <span class="dr"><?= e($d['nm_dokter']) ?></span><br>
-    SIP. <?= e($d['no_ijn_praktek']) ?>
+    <span class="sip">SIP. <?= e($d['no_ijn_praktek']) ?></span>
   </div>
 </div>
 
