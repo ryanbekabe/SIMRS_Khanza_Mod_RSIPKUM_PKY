@@ -1,5 +1,5 @@
 <?php
-// Data Surat Keterangan Sakit — daftar, simpan, ganti, hapus, cetak
+// Data Surat Keterangan Sakit — daftar, simpan, ganti, cetak
 declare(strict_types=1);
 require_once __DIR__ . '/config.php';
 
@@ -26,10 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lama_asli = trim($_POST['no_surat_lama'] ?? '');
 
     try {
-        if ($aksi === 'hapus') {
-            db()->prepare('delete from suratsakit where no_surat=?')->execute([$lama_asli]);
-            kembali("Surat $lama_asli dihapus.");
-        }
         if ($no === '' || strlen($no) > 30) {
             kembali('No.Surat Sakit wajib diisi (maks. 30 karakter).');
         }
@@ -143,7 +139,6 @@ $prefill = trim($_GET['no_rawat'] ?? '');
       <button type="submit" id="bSimpan">Simpan</button>
       <button type="submit" id="bGanti" class="sec" hidden>Ganti</button>
       <button type="button" id="bBaru" class="sec">Baru</button>
-      <button type="submit" id="bHapus" class="del" hidden>Hapus</button>
       <a id="bCetak" class="btn sec" target="_blank" hidden>Cetak Surat</a>
       <a class="btn sec" href="kop.php" style="margin-left:auto">Atur KOP Surat</a>
     </div>
@@ -195,7 +190,7 @@ async function nomorBaru() {
 function mode(edit) {
   editing = edit;
   $('bSimpan').hidden = edit;
-  $('bGanti').hidden = $('bHapus').hidden = $('bCetak').hidden = !edit;
+  $('bGanti').hidden = $('bCetak').hidden = !edit;
 }
 function baru() {
   document.querySelectorAll('tr.sel').forEach(t => t.classList.remove('sel'));
@@ -212,11 +207,6 @@ $('tanggalawal').addEventListener('change', () => { if ($('tanggalakhir').value 
 $('bBaru').addEventListener('click', baru);
 $('bGanti').addEventListener('click', () => $('aksi').value = 'ganti');
 $('bSimpan').addEventListener('click', () => $('aksi').value = 'simpan');
-$('bHapus').addEventListener('click', ev => {
-  if (!confirm('Hapus surat ' + $('no_surat_lama').value + ' ?')) return ev.preventDefault();
-  $('aksi').value = 'hapus';
-  f.querySelectorAll('[required]').forEach(i => i.required = false);
-});
 
 document.querySelector('tbody').addEventListener('click', ev => {
   const tr = ev.target.closest('tr[data-no]'); if (!tr) return;
