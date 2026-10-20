@@ -26,6 +26,15 @@ if (!$d) {
     exit('Surat sakit tidak ditemukan.');
 }
 
+// Diagnosa utama (prioritas 1), sama seperti aplikasi Java; hanya nama penyakit yang ditampilkan.
+$dg = db()->prepare(
+    'select penyakit.nm_penyakit from diagnosa_pasien
+     inner join penyakit on diagnosa_pasien.kd_penyakit=penyakit.kd_penyakit
+     where diagnosa_pasien.no_rawat=? and diagnosa_pasien.prioritas=1 limit 1'
+);
+$dg->execute([$d['no_rawat']]);
+$diagnosa = (string)$dg->fetchColumn();
+
 $rs = instansi();
 $fp = db()->prepare(
     'select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?'
@@ -93,9 +102,9 @@ $ttdTgl = $rs['kabupaten'] . ', ' . tgl_panjang(date('Y-m-d', strtotime($d['tgl_
     <tr><td>Jenis Kelamin</td><td>:</td><td><?= $d['jk'] === 'L' ? 'Laki-Laki' : 'Perempuan' ?></td></tr>
     <tr><td>Pekerjaan</td><td>:</td><td><?= e($d['pekerjaan']) ?></td></tr>
     <tr><td>Alamat</td><td>:</td><td><?= e($d['alamat']) ?></td></tr>
+    <?php if ($diagnosa !== ''): ?><tr><td>Diagnosa</td><td>:</td><td><?= e($diagnosa) ?></td></tr><?php endif; ?>
   </table>
 
-  <p style="margin-bottom:1mm">DIAGNOSA</p>
   <p style="margin-bottom:1mm">Mengingat kondisinya saat ini maka memerlukan :</p>
   <p>Istirahat selama : <b><?= e($lama) ?></b> Hari sejak tanggal <b><?= e(tgl_panjang($d['tanggalawal'])) ?></b>
      s/d <b><?= e(tgl_panjang($d['tanggalakhir'])) ?></b>.</p>
@@ -106,7 +115,6 @@ $ttdTgl = $rs['kabupaten'] . ', ' . tgl_panjang(date('Y-m-d', strtotime($d['tgl_
     Dokter Pemeriksa
     <div id="qr"></div>
     <span class="dr"><?= e($d['nm_dokter']) ?></span><br>
-    <span class="sip">SIP. <?= e($d['no_ijn_praktek']) ?></span>
   </div>
 </div>
 
