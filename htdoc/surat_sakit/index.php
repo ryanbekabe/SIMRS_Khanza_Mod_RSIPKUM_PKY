@@ -95,6 +95,7 @@ $prefill = trim($_GET['no_rawat'] ?? '');
   body { margin:0; font:14px/1.45 system-ui,Segoe UI,Tahoma,sans-serif; background:var(--bg); color:var(--ink); }
   .wrap { max-width:1100px; margin:0 auto; padding:16px; }
   h1 { font-size:18px; margin:0 0 12px; }
+  h1 .home { color:inherit; text-decoration:none; } h1 .home:hover { text-decoration:underline; }
   .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px; margin-bottom:14px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; }
   label { display:block; font-size:12px; color:var(--muted); margin-bottom:3px; }
@@ -119,7 +120,7 @@ $prefill = trim($_GET['no_rawat'] ?? '');
 </head>
 <body>
 <div class="wrap">
-  <h1>::[ Data Surat Keterangan Sakit ]::</h1>
+  <h1><a href="./" class="home">::[ Data Surat Keterangan Sakit ]::</a></h1>
   <?php if ($pesan): ?><div class="msg"><?= e($pesan) ?></div><?php endif; ?>
 
   <form class="card" id="frm" method="post" autocomplete="off">
