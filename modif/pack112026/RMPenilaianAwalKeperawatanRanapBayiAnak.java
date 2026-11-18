@@ -7233,8 +7233,8 @@ public final class RMPenilaianAwalKeperawatanRanapBayiAnak extends javax.swing.J
             param.put("emailrs",akses.getemailrs());
             param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
             param.put("nyeri",Sequel.cariGambar("select gambar.nyeri from gambar"));
-            finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),91).toString());
-            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),92).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),91).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),8).toString()));
+            finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
+            param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString()));
             try {
                 masalahkeperawatan="";
                 ps2=koneksi.prepareStatement(
@@ -7313,26 +7313,31 @@ public final class RMPenilaianAwalKeperawatanRanapBayiAnak extends javax.swing.J
             }
             param.put("imunisasi",masalahkeperawatan);
             Valid.MyReportqry("rptCetakPenilaianAwalKeperawatanRalanAnak.jasper","report","::[ Laporan Penilaian Awal Keperawatan Ralan Bayi/Anak ]::",
-                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,pasien.agama,bahasa_pasien.nama_bahasa,cacat_fisik.nama_cacat,penilaian_awal_keperawatan_ranap_bayi.tanggal,"+
-                "penilaian_awal_keperawatan_ranap_bayi.informasi,penilaian_awal_keperawatan_ranap_bayi.td,penilaian_awal_keperawatan_ranap_bayi.nadi,penilaian_awal_keperawatan_ranap_bayi.rr,penilaian_awal_keperawatan_ranap_bayi.suhu,penilaian_awal_keperawatan_ranap_bayi.gcs,"+
-                "penilaian_awal_keperawatan_ranap_bayi.bb,penilaian_awal_keperawatan_ranap_bayi.tb,penilaian_awal_keperawatan_ranap_bayi.lp,penilaian_awal_keperawatan_ranap_bayi.lk,penilaian_awal_keperawatan_ranap_bayi.ld,penilaian_awal_keperawatan_ranap_bayi.keluhan_utama,"+
-                "penilaian_awal_keperawatan_ranap_bayi.rpd,penilaian_awal_keperawatan_ranap_bayi.rpk,penilaian_awal_keperawatan_ranap_bayi.rpo,penilaian_awal_keperawatan_ranap_bayi.alergi,penilaian_awal_keperawatan_ranap_bayi.anakke,penilaian_awal_keperawatan_ranap_bayi.darisaudara,"+
-                "penilaian_awal_keperawatan_ranap_bayi.caralahir,penilaian_awal_keperawatan_ranap_bayi.ket_caralahir,penilaian_awal_keperawatan_ranap_bayi.umurkelahiran,penilaian_awal_keperawatan_ranap_bayi.kelainanbawaan,penilaian_awal_keperawatan_ranap_bayi.ket_kelainan_bawaan,"+
-                "penilaian_awal_keperawatan_ranap_bayi.usiatengkurap,penilaian_awal_keperawatan_ranap_bayi.usiaduduk,penilaian_awal_keperawatan_ranap_bayi.usiaberdiri,penilaian_awal_keperawatan_ranap_bayi.usiagigipertama,penilaian_awal_keperawatan_ranap_bayi.usiaberjalan,"+
-                "penilaian_awal_keperawatan_ranap_bayi.usiabicara,penilaian_awal_keperawatan_ranap_bayi.usiamembaca,penilaian_awal_keperawatan_ranap_bayi.usiamenulis,penilaian_awal_keperawatan_ranap_bayi.gangguanemosi,penilaian_awal_keperawatan_ranap_bayi.alat_bantu,"+
-                "penilaian_awal_keperawatan_ranap_bayi.ket_bantu,penilaian_awal_keperawatan_ranap_bayi.prothesa,penilaian_awal_keperawatan_ranap_bayi.ket_pro,penilaian_awal_keperawatan_ranap_bayi.adl,penilaian_awal_keperawatan_ranap_bayi.status_psiko,"+
-                "penilaian_awal_keperawatan_ranap_bayi.ket_psiko,penilaian_awal_keperawatan_ranap_bayi.hub_keluarga,penilaian_awal_keperawatan_ranap_bayi.pengasuh,penilaian_awal_keperawatan_ranap_bayi.ket_pengasuh,penilaian_awal_keperawatan_ranap_bayi.ekonomi,"+
-                "penilaian_awal_keperawatan_ranap_bayi.budaya,penilaian_awal_keperawatan_ranap_bayi.ket_budaya,penilaian_awal_keperawatan_ranap_bayi.edukasi,penilaian_awal_keperawatan_ranap_bayi.ket_edukasi,penilaian_awal_keperawatan_ranap_bayi.berjalan_a,"+
-                "penilaian_awal_keperawatan_ranap_bayi.berjalan_b,penilaian_awal_keperawatan_ranap_bayi.berjalan_c,penilaian_awal_keperawatan_ranap_bayi.hasil,penilaian_awal_keperawatan_ranap_bayi.lapor,penilaian_awal_keperawatan_ranap_bayi.ket_lapor,"+
-                "penilaian_awal_keperawatan_ranap_bayi.sg1,penilaian_awal_keperawatan_ranap_bayi.nilai1,penilaian_awal_keperawatan_ranap_bayi.sg2,penilaian_awal_keperawatan_ranap_bayi.nilai2,penilaian_awal_keperawatan_ranap_bayi.sg3,penilaian_awal_keperawatan_ranap_bayi.nilai3,"+
-                "penilaian_awal_keperawatan_ranap_bayi.sg4,penilaian_awal_keperawatan_ranap_bayi.nilai4,penilaian_awal_keperawatan_ranap_bayi.total_hasil,penilaian_awal_keperawatan_ranap_bayi.wajah,penilaian_awal_keperawatan_ranap_bayi.nilaiwajah,penilaian_awal_keperawatan_ranap_bayi.kaki,"+
-                "penilaian_awal_keperawatan_ranap_bayi.nilaikaki,penilaian_awal_keperawatan_ranap_bayi.aktifitas,penilaian_awal_keperawatan_ranap_bayi.nilaiaktifitas,penilaian_awal_keperawatan_ranap_bayi.menangis,penilaian_awal_keperawatan_ranap_bayi.nilaimenangis,"+
-                "penilaian_awal_keperawatan_ranap_bayi.bersuara,penilaian_awal_keperawatan_ranap_bayi.nilaibersuara,penilaian_awal_keperawatan_ranap_bayi.hasilnyeri,penilaian_awal_keperawatan_ranap_bayi.nyeri,penilaian_awal_keperawatan_ranap_bayi.lokasi,"+
-                "penilaian_awal_keperawatan_ranap_bayi.durasi,penilaian_awal_keperawatan_ranap_bayi.frekuensi,penilaian_awal_keperawatan_ranap_bayi.nyeri_hilang,penilaian_awal_keperawatan_ranap_bayi.ket_nyeri,penilaian_awal_keperawatan_ranap_bayi.pada_dokter,"+
-                "penilaian_awal_keperawatan_ranap_bayi.ket_dokter,penilaian_awal_keperawatan_ranap_bayi.rencana,penilaian_awal_keperawatan_ranap_bayi.nip,petugas.nama "+
+                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,pasien.agama,bahasa_pasien.nama_bahasa,cacat_fisik.nama_cacat,pr.tanggal,"+
+                "pr.informasi,pr.fisik_td as td,pr.fisik_nadi as nadi,pr.fisik_rr as rr,pr.fisik_suhu as suhu,pr.fisik_gcs as gcs,"+
+                "pr.fisik_bb as bb,pr.fisik_tb as tb,pr.fisik_lp as lp,pr.fisik_lk as lk,pr.fisik_ld as ld,pr.rps as keluhan_utama,"+
+                "pr.rpd,pr.rpk,pr.rpo,pr.alergi,cast(pr.persalinan_anakke as signed) as anakke,cast(pr.persalinan_darisaudara as signed) as darisaudara,"+
+                "pr.persalinan_kelahiran as caralahir,pr.persalinan_kelahiran_keterangan as ket_caralahir,pr.persalinan_umur_kelahiran as umurkelahiran,"+
+                "pr.persalinan_kelainan_bawaan as kelainanbawaan,pr.persalinan_kelainan_bawaan_keterangan as ket_kelainan_bawaan,"+
+                "ifnull(pr.tumbuh_kembang_tengkurap,'') as usiatengkurap,ifnull(pr.tumbuh_kembang_duduk,'') as usiaduduk,ifnull(pr.tumbuh_kembang_berdiri,'') as usiaberdiri,"+
+                "ifnull(pr.tumbuh_kembang_gigi_pertama,'') as usiagigipertama,ifnull(pr.tumbuh_kembang_berjalan,'') as usiaberjalan,ifnull(pr.tumbuh_kembang_bicara,'') as usiabicara,"+
+                "ifnull(pr.tumbuh_kembang_membaca,'') as usiamembaca,ifnull(pr.tumbuh_kembang_menulis,'') as usiamenulis,ifnull(pr.tumbuh_kembang_gangguan_emosi,'') as gangguanemosi,"+
+                "if(pr.neurologi_alat_bantu_penglihatan='Tidak','Tidak','Ya') as alat_bantu,if(pr.neurologi_alat_bantu_penglihatan='Tidak','',pr.neurologi_alat_bantu_penglihatan) as ket_bantu,"+
+                "'' as prothesa,'' as ket_pro,'' as adl,pr.psiko_kondisi as status_psiko,pr.psiko_perilaku_keterangan as ket_psiko,"+
+                "pr.psiko_hubungan_pasien as hub_keluarga,pr.psiko_tinggal_dengan as pengasuh,pr.psiko_tinggal_dengan_keterangan as ket_pengasuh,'' as ekonomi,"+
+                "pr.psiko_nilai_kepercayaan as budaya,pr.psiko_nilai_kepercayaan_keterangan as ket_budaya,pr.psiko_edukasi as edukasi,pr.psiko_edukasi_keterangan as ket_edukasi,"+
+                "'' as berjalan_a,'' as berjalan_b,'' as berjalan_c,ifnull(pr.hasil_skrining_penilaian_humptydumpty,'') as hasil,'' as lapor,'' as ket_lapor,"+
+                "pr.skrining_gizi1 as sg1,pr.nilai_gizi1 as nilai1,pr.skrining_gizi2 as sg2,pr.nilai_gizi2 as nilai2,pr.skrining_gizi3 as sg3,pr.nilai_gizi3 as nilai3,"+
+                "pr.skrining_gizi4 as sg4,pr.nilai_gizi4 as nilai4,cast(pr.total_nilai as signed) as total_hasil,"+
+                "pr.nyeri_wajah as wajah,pr.nyeri_nilai_wajah as nilaiwajah,pr.nyeri_kaki as kaki,pr.nyeri_nilai_kaki as nilaikaki,"+
+                "pr.nyeri_aktifitas as aktifitas,pr.nyeri_nilai_aktifitas as nilaiaktifitas,pr.nyeri_menangis as menangis,pr.nyeri_nilai_menangis as nilaimenangis,"+
+                "pr.nyeri_bersuara as bersuara,pr.nyeri_nilai_bersuara as nilaibersuara,cast(pr.nyeri_nilai_total as signed) as hasilnyeri,pr.nyeri_kondisi as nyeri,"+
+                "pr.nyeri_lokasi as lokasi,pr.nyeri_durasi as durasi,pr.nyeri_frekuensi as frekuensi,pr.nyeri_hilang,pr.nyeri_hilang_keterangan as ket_nyeri,"+
+                "pr.nyeri_diberitahukan_pada_dokter as pada_dokter,pr.nyeri_diberitahukan_pada_dokter_keterangan as ket_dokter,"+
+                "ifnull(pr.rencana,'') as rencana,pr.nip1 as nip,petugas.nama "+
                 "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                "inner join penilaian_awal_keperawatan_ranap_bayi on reg_periksa.no_rawat=penilaian_awal_keperawatan_ranap_bayi.no_rawat "+
-                "inner join petugas on penilaian_awal_keperawatan_ranap_bayi.nip=petugas.nip "+
+                "inner join penilaian_awal_keperawatan_ranap_bayi pr on reg_periksa.no_rawat=pr.no_rawat "+
+                "inner join petugas on pr.nip1=petugas.nip "+
                 "inner join bahasa_pasien on bahasa_pasien.id=pasien.bahasa_pasien "+
                 "inner join cacat_fisik on cacat_fisik.id=pasien.cacat_fisik where reg_periksa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
         }else{
