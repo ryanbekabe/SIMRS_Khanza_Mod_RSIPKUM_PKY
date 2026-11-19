@@ -57,7 +57,7 @@ public class koneksiDB {
                         "        fungsi/sekuel.java (1) (AKTIFKANTRACKSQL, limit 1x24 cekTanggal48jam, jadikan kembali 2x24 jam 07052026 06072026);\n"+
                         
                         "        inventory/DlgCariPenjualan.java (1) (Disable cetak ulang nota, ppCetakNota.setEnabled true 15092025,01102025);\n"+
-                        "        inventory/DlgCopyResep.java (1) (Silakan konfirmasi ke bagian Farmasi, disabel Edit dan Hapus Req LI 16092026);\n"+
+                        "        inventory/DlgCopyResep.java (1) (Silakan konfirmasi ke bagian Farmasi, disabel Edit dan Hapus Req LI BtnHapus.setEnabled(false) jangan terapkan dulu 16092026, 12112026);\n"+
                         "        inventory/DlgInputStok.java (0 lewati dulu) (Tambah kolom Ekspired);\n"+
                         "        inventory/DlgPenjualan.java (1) (Disable cetak Nota,BtnNota.setEnabled true 25092025,01102025);\n"+
                         "        inventory/DlgPermintaanResepPulang.java (1) (Sembunyikan stok obat yang kosong, perbaiki doubling 28082025, 10092025);\n"+
@@ -84,10 +84,11 @@ public class koneksiDB {
                         "        rekammedis/RMDataResumePasienRanap.java (1) (KOP Surat, Tgl. Keluar, Print pilih DPJP utama Resume, Disable Edit Resume jika sudah close bill req RQ, Buka Edit Resume true untuk tim Casemix 08122025 24062026 01082026 02092026);\n"+
                         "        rekammedis/RMHasilPemeriksaanEKG.java (1) (KOP Surat, SIP, hapus primary key dari DB agar bisa input banyak 21082025, SegmenST -> tbSegmenST: Normal, Tidak Normal; GelombangT -> tbGelombangT: Normal, Tidak Normal 24052025);\n"+
                         "        rekammedis/RMPenilaianAwalFisikospritualCare.java (1) (Form penilaian awal Binroh req MF 09072026);\n"+
-                        "        rekammedis/RMPenilaianAwalMedisIGD.java (1) (V. DIAGNOSIS/ASESMEN DAN RETRIASE, BtnEdit disable jika Ranap, tambah menu Penilaian Awal Fisikospritual Care, Disable Edit/Hapus jika sudah close bill req RQ 09072026 05082026);\n"+
-                        "        rekammedis/RMPenilaianAwalMedisRanapDewasa.java (1) (KOP Surat);\n"+
                         "        rekammedis/RMPenilaianAwalKeperawatanIGD.java (1) (KOP Surat, Disable Edit/Hapus jika sudah close bill req RQ 04082026);\n"+
                         "        rekammedis/RMPenilaianAwalKeperawatanRanap.java (1) (KOP Surat);\n"+
+                        "        rekammedis/RMPenilaianAwalKeperawatanRanapBayiAnak.java (1) (Perbaiki cetak rptCetakPenilaianAwalKeperawatanRalanAnak.jasper 18112026);\n"+
+                        "        rekammedis/RMPenilaianAwalMedisIGD.java (1) (V. DIAGNOSIS/ASESMEN DAN RETRIASE, BtnEdit disable jika Ranap, tambah menu Penilaian Awal Fisikospritual Care, Disable Edit/Hapus jika sudah close bill req RQ 09072026 05082026);\n"+
+                        "        rekammedis/RMPenilaianAwalMedisRanapDewasa.java (1) (KOP Surat);\n"+
                         "        rekammedis/RMRiwayatPerawatan.java (1) (Fix gambar Radiologi kebesaran);\n"+
                         "        rekammedis/RMSkriningTBC.java (1) (KOP Surat; Skrining bisa oleh hanya perawat);\n"+ 
                         "        rekammedis/RMSkriningMPPFormA.java (0) (Tampilkan asesmen di report req NC 12092026);\n"+ 
@@ -128,6 +129,8 @@ public class koneksiDB {
                         "        rptCetakEvaluasiAwalMPP.jasper (1) (Tampilkan asesmen dan perbaiki format hasil printout 12092026 17092026);\n"+
                         "        rptCetakHasilPemeriksaanEKG.jasper (1) (KOP Surat; SIP, DB hasil_pemeriksaan_ekg segmenst gelombangt enum('Normal', 'Tidak Normal') -> VarChar 15, no_rawat hapus primary; tanggal kd_dokter secondary key 25082025);\n"+
                         "        rptCetakPenilaianAwalKeperawatanRalan.jasper (0);\n"+
+                        "        rptCetakPenilaianAwalKeperawatanRalanAnak.jasper (1) (KOP 18112026);\n"+
+                        
                         "        rptCetakPenilaianAwalKeperawatanIGD.jasper (1) (KOP Surat);\n"+
                         "        rptCetakPenilaianAwalMedisIGD.jasper (1) (KOP Surat);\n"+
                         "        rptCetakPenilaianAwalMedisRanap.jasper (1) (KOP Surat, SIP dokter);\n"+
@@ -177,7 +180,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 11/11/2026 14.58 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 18/11/2026 14.24 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
                 
 
