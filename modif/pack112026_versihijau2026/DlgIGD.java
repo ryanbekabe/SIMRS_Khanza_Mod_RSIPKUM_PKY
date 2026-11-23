@@ -12876,11 +12876,13 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
     private void tampil() {
         if(ceksukses==false){
             ceksukses=true;
-            Valid.tabelKosong(tabMode);  
+            Valid.tabelKosong(tabMode);
             new SwingWorker<Void, Object[]>() {
+                private final StringBuilder pesanReadmisi=new StringBuilder();
+
                 @Override
                 protected Void doInBackground() {
-                    try{  
+                    try{
                         ps=koneksi.prepareStatement("select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,"+
                                "reg_periksa.kd_dokter,dokter.nm_dokter,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,poliklinik.nm_poli,"+
                                "reg_periksa.p_jawab,reg_periksa.almt_pj,reg_periksa.hubunganpj,reg_periksa.biaya_reg,reg_periksa.stts_daftar,penjab.png_jawab,reg_periksa.stts,reg_periksa.kd_pj,reg_periksa.status_bayar "+
@@ -12913,15 +12915,43 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
                             }
                             rs=ps.executeQuery();
                             i=0;
-                            while(rs.next()){
-                                i++;
-                                publish(new Object[]{
-                                    false,rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),
-                                    rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),
-                                    rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14),
-                                    Valid.SetAngka(rs.getDouble(15)),rs.getString(16),rs.getString(17),rs.getString(18),
-                                    rs.getString("kd_pj"),rs.getString("status_bayar")
-                                });
+                            // Cek potensi Re-Admisi: rawat inap terakhir (selain no_rawat ini) dengan tgl_masuk > 1 hari dan <= 30 hari dari hari ini
+                            PreparedStatement psreadmisi=koneksi.prepareStatement(
+                                    "select kamar_inap.tgl_masuk,datediff(curdate(),kamar_inap.tgl_masuk) as selisih from kamar_inap "+
+                                    "inner join reg_periksa on kamar_inap.no_rawat=reg_periksa.no_rawat "+
+                                    "where reg_periksa.no_rkm_medis=? and kamar_inap.no_rawat<>? "+
+                                    "order by kamar_inap.tgl_masuk desc,kamar_inap.jam_masuk desc limit 1");
+                            try {
+                                while(rs.next()){
+                                    i++;
+                                    publish(new Object[]{
+                                        false,rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),
+                                        rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),
+                                        rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14),
+                                        Valid.SetAngka(rs.getDouble(15)),rs.getString(16),rs.getString(17),rs.getString(18),
+                                        rs.getString("kd_pj"),rs.getString("status_bayar")
+                                    });
+
+                                    psreadmisi.setString(1,rs.getString(7));
+                                    psreadmisi.setString(2,rs.getString(2));
+                                    ResultSet rsreadmisi=psreadmisi.executeQuery();
+                                    try {
+                                        if(rsreadmisi.next()){
+                                            int selisih=rsreadmisi.getInt("selisih");
+                                            if(selisih>1&&selisih<=30){
+                                                pesanReadmisi.append(rs.getString(3)).append(" - ").append(rs.getString(7)).append(" - ")
+                                                      .append(rs.getString(8)).append(" (Ranap terakhir: ")
+                                                      .append(rsreadmisi.getString("tgl_masuk")).append(", ").append(selisih).append(" hari lalu)\n");
+                                            }
+                                        }
+                                    } finally {
+                                        rsreadmisi.close();
+                                    }
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notif Re-Admisi : "+e);
+                            } finally {
+                                psreadmisi.close();
                             }
                         } catch (Exception e) {
                             System.out.println("Notif : "+e);
@@ -12950,8 +12980,12 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
                 protected void done() {
                     LCount.setText(""+i);
                     ceksukses = false;
+                    if(pesanReadmisi.length()>0){
+                        JOptionPane.showMessageDialog(null,"Pasien berpotensi Re-Admisi (pernah rawat inap > 1 hari s/d 30 hari terakhir) :\n\n"+
+                                pesanReadmisi.toString(),"Potensi Re-Admisi",JOptionPane.INFORMATION_MESSAGE);
+                    }
                 }
-            }.execute(); 
+            }.execute();
         }
     }
 
@@ -12992,7 +13026,18 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
             TStatus.setText(tbPetugas.getValueAt(tbPetugas.getSelectedRow(),16).toString());            
             nmpnj.setText(tbPetugas.getValueAt(tbPetugas.getSelectedRow(),17).toString());
             kdpnj.setText(tbPetugas.getValueAt(tbPetugas.getSelectedRow(),19).toString());
+            aturMenuPenilaianAwal();
         }
+    }
+
+    // Nonaktifkan menu Pengkajian/Penilaian Awal jika status lanjut pasien sudah Ranap
+    private void aturMenuPenilaianAwal(){
+        boolean ranap=Sequel.cariIsi("select reg_periksa.status_lanjut from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()).equals("Ranap");
+        MnPenilaianAwalKeperawatanIGD.setEnabled(!ranap&&akses.getpenilaian_awal_keperawatan_igd());
+        MnPeniliaianAwalMedisIGD.setEnabled(!ranap&&akses.getpenilaian_awal_medis_igd());
+        MnPeniliaianAwalMedisIGDPsikiatri.setEnabled(!ranap&&akses.getpenilaian_medis_ralan_gawat_darurat_psikiatri());
+        MnPeniliaianAwalMedisHemodialisa.setEnabled(!ranap&&akses.getpenilaian_medis_ralan_hemodialisa());
+        MnPenilaianFisioterapi.setEnabled(!ranap&&akses.getpenilaian_fisioterapi());
     }
 
 

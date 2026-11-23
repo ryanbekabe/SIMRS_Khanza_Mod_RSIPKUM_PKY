@@ -173,7 +173,7 @@ public class koneksiDB {
                                 "     S) 1.4 simrskhanza/DlgCariPeriksaLabPA2.java (0) (Tambahan menu khusus dr. Frau., tambah bisa cetak hasil dokter Sabilla, perbaikan Sputum Gram / Mikroskopis Sputum 11082025 09062026 15062026);\n"+
                                 "     S) 1.5 simrskhanza/DlgCariPeriksaRadiologi.java (1) (KOP (1); perbaiki bug simpan gambar pada Windows mungkin sudah diperbaiki mas Win 05112026);\n"+
                                 "     S) 1.6 simrskhanza/DlgCariTagihanOperasi.java (0) (KOP Surat, pangkas beberapa field, SIP 02082025);\n"+
-                                "     S) 1.7 simrskhanza/DlgIGD.java (0) (Notif Potensi Re-Admisi, lebih dari 1 hari 24 jam dan kurang dari sama dengan 30 hari kemarin, nonaktifkan menu Penilaian Awal jika sudah Ranap, tambah menu Asesmen Awal Fisikospritual Care 26052025 08022025 14072026);\n"+
+                                "     S) 1.7 simrskhanza/DlgIGD.java (1) (Notif Potensi Re-Admisi lebih dari 1 hari 24 jam dan kurang dari sama dengan 30 hari kemarin req by dr NAR (1), nonaktifkan menu Penilaian Awal jika sudah Ranap req by RQ (1), tambah menu Asesmen Awal Fisikospritual Care req by MF (1) 26052025 08022025 14072026 23112026);\n"+
                                 "     S) 1.8 simrskhanza/DlgIKBBayi.java (0) (Tgl Lhr Ibu; Tgl Lhr Ayah, Limit karakter 8 ke 10 UmurIbu; UmurAyah, Surat Keterangan Lahir 1 - Tunggal; Surat Keterangan Lahir 2 - Kembar; TCariRMIbu jika gagal mendapatkan NIK Ibu, PenilaianAwalMedisIGD MessageDialog Akses ke menu ini kami nonaktifkan);\n"+
                                 "     S) 1.9 simrskhanza/DlgKamarInap.java (0) (Label Radiologi, cetak surat DPJP bisa dipilih, messagebox pasien yang re-inap <= 30 hari bandingkan hari sekarang - req NC 12062026 25072026);\n"+
                                 "     S) 1.10 simrskhanza/DlgKasirRalan.java (0) (Surat Keterangan Sehat 3 - Oke, Label Radiologi, Tambah tulisan pasien - MJKN, PenilaianAwalMedisIGD MessageDialog Akses ke menu ini kami nonaktifkan, Menu Sudah/Belum Buat Surat Kontrol 22062026);\n"+
@@ -189,7 +189,7 @@ public class koneksiDB {
                                 "     S) 2.4 surat/SuratKeteranganSehat.java (0) (KOP Surat);\n" +
                                 "     S) 2.5 surat/SuratSakit.java (0) (Cetak Surat Sakit 1 - Oke);\n" +
                                 "  Re-Compile: MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 12 Agu 2026. \n"+
-                                "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 05/11/2026 14.05 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                                "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 23/11/2026 10.31 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
 
                                 "                                                                           ");
                 return;
