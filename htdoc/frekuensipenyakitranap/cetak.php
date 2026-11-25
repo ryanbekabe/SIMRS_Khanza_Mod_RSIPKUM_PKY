@@ -30,7 +30,7 @@ foreach ($data as $r) {
 $filterInfo = array_filter([
     'Kamar/Bangsal' => $f->kamar,
     'Poliklinik'    => $f->poli,
-    'Dokter'        => $f->dokter,
+    'Dokter'        => implode(', ', array_column(info_dokter($f->dokter), 'nama')),
     'Cara Bayar'    => $f->penjab,
     'Kabupaten'     => $f->kabupaten,
     'Kecamatan'     => $f->kecamatan,

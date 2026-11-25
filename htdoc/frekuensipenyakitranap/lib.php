@@ -130,7 +130,8 @@ final readonly class Filter
         public string $tgl2,
         public string $kamar = '',
         public string $poli = '',
-        public string $dokter = '',
+        /** @var list<string> daftar kd_dokter (boleh lebih dari satu) */
+        public array $dokter = [],
         public string $penjab = '',
         public string $kabupaten = '',
         public string $kecamatan = '',
@@ -154,13 +155,30 @@ final readonly class Filter
             tgl2: $tgl('tgl2'),
             kamar: $str('kamar'),
             poli: $str('poli'),
-            dokter: $str('dokter'),
+            dokter: self::daftarKode($q['dokter'] ?? []),
             penjab: $str('penjab'),
             kabupaten: $str('kabupaten'),
             kecamatan: $str('kecamatan'),
             kelurahan: $str('kelurahan'),
             cari: $str('cari', 90), // batasInput 90 karakter di versi Java
         );
+    }
+
+    /**
+     * Normalisasi parameter dokter[] menjadi daftar kode unik.
+     * @return list<string>
+     */
+    private static function daftarKode(mixed $v): array
+    {
+        $v = is_array($v) ? $v : [$v];
+        $kode = [];
+        foreach ($v as $k) {
+            $k = is_string($k) ? trim($k) : '';
+            if ($k !== '' && strlen($k) <= 20) {
+                $kode[$k] = true;
+            }
+        }
+        return array_slice(array_keys($kode), 0, 100);
     }
 
     /** @param array<string,string> $override */
@@ -229,16 +247,15 @@ function base_from_where(Filter $f, string $extraJoin = ''): array
         }
     }
 
-    // Dokter: di Ranap, reg_periksa.kd_dokter hanya dokter saat pendaftaran
-    // (dokter IGD/poli asal). Dokter yang merawat (DPJP) ada di dpjp_ranap,
-    // jadi keduanya dicocokkan.
-    if ($f->dokter !== '') {
-        $sql .= ' AND (d.nm_dokter LIKE ?
+    // Dokter (bisa lebih dari satu): di Ranap, reg_periksa.kd_dokter hanya
+    // dokter saat pendaftaran (dokter IGD/poli asal). Dokter yang merawat
+    // (DPJP) ada di dpjp_ranap, jadi keduanya dicocokkan.
+    if ($f->dokter) {
+        $in = implode(',', array_fill(0, count($f->dokter), '?'));
+        $sql .= " AND (rp.kd_dokter IN ($in)
                        OR EXISTS (SELECT 1 FROM dpjp_ranap dr
-                                  INNER JOIN dokter d2 ON d2.kd_dokter = dr.kd_dokter
-                                  WHERE dr.no_rawat = rp.no_rawat AND d2.nm_dokter LIKE ?)) ';
-        $params[] = like($f->dokter);
-        $params[] = like($f->dokter);
+                                  WHERE dr.no_rawat = rp.no_rawat AND dr.kd_dokter IN ($in))) ";
+        array_push($params, ...$f->dokter, ...$f->dokter);
     }
 
     if ($f->cari !== '') {
@@ -301,6 +318,25 @@ function ambil_data(Filter $f): array
         ];
     }
     return $hasil;
+}
+
+/**
+ * Nama + spesialis untuk daftar kd_dokter (untuk chip & kepala laporan).
+ *
+ * @param list<string> $kode
+ * @return list<array{kode:string, nama:string, spesialis:string}>
+ */
+function info_dokter(array $kode): array
+{
+    if (!$kode) {
+        return [];
+    }
+    $in = implode(',', array_fill(0, count($kode), '?'));
+    $st = db()->prepare("SELECT d.kd_dokter AS kode, d.nm_dokter AS nama, COALESCE(s.nm_sps, '') AS spesialis
+                         FROM dokter d LEFT JOIN spesialis s ON s.kd_sps = d.kd_sps
+                         WHERE d.kd_dokter IN ($in) ORDER BY d.nm_dokter");
+    $st->execute($kode);
+    return $st->fetchAll();
 }
 
 const KOLOM = [

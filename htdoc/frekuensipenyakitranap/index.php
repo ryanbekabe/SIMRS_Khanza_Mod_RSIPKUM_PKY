@@ -16,13 +16,19 @@ if ($sudahCari) {
     }
 }
 
-$filterTerbuka = $f->kamar . $f->poli . $f->dokter . $f->penjab . $f->kabupaten . $f->kecamatan . $f->kelurahan !== '';
+$dokterTerpilih = [];
+try {
+    $dokterTerpilih = info_dokter($f->dokter);
+} catch (PDOException $ex) {
+    error_log('Info dokter: ' . $ex->getMessage());
+}
+
+$filterTerbuka = $f->dokter || $f->kamar . $f->poli . $f->penjab . $f->kabupaten . $f->kecamatan . $f->kelurahan !== '';
 $periode = tgl_indo($f->tgl1) . ' s.d. ' . tgl_indo($f->tgl2);
 
 $lookupFields = [
     'kamar'     => 'Kamar/Bangsal',
     'poli'      => 'Poliklinik (asal pendaftaran)',
-    'dokter'    => 'Dokter (pendaftar / DPJP)',
     'penjab'    => 'Cara Bayar',
     'kabupaten' => 'Kabupaten',
     'kecamatan' => 'Kecamatan',
@@ -72,6 +78,28 @@ $lookupFields = [
                     <datalist id="dl-<?= $name ?>"></datalist>
                 </label>
             <?php endforeach; ?>
+        </div>
+
+        <div class="multi" id="dokterPicker">
+            <div class="multi-label">
+                Dokter (pendaftar / DPJP) — bisa pilih lebih dari satu
+                <button type="button" class="link" id="dokterClearAll" <?= $dokterTerpilih ? '' : 'hidden' ?>>Hapus semua</button>
+            </div>
+            <div class="chips" id="dokterChips">
+                <?php foreach ($dokterTerpilih as $dk): ?>
+                    <span class="chip" data-kode="<?= e($dk['kode']) ?>">
+                        <?= e($dk['nama']) ?><?php if ($dk['spesialis'] !== '' && $dk['spesialis'] !== '-'): ?> <small><?= e($dk['spesialis']) ?></small><?php endif; ?>
+                        <input type="hidden" name="dokter[]" value="<?= e($dk['kode']) ?>">
+                        <button type="button" title="Hapus">×</button>
+                    </span>
+                <?php endforeach; ?>
+            </div>
+            <div class="multi-search">
+                <input type="search" id="dokterCari" autocomplete="off"
+                       placeholder="Ketik nama dokter atau spesialis, mis. &quot;bedah&quot;">
+                <button type="button" class="btn" id="dokterAddAll" hidden>Tambah semua hasil</button>
+            </div>
+            <ul class="multi-result" id="dokterHasil" hidden></ul>
         </div>
     </details>
 </form>
@@ -165,6 +193,7 @@ render();
 document.getElementById('btnAll').addEventListener('click', () => {
     const frm = document.getElementById('frm');
     frm.querySelectorAll('input:not([type=date]):not([type=hidden])').forEach(i => i.value = '');
+    document.getElementById('dokterChips').innerHTML = '';
     frm.submit();
 });
 
@@ -194,6 +223,77 @@ document.querySelectorAll('input[data-lookup]').forEach(inp => {
     inp.addEventListener('focus', load, {once: true});
     inp.addEventListener('input', load);
 });
+
+/* ---------- Pilih banyak dokter ---------- */
+(() => {
+    const chips = document.getElementById('dokterChips');
+    const cari = document.getElementById('dokterCari');
+    const hasil = document.getElementById('dokterHasil');
+    const addAll = document.getElementById('dokterAddAll');
+    const clearAll = document.getElementById('dokterClearAll');
+    let daftar = [], timer;
+
+    const terpilih = () => new Set([...chips.querySelectorAll('.chip')].map(c => c.dataset.kode));
+    const sync = () => { clearAll.hidden = !chips.children.length; renderHasil(); };
+
+    function tambah(d) {
+        if (terpilih().has(d.kode)) return;
+        const sp = d.spesialis && d.spesialis !== '-' ? ` <small>${esc(d.spesialis)}</small>` : '';
+        chips.insertAdjacentHTML('beforeend',
+            `<span class="chip" data-kode="${esc(d.kode)}">${esc(d.nama)}${sp}` +
+            `<input type="hidden" name="dokter[]" value="${esc(d.kode)}">` +
+            `<button type="button" title="Hapus">×</button></span>`);
+    }
+
+    function renderHasil() {
+        const sel = terpilih();
+        const sisa = daftar.filter(d => !sel.has(d.kode));
+        hasil.hidden = document.activeElement !== cari;
+        hasil.innerHTML = daftar.length
+            ? daftar.map(d => `<li data-kode="${esc(d.kode)}" class="${sel.has(d.kode) ? 'picked' : ''}">
+                  <span>${esc(d.nama)}</span><small>${esc(d.spesialis && d.spesialis !== '-' ? d.spesialis : '')}</small></li>`).join('')
+            : '<li class="none">Tidak ditemukan</li>';
+        addAll.hidden = sisa.length < 2;
+        addAll.textContent = `Tambah semua hasil (${sisa.length})`;
+    }
+
+    async function muat() {
+        try {
+            const res = await fetch(`lookup.php?jenis=dokter&q=${encodeURIComponent(cari.value)}`);
+            const list = await res.json();
+            daftar = Array.isArray(list) ? list : [];
+        } catch (e) { console.error(e); daftar = []; }
+        renderHasil();
+    }
+
+    cari.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(muat, 250); });
+    cari.addEventListener('focus', muat);
+    cari.addEventListener('blur', () => setTimeout(() => { hasil.hidden = true; }, 150));
+    cari.addEventListener('keydown', e => {
+        if (e.key === 'Enter') { // jangan submit form; pilih hasil pertama
+            e.preventDefault();
+            const d = daftar.find(x => !terpilih().has(x.kode));
+            if (d) { tambah(d); sync(); }
+        } else if (e.key === 'Escape') { hasil.hidden = true; }
+    });
+
+    hasil.addEventListener('mousedown', e => {
+        e.preventDefault(); // pertahankan fokus di kotak cari
+        const li = e.target.closest('li[data-kode]');
+        if (!li) return;
+        const d = daftar.find(x => x.kode === li.dataset.kode);
+        if (!d) return;
+        if (terpilih().has(d.kode)) chips.querySelector(`.chip[data-kode="${CSS.escape(d.kode)}"]`)?.remove();
+        else tambah(d);
+        sync();
+    });
+
+    addAll.addEventListener('click', () => { daftar.forEach(tambah); sync(); });
+    clearAll.addEventListener('click', () => { chips.innerHTML = ''; sync(); });
+    chips.addEventListener('click', e => {
+        if (e.target.matches('.chip button')) { e.target.closest('.chip').remove(); sync(); }
+    });
+})();
 
 /* ---------- Grafik 10 besar / 10 terkecil ---------- */
 let chart;

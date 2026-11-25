@@ -32,6 +32,18 @@ $q = like(mb_substr(trim((string) ($_GET['q'] ?? '')), 0, 60));
 $where = "($nama LIKE ? OR $kode LIKE ?)" . ($hasStatus ? " AND status = '1'" : '');
 
 try {
+    if ($jenis === 'dokter') {
+        // Dokter dicari berdasarkan nama, kode, atau nama spesialis
+        // (mis. ketik "bedah" untuk menampilkan semua dokter bedah).
+        $st = db()->prepare("SELECT d.kd_dokter AS kode, d.nm_dokter AS nama, COALESCE(s.nm_sps, '') AS spesialis
+                             FROM dokter d LEFT JOIN spesialis s ON s.kd_sps = d.kd_sps
+                             WHERE d.status = '1' AND (d.nm_dokter LIKE ? OR d.kd_dokter LIKE ? OR s.nm_sps LIKE ?)
+                             ORDER BY s.nm_sps, d.nm_dokter LIMIT 100");
+        $st->execute([$q, $q, $q]);
+        echo json_encode($st->fetchAll(), JSON_UNESCAPED_UNICODE);
+        exit;
+    }
+
     $st = db()->prepare("SELECT $kode AS kode, $nama AS nama FROM $table WHERE $where ORDER BY $nama LIMIT 50");
     $st->execute([$q, $q]);
     echo json_encode($st->fetchAll(), JSON_UNESCAPED_UNICODE);
