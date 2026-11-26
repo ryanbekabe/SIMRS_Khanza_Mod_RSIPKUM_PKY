@@ -99,6 +99,8 @@ public class koneksiDB {
                         "        simrskhanza/DlgCariPeriksaLabPA.java (1) (MDT 1-3, batasInput 1024; SIP dokter sesuai kd_dokter; Cetak Sputum Gram; No.Permintaan 11072025 15052026);\n"+
                         "        simrskhanza/DlgCariPeriksaLabPA2.java (1) (Tambahan menu khusus dr. Frau., tambah bisa cetak hasil dokter Sabilla, perbaikan Sputum Gram / Mikroskopis Sputum 11082025 09062026 15062026);\n"+
                         "        simrskhanza/DlgCariPeriksaRadiologi.java (2) (KOP; perbaiki bug simpan gambar pada Windows);\n"+
+                        "        simrskhanza/DlgCariPermintaanLab.java (0) (KOP (1) 26112026);\n"+
+                        "        simrskhanza/DlgCariPermintaanLabPA.java (0) (KOP (1); perbaiki bug simpan gambar pada Windows 26112026);\n"+
                         "        simrskhanza/DlgCariReg.java (0) ();\n"+
                         "        simrskhanza/DlgCariTagihanOperasi.java (1) (KOP Surat, pangkas beberapa field, SIP 02082025);\n"+
                         "        simrskhanza/DlgIGD.java (1) (Notif Potensi Re-Admisi, lebih dari 1 hari 24 jam dan kurang dari sama dengan 30 hari kemarin, nonaktifkan menu Penilaian Awal jika sudah Ranap, tambah menu Asesmen Awal Fisikospritual Care 26052025 08022025 14072026);\n"+
@@ -180,7 +182,7 @@ public class koneksiDB {
                         "        rptSuratTidakButaWarna.jasper (1);\n"+
                         
                         "  Re-Compile: LM Cinnamon 5.4.12 i7 IDE 15 JDK bellsoft-java15-full-amd64 / MSI IDE 21 Liberica Java Platform JDK 15 Full 64-bit Source/Binary Format JDK 8; Git Clone 22 Feb 2025. \n"+
-                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 18/11/2026 14.24 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
+                        "  Re-Compile_by: Bang Riyan Samosir - www.HanyaJasa.Com - hanyajasa@gmail.com, 26/11/2026 10.04 - RS Islam PKU Muhammadiyah Palangka Raya. \n"+
                         "                                                                           ");
                 
 

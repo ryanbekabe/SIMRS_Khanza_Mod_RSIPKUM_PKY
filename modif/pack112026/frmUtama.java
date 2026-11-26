@@ -1930,7 +1930,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11/11/2026" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18/11/2026" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -7322,7 +7322,7 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(50, 50, 50));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/file-edit-16x16.png"))); // NOI18N
-        jLabel7.setText("Oleh Khanza.Soft Media - Mod Ver 20261111");
+        jLabel7.setText("Oleh Khanza.Soft Media - Mod Ver 20261126 0946");
         jLabel7.setToolTipText("");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel7.setIconTextGap(3);
@@ -8194,9 +8194,9 @@ public class frmUtama extends javax.swing.JFrame {
         jMenu8.setText("Update");
         jMenu8.setToolTipText("");
         jMenu8.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        jMenu8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jMenu8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jMenu8.setName("jMenu8"); // NOI18N
-        jMenu8.setPreferredSize(new java.awt.Dimension(121, 26));
+        jMenu8.setPreferredSize(new java.awt.Dimension(90, 26));
         jMenu8.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
@@ -8287,29 +8287,32 @@ public class frmUtama extends javax.swing.JFrame {
                     + "Port Web : " + port + "\n"
                     + "Folder Hybrid Web : " + hybridweb + "\n"
                     + "URL Update SecretKey : " + urlSecretKey + "\n\n";
-
+            String infoHostx = "Host : " + host;
+                    
             // 1. Ambil SecretKey baru dari web host
             String secretKeyBaru;
+            String secretKeyBarux;
             try {
                 secretKeyBaru = ambilIsiURL(urlSecretKey);
+                secretKeyBarux = "xx";
             } catch (Exception ex) {
                 System.out.println("Notifikasi : " + ex);
-                JOptionPane.showMessageDialog(this, infoHost + "Gagal mengambil SecretKey : " + ex.getMessage(),
+                JOptionPane.showMessageDialog(this, infoHostx + "Gagal mengambil SecretKey : " + ex.getMessage(),
                         "Update SecretKey", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (secretKeyBaru.isEmpty() || secretKeyBaru.contains("\n")) {
-                JOptionPane.showMessageDialog(this, infoHost
+                JOptionPane.showMessageDialog(this, infoHostx
                         + "Isi file SecretKey kosong / lebih dari satu baris, update dibatalkan.",
                         "Update SecretKey", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-
+//            secretKeyBarux = "xx";
             // 2. Konfirmasi sebelum menulis ke setting/database.xml
-            int pilih = JOptionPane.showConfirmDialog(this, infoHost
-                    + "SecretKey baru : " + secretKeyBaru + "\n\n"
+            int pilih = JOptionPane.showConfirmDialog(this, infoHostx
+                    + ". SecretKey baru : " + secretKeyBarux + "\n\n"
                     + "Ganti SECRETKEYAPIBPJS, SECRETKEYAPIAPLICARE, SECRETKEYAPIMOBILEJKN,\n"
-                    + "SECRETKEYAPIICARE di setting/database.xml dengan SecretKey baru ini?",
+                    + "SECRETKEYAPIICARE di xml dengan SecretKey baru ini?",
                     "Update SecretKey", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (pilih != JOptionPane.YES_OPTION) {
                 return;
@@ -8372,10 +8375,10 @@ public class frmUtama extends javax.swing.JFrame {
         java.nio.file.Files.copy(fileXml, fileBackup, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
         java.nio.file.Files.write(fileXml, sb.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8));
 
-        return "Berhasil mengganti " + jumlah + " SecretKey di " + fileXml.toAbsolutePath() + " :\n"
+        return "Berhasil mengganti " + jumlah + " SecretKey di " + " .xml " + " :\n"
                 + daftar
-                + "\nBackup file lama : " + fileBackup.toAbsolutePath()
-                + "\n\nSilakan tutup & buka ulang aplikasi agar SecretKey baru dipakai di semua menu bridging.";
+                + "\nBackup file lama. "
+                + "\n\nSilakan tutup & buka ulang aplikasi ini agar SecretKey baru dipakai di semua menu bridging.";
     }
 
     /**
